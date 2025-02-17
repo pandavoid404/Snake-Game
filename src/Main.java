@@ -14,16 +14,16 @@ public class Main {
 
         JLabel label=new JLabel();
         label.setText("Snake Game");
-        
-
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 0, 500, 0);  
         gbc.gridx = 0;  
-        gbc.gridy = 10;  
-        gbc.anchor = GridBagConstraints.NORTH;
+        gbc.gridy = 0;  
 
+        JButton startgame = new JButton("StartGame");
+        startgame.setBounds(0, 0, 100, 30);
         
         frame.add(label,gbc);
+        frame.add(startgame);
         frame.setVisible(true);
     }
 } 
