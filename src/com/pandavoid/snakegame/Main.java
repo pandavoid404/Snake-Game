@@ -15,10 +15,12 @@ public class Main {
 
 	}
     private static void QuitGameRequest() {
+        System.out.println("requesting to quit game");
         ActionListener QuitGameListener = e -> QuitGame();
         new QuitWindow(QuitGameListener);
     }
     private static void QuitGame(){
+        System.out.println("quiting game");
         System.exit(0);
     }
     private static void Credits(){
