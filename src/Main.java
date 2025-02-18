@@ -12,7 +12,9 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
         createlabel( 0 ,  0 , "SnakeGame" );
-        createbuton(0 , 1 , "StartGame");
+        createbuton(0 , 1 , "StartGame" );
+        createbuton(0,2,"settings" );
+        createbuton( 0 , 3 , "Quit Game" );
     }
     public static  void createlabel(int gridx, int gridy ,String labeltext) {
         JLabel label=new JLabel(labeltext);
@@ -23,13 +25,13 @@ public class Main {
         frame.add(label,gbc);
         frame.setVisible(true);
     }
-    public static void createbuton(int gridx, int gridy ,String buttontext){
+    public static void createbuton(int gridx, int gridy ,String buttontext ){
         GridBagConstraints gbc = new GridBagConstraints();
-        JButton startgame = new JButton(buttontext);
-        startgame.setBounds(0, 0, 100, 30);
+        JButton createbuton = new JButton(buttontext);
         gbc.gridx = gridx;  
         gbc.gridy = gridy;
-        frame.add(startgame,gbc);
+        createbuton.setSize (400, 400);
+        frame.add(createbuton,gbc);
         frame.setVisible(true);
     }
 } 
