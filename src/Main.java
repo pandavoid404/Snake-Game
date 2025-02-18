@@ -1,5 +1,6 @@
 
 import java.awt.*;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class Main {
@@ -13,10 +14,10 @@ public class Main {
         frame.setLayout(new GridBagLayout());
         //call functions 
         createlabel( 0 ,  0 , "SnakeGame" );
-        createbuton(0 , 10 , "StartGame",Color.BLACK, Color.WHITE);
-        createbuton(0,20,"Settings" ,Color.BLACK, Color.WHITE);
-        createbuton( 0 , 30 , "Credits",Color.BLACK, Color.WHITE );
-        createbuton( 0 , 40 , "Quit Game",Color.BLACK, Color.WHITE );
+        createbuton(0 , 10 , "StartGame",Color.BLACK, Color.WHITE,e -> System.out.println("Game Starting..."));
+        createbuton(0,20,"Settings" ,Color.BLACK, Color.WHITE,e -> System.out.println("settings"));
+        createbuton( 0 , 30 , "Credits",Color.BLACK, Color.WHITE ,e -> System.out.println("Credits"));
+        createbuton( 0 , 40 , "Quit Game",Color.BLACK, Color.WHITE ,e -> System.exit(0));
     }
     //create function for create a label for text
     public static  void createlabel(int gridx, int gridy ,String labeltext) {
@@ -31,13 +32,15 @@ public class Main {
         frame.setVisible(true);
     }
     //create function for create a button 
-    public static void createbuton(int gridx, int gridy ,String buttontext , Color bgColor, Color textColor ){
+    public static void createbuton(int gridx, int gridy ,String buttontext , Color bgColor, Color textColor , ActionListener action){
         GridBagConstraints gbc = new GridBagConstraints();
         JButton createbuton = new JButton(buttontext);
         //set size , color and pading
         createbuton.setPreferredSize(new Dimension(200, 50));
         createbuton.setBackground(bgColor);
         createbuton.setForeground(textColor);
+        createbuton.setFocusPainted(false);
+        createbuton.addActionListener(action);
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.gridx = gridx;  
         gbc.gridy = gridy;
