@@ -23,7 +23,7 @@ class Window {
         JLabel label = new JLabel(text);
         //add GridBagConstraints and add padding 
         GridBagConstraints gbc = new GridBagConstraints();
-        label.setFont(new Font("Monospaced", Font.BOLD, 50));
+        label.setFont(new Font("Monospaced", Font.BOLD, 80));
         gbc.insets = new Insets(10, 0, 10, 0);  
         gbc.gridx = x;
         gbc.gridy = y;
