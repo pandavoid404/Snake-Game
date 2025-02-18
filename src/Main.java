@@ -12,9 +12,9 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
         createlabel( 0 ,  0 , "SnakeGame" );
-        createbuton(0 , 10 , "StartGame" );
-        createbuton(0,20,"Settings" );
-        createbuton( 0 , 30 , "Quit Game" );
+        createbuton(0 , 10 , "StartGame",Color.BLACK, Color.WHITE);
+        createbuton(0,20,"Settings" ,Color.BLACK, Color.WHITE);
+        createbuton( 0 , 30 , "Quit Game",Color.BLACK, Color.WHITE );
     }
     public static  void createlabel(int gridx, int gridy ,String labeltext) {
         JLabel label=new JLabel(labeltext);
@@ -25,10 +25,12 @@ public class Main {
         frame.add(label,gbc);
         frame.setVisible(true);
     }
-    public static void createbuton(int gridx, int gridy ,String buttontext ){
+    public static void createbuton(int gridx, int gridy ,String buttontext , Color bgColor, Color textColor ){
         GridBagConstraints gbc = new GridBagConstraints();
         JButton createbuton = new JButton(buttontext);
         createbuton.setPreferredSize(new Dimension(200, 50));
+        createbuton.setBackground(bgColor);
+        createbuton.setForeground(textColor);
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.gridx = gridx;  
         gbc.gridy = gridy;
