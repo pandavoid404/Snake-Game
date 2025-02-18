@@ -15,7 +15,6 @@ public class QuitWindow {
 		ActionListener CancelListener = e-> Cancel();
 		window.CreateButton( 0 , 40 , "Quit Game", Color.BLACK, Color.WHITE , QuitGameListener);
 		window.CreateButton( 10 , 40 , "Cancel", Color.BLACK, Color.WHITE , CancelListener);
-		//TODO: add buttons here
 		window.ShowDisplay();
 	}
 	private void Cancel() {
