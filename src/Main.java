@@ -14,10 +14,16 @@ public class Main {
         frame.setLayout(new GridBagLayout());
         //call functions 
         create_label( 0 ,  0 , "SnakeGame" );
-        createButton(0 , 10 , "StartGame",Color.BLACK, Color.WHITE,e -> System.out.println("Game Starting..."));
-        createButton(0,20,"Settings" ,Color.BLACK, Color.WHITE,e -> System.out.println("settings"));
-        createButton( 0 , 30 , "Credits",Color.BLACK, Color.WHITE ,e -> System.out.println("Credits"));
-        createButton( 0 , 40 , "Quit Game",Color.BLACK, Color.WHITE ,e -> System.exit(0));
+
+        ActionListener quitAction = e -> System.exit(0);
+        ActionListener CreditsAction = e -> System.out.println("Credits");
+        ActionListener SettingsAction = e -> System.out.println("settings");
+        ActionListener StartGameAction = e -> System.out.println("Game Starting...");
+        
+        createButton(0 , 10 , "StartGame",Color.BLACK, Color.WHITE,StartGameAction);
+        createButton(0,20,"Settings" ,Color.BLACK, Color.WHITE, SettingsAction);
+        createButton( 0 , 30 , "Credits",Color.BLACK, Color.WHITE ,CreditsAction);
+        createButton( 0 , 40 , "Quit Game",Color.BLACK, Color.WHITE ,quitAction);
     }
     //create function for create a label for text
     public static  void create_label(int gridx, int gridy ,String label_text) {
