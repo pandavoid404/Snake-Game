@@ -1,9 +1,14 @@
-import javax.swing.JButton;
-import javax.swing.JLabel;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class window {
+    JFrame window;
+    public window(String title) {
+        window = new JFrame(title);
+    }
         //create function for create a label for text
-    public static  void create_label(int gridx, int gridy ,String label_text) {
+    public void create_label(int gridx, int gridy ,String label_text) {
         JLabel label = new JLabel(label_text);
         //add GridBagConstraints and add padding 
         GridBagConstraints gbc = new GridBagConstraints();
@@ -11,11 +16,11 @@ public class window {
         gbc.gridx = gridx;  
         gbc.gridy = gridy; 
 
-        frame.add(label,gbc);
-        frame.setVisible(true);
+        window.add(label,gbc);
+        window.setVisible(true);
     }
     //create function for create a button 
-    public static void createButton(int gridx, int gridy ,String buttontext , Color bgColor, Color textColor , ActionListener action){
+    public void createButton(int gridx, int gridy ,String buttontext , Color bgColor, Color textColor , ActionListener action){
         GridBagConstraints gbc = new GridBagConstraints();
         JButton create_button = new JButton(buttontext);
         //set size ,color and padding
@@ -28,7 +33,7 @@ public class window {
         gbc.gridx = gridx;  
         gbc.gridy = gridy;
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        frame.add(create_button,gbc);
-        frame.setVisible(true);
+        window.add(create_button,gbc);
+        window.setVisible(true);
     }
 }
