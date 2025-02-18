@@ -13,7 +13,7 @@ public class Main {
         frame.setLayout(new GridBagLayout());
         createlabel( 0 ,  0 , "SnakeGame" );
         createbuton(0 , 1 , "StartGame" );
-        createbuton(0,2,"settings" );
+        createbuton(0,2,"Settings" );
         createbuton( 0 , 3 , "Quit Game" );
     }
     public static  void createlabel(int gridx, int gridy ,String labeltext) {
@@ -28,9 +28,10 @@ public class Main {
     public static void createbuton(int gridx, int gridy ,String buttontext ){
         GridBagConstraints gbc = new GridBagConstraints();
         JButton createbuton = new JButton(buttontext);
+        createbuton.setPreferredSize(new Dimension(200, 50));
         gbc.gridx = gridx;  
         gbc.gridy = gridy;
-        createbuton.setSize (400, 400);
+        gbc.fill = GridBagConstraints.HORIZONTAL;
         frame.add(createbuton,gbc);
         frame.setVisible(true);
     }
