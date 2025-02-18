@@ -6,13 +6,17 @@ import java.awt.event.ActionListener;
 
 class Window {
     private final JFrame window;
-    Window(String title, Boolean IsMainWindow,int width,int height) {
+    Window(String title,int width,int height) {
         window = new JFrame(title);
-        if (IsMainWindow) {
-            window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        }
         window.setSize(width,height);
         window.setLayout(new GridBagLayout());
+    }
+    void SetMainWindow(Boolean IsMainWindow) {
+        if (IsMainWindow) {
+            window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        } else {
+            window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        }
     }
 
     void CreateLabel(int x, int y, String text) {
@@ -42,5 +46,11 @@ class Window {
     }
     void ShowDisplay() {
         window.setVisible(true);
+    }
+    void close() {
+        window.dispose();
+    }
+    void HideControls(Boolean hidden) {
+        window.setUndecorated(hidden);
     }
 }

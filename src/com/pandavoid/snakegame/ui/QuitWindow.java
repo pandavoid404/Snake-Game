@@ -4,13 +4,19 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class QuitWindow {
-	private static final short height = 700;
-	private static final short width = 1000;
+	private final Window window;
+	private static final short height = 100;
+	private static final short width = 200;
 	public QuitWindow(ActionListener QuitGameListener) {
-		Window window = new Window("SnakeGame", true, width, height);
+		window = new Window("SnakeGame", width, height);
+		window.HideControls(true);
+		ActionListener CancelListener = e-> Cancel();
 		window.CreateButton( 0 , 40 , "Quit Game", Color.BLACK, Color.WHITE , QuitGameListener);
-		window.CreateButton( 0 , 40 , "Cancel", Color.BLACK, Color.WHITE , );
+		window.CreateButton( 0 , 80 , "Cancel", Color.BLACK, Color.WHITE , CancelListener);
 		//TODO: add buttons here
 		window.ShowDisplay();
+	}
+	private void Cancel() {
+		window.close();
 	}
 }

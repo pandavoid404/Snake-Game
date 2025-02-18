@@ -8,7 +8,8 @@ public class MainWindow {
 	private static final short height = 700;
 	private static final short width = 1000;
 	public MainWindow(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
-		window = new Window("SnakeGame",true,width,height);
+		window = new Window("SnakeGame",width,height);
+		window.SetMainWindow(true);
 		DisplayMenu(StartGameAction, SettingsAction, CreditsAction, quitAction);
 		window.ShowDisplay();
 	}
