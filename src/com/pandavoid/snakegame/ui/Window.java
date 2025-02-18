@@ -62,6 +62,9 @@ class Window {
     int GetHeight() {
         return window.getHeight();
     }
+    void SetBGColor(Color color) {
+        window.getContentPane().setBackground(color);
+    }
     Point GetPosition() {
         return window.getLocation();
     }
