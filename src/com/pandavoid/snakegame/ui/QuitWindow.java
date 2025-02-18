@@ -17,6 +17,6 @@ public class QuitWindow {
 		window.ShowDisplay();
 	}
 	private void Cancel() {
-		window.close();
+		window.Close();
 	}
 }

@@ -47,7 +47,7 @@ class Window {
     void ShowDisplay() {
         window.setVisible(true);
     }
-    void close() {
+    void Close() {
         window.dispose();
     }
     void HideControls(Boolean hidden) {
