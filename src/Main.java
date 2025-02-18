@@ -15,11 +15,12 @@ public class Main {
         createlabel( 0 ,  0 , "SnakeGame" );
         createbuton(0 , 10 , "StartGame",Color.BLACK, Color.WHITE);
         createbuton(0,20,"Settings" ,Color.BLACK, Color.WHITE);
-        createbuton( 0 , 30 , "Quit Game",Color.BLACK, Color.WHITE );
+        createbuton( 0 , 30 , "Credits",Color.BLACK, Color.WHITE );
+        createbuton( 0 , 40 , "Quit Game",Color.BLACK, Color.WHITE );
     }
     //create function for create a label for text
     public static  void createlabel(int gridx, int gridy ,String labeltext) {
-        JLabel label=new JLabel(labeltext);
+        JLabel label = new JLabel(labeltext);
         //add GridBagConstraints and add padding 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 0, 10, 0);  
