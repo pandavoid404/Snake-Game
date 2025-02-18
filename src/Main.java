@@ -11,19 +11,25 @@ public class Main {
         frame.setSize(width,height);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
-
-        JLabel label=new JLabel();
-        label.setText("Snake Game");
+        createlabel( 0 ,  0 , "SnakeGame" );
+        createbuton(0 , 1 , "StartGame");
+    }
+    public static  void createlabel(int gridx, int gridy ,String labeltext) {
+        JLabel label=new JLabel(labeltext);
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(10, 0, 500, 0);  
-        gbc.gridx = 0;  
-        gbc.gridy = 0;  
-
-        JButton startgame = new JButton("StartGame");
-        startgame.setBounds(0, 0, 100, 30);
-        
+        gbc.insets = new Insets(10, 0, 10, 0);  
+        gbc.gridx = gridx;  
+        gbc.gridy = gridy;  
         frame.add(label,gbc);
-        frame.add(startgame);
+        frame.setVisible(true);
+    }
+    public static void createbuton(int gridx, int gridy ,String buttontext){
+        GridBagConstraints gbc = new GridBagConstraints();
+        JButton startgame = new JButton(buttontext);
+        startgame.setBounds(0, 0, 100, 30);
+        gbc.gridx = gridx;  
+        gbc.gridy = gridy;
+        frame.add(startgame,gbc);
         frame.setVisible(true);
     }
 } 
