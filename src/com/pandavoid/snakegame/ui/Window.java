@@ -53,4 +53,16 @@ class Window {
     void HideControls(Boolean hidden) {
         window.setUndecorated(hidden);
     }
+    void SetPosition(Point location) {
+        window.setLocation(location.x,location.y);
+    }
+    int GetWidth() {
+        return window.getWidth();
+    }
+    int GetHeight() {
+        return window.getHeight();
+    }
+    Point GetPosition() {
+        return window.getLocation();
+    }
 }
