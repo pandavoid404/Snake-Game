@@ -1,5 +1,6 @@
 package com.pandavoid.snakegame;
 
+import com.pandavoid.snakegame.logic.Board;
 import com.pandavoid.snakegame.ui.MainWindow;
 import com.pandavoid.snakegame.ui.QuitWindow;
 
@@ -9,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Main {
+    private static Board board;
 	public static void main(String[]args) {
         ActionListener QuitListener = Main::QuitGameRequest;
         ActionListener CreditsListener = e -> Credits();
@@ -39,5 +41,6 @@ public class Main {
     }
     private static void StartGame(){
         System.out.println("Game Starting...");
+        board = new Board(10,20);
     }
 } 

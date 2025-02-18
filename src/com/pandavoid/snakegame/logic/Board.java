@@ -1,7 +1,7 @@
 package com.pandavoid.snakegame.logic;
 
 public class Board {
-	private Cell[][] board;
+	private final Cell[][] board;
 	public Board(int height, int width) {
 		board = new Cell[height][width];
 		for (int RI = 0; RI < height;RI++) {
@@ -10,5 +10,9 @@ public class Board {
 				board[RI][CI] = cell;
 			}
 		}
+		System.out.println("board generated");
+	}
+	public Cell GetCell(int x, int y) {
+		return board[y][x];
 	}
 }
