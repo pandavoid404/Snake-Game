@@ -10,7 +10,7 @@ public class QuitWindow {
 	public QuitWindow(ActionListener QuitGameListener,Point MainWindowPos,int MainWindowWidth,int MainWindowHeight) {
 		System.out.println(MainWindowPos);
 		window = new Window("SnakeGame", width, height);
-		window.SetBGColor(Color.BLUE);
+		window.SetBGColor(Color.WHITE);
 		window.SetPosition(new Point(MainWindowPos.x+MainWindowWidth/2-width/2,MainWindowPos.y+MainWindowHeight/2-height/7*2));
 		window.HideControls(true);
 		ActionListener CancelListener = e-> Cancel();
