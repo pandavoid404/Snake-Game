@@ -1,6 +1,6 @@
-package com.endlessvoid.snakegame;
+package com.pandavoid.snakegame;
 
-import com.endlessvoid.snakegame.ui.MainWindow;
+import com.pandavoid.snakegame.ui.MainWindow;
 import java.awt.event.ActionListener;
 
 public class Main {

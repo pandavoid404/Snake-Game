@@ -1,4 +1,4 @@
-package com.endlessvoid.snakegame.ui;
+package com.pandavoid.snakegame.ui;
 
 import javax.swing.*;
 import java.awt.*;
