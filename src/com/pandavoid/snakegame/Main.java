@@ -14,6 +14,7 @@ public class Main {
 
     }
     private static void quitGame(){
+        System.out.println("quitGame");
         System.exit(0);
     }
     private static void Credits(){
