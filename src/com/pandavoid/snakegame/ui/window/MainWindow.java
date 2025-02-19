@@ -17,18 +17,18 @@ public class MainWindow {
 	private void DisplayMenu(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
 		window.ClearDisplay();
 		window.CreateLabel( 0, 0, "SnakeGame");
-		window.CreateButton(0 , 10 , "StartGame", Color.BLACK, Color.WHITE, StartGameAction);
-		window.CreateButton(0,20,"Settings" ,Color.BLACK, Color.WHITE, SettingsAction);
-		window.CreateButton( 0 , 30 , "Credits",Color.BLACK, Color.WHITE , CreditsAction);
-		window.CreateButton( 0 , 40 , "Quit Game",Color.BLACK, Color.WHITE , quitAction);
+		window.CreateButton(0 , 1 ,1, "StartGame", Color.BLACK, Color.WHITE, StartGameAction);
+		window.CreateButton(0,2,1,"Settings" ,Color.BLACK, Color.WHITE, SettingsAction);
+		window.CreateButton( 0 , 3 ,1, "Credits",Color.BLACK, Color.WHITE , CreditsAction);
+		window.CreateButton( 0 , 4 , 1,"Quit Game",Color.BLACK, Color.WHITE , quitAction);
 		window.UpdateDisplay();
 	}
 
 	public void DisplayPreGameSettings(ActionListener one_playergame , ActionListener two_playergame,ActionListener backListener ) {
 		window.ClearDisplay();
-		window.CreateButton(0 , 10 , "1 Player", Color.BLACK, Color.WHITE, one_playergame);
-		window.CreateButton(0 , 10 , "2 Players", Color.BLACK, Color.WHITE, two_playergame );
-		window.CreateButton(0 , 10 , "Back", Color.BLACK, Color.WHITE, backListener );
+		window.CreateButton(0 , 1 ,1, "1 Player", Color.BLACK, Color.WHITE, one_playergame);
+		window.CreateButton(0 , 2,2, "Back", Color.BLACK, Color.WHITE, backListener );
+		window.CreateButton(1  , 1,1, "2 Players", Color.BLACK, Color.WHITE, two_playergame );
 		window.UpdateDisplay();
 	}
 }

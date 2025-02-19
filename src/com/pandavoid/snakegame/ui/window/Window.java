@@ -2,8 +2,6 @@ package com.pandavoid.snakegame.ui.window;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.concurrent.Callable;
 import javax.swing.*;
 
 class Window {
@@ -32,7 +30,7 @@ class Window {
         window.add(label,gbc);
     }
     //create function for create a button 
-    void CreateButton(int x, int y, String text, Color bgColor, Color textColor, ActionListener action){
+    void CreateButton(int x, int y, int width ,String text, Color bgColor, Color textColor, ActionListener action){
         GridBagConstraints gbc = new GridBagConstraints();
         JButton create_button = new JButton(text);
         //set size ,color and padding
@@ -44,6 +42,7 @@ class Window {
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.gridx = x;
         gbc.gridy = y;
+        gbc.gridwidth = width;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         window.add(create_button,gbc);
     }
