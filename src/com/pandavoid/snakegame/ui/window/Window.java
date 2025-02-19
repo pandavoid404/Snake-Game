@@ -11,41 +11,36 @@ class Window {
         window.setSize(width,height);
         window.setLayout(new GridBagLayout());
     }
-    void SetMainWindow(Boolean IsMainWindow) {
-        if (IsMainWindow) {
-            window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        } else {
-            window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        }
+    void SetMainWindow() {
+	    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    Panel CreatePanel(int y ,int x ,int width , int height ){
-        Panel panel = new Panel(width ,height );
+    Panel CreatePanel(int x ){
+        Panel panel = new Panel(500, 700);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.gridx = x;
-        gbc.gridy = y;
+        gbc.gridy = 0;
         window.add(panel.GetPanel(),gbc);
         return panel;
     }
-    JLabel CreateLabel(int x, int y, String text,int size) {
-        JLabel label = new JLabel(text);
+    void CreateLabel() {
+        JLabel label = new JLabel("SnakeGame");
         //add GridBagConstraints and add padding 
         GridBagConstraints gbc = new GridBagConstraints();
-        label.setFont(new Font("Monospaced", Font.BOLD, size));
+        label.setFont(new Font("Monospaced", Font.BOLD, 80));
         gbc.insets = new Insets(10, 0, 10, 0);  
-        gbc.gridx = x;
-        gbc.gridy = y;
+        gbc.gridx = 0;
+        gbc.gridy = 0;
         window.add(label,gbc);
-        return label;
     }
     //create function for create a button 
-    JButton CreateButton(int x, int y, int width ,String text, Color bgColor, Color textColor, ActionListener action){
+    void CreateButton(int x, int y, int width , String text, ActionListener action){
         GridBagConstraints gbc = new GridBagConstraints();
         JButton button = new JButton(text);
         //set size ,color and padding
         button.setPreferredSize(new Dimension(200, 50));
-        button.setBackground(bgColor);
-        button.setForeground(textColor);
+        button.setBackground(Color.BLACK);
+        button.setForeground(Color.WHITE);
         button.setFocusPainted(false);
         button.addActionListener(action);
         gbc.insets = new Insets(10, 10, 10, 10);
@@ -54,7 +49,6 @@ class Window {
         gbc.gridwidth = width;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         window.add(button,gbc);
-        return button;
     }
     void ShowDisplay() {
         window.setVisible(true);
@@ -68,18 +62,11 @@ class Window {
     void SetPosition(Point location) {
         window.setLocation(location.x,location.y);
     }
-    int GetWidth() {
-        return window.getWidth();
-    }
-    int GetHeight() {
-        return window.getHeight();
-    }
+
     void SetBGColor(Color color) {
         window.getContentPane().setBackground(color);
     }
-    Point GetPosition() {
-        return window.getLocation();
-    }
+
     void ClearDisplay() {
         Component[] components = window.getContentPane().getComponents();
         for (Component component : components) {

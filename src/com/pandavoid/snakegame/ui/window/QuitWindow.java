@@ -14,8 +14,8 @@ public class QuitWindow {
 		window.SetPosition(new Point(MainWindowPos.x+MainWindowWidth/2-width/2,MainWindowPos.y+MainWindowHeight/2-height/7*2));
 		window.HideControls(true);
 		ActionListener CancelListener = e-> Cancel();
-		window.CreateButton( 0 , 40 ,1, "Quit Game", Color.BLACK, Color.WHITE , QuitGameListener);
-		window.CreateButton( 10 , 40 ,1, "Cancel", Color.BLACK, Color.WHITE , CancelListener);
+		window.CreateButton( 0 , 40 ,1, "Quit Game", QuitGameListener);
+		window.CreateButton( 10 , 40 ,1, "Cancel", CancelListener);
 		window.ShowDisplay();
 	}
 	private void Cancel() {
