@@ -35,7 +35,7 @@ public class MainWindow {
 		window.ClearDisplay();
 		Panel panel1 = window.CreatePanel(0,0,500,700);
 		panel1.CreateLabel(0,0,"Select Player 1",10,Color.white);
-		panel1.CreateButon(0,1,1,"Change Color",Color.green,Color.white,StartGameAction);
+		panel1.CreateButton(0,1,1,"Change Color",Color.green,Color.white,StartGameAction);
 		if (players==2) {
 			Panel panel2 = window.CreatePanel(0,1,500,700);
 			panel2.CreateLabel(0,0,"Select Player2",10,Color.white);
