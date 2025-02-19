@@ -19,7 +19,7 @@ public class GameConfig {
 		return players;
 	}
 
-	public PlayerConfig getPlayerConfigs(int player) {
+	public PlayerConfig getPlayerConfig(int player) {
 		return playerConfigs[player];
 	}
 }
