@@ -33,9 +33,10 @@ public class MainWindow {
 	}
 	public void DisplayPlayerSelection(int players){
 		window.ClearDisplay();
-		window.CreatePanel(0,0,500,700);
+		Panel panel1 = window.CreatePanel(0,0,500,700);
+		panel1.CreateLabel(0,0,"Select Player");
 		if (players==2) {
-			window.CreatePanel(0,1,500,700);
+			Panel panel2 = window.CreatePanel(0,1,500,700);
 		}
 		window.UpdateDisplay();
 	}
