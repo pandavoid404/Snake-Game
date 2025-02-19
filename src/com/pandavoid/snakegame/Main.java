@@ -14,7 +14,8 @@ public class Main {
 	public static void main(String[]args) {
         ActionListener QuitListener = Main::QuitGameRequest;
         ActionListener CreditsListener = e -> Credits();
-        ActionListener one_playergame = e -> StartGame();
+        ActionListener one_playergameListener = e -> StartGame();
+        ActionListener two_playergameListener = e -> StartGame();
         ActionListener SettingsListener = e -> Settings();
         ActionListener StartGameListener = e -> StartGame();
 		mainWindow = new MainWindow(StartGameListener, SettingsListener, CreditsListener, QuitListener);
@@ -41,7 +42,7 @@ public class Main {
         System.out.println("settings");
     }
     private static void StartGame(){
-        mainWindow.DisplayPreGameSettings();
+        mainWindow.DisplayPreGameSettings(one_playergameListener, two_playergameListener);
         System.out.println("Game Starting...");
         game = new Game();
     }
