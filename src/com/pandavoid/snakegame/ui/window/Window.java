@@ -24,7 +24,7 @@ class Window {
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.gridx = x;
         gbc.gridy = y;
-        window.add(panel.getpanel(),gbc);
+        window.add(panel.GetPanel(),gbc);
         return panel;
     }
     JLabel CreateLabel(int x, int y, String text) {

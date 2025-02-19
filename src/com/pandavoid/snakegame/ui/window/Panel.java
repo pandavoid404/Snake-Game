@@ -11,7 +11,7 @@ class Panel {
         panel.setBackground(Color.BLACK);
 		panel.setPreferredSize(new Dimension(width, height));
 	}
-	JPanel getpanel(){
+	JPanel GetPanel(){
 		return panel;
 	}
 	JLabel CreateLabel(int x, int y, String text) {
