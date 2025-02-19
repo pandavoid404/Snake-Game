@@ -1,20 +1,19 @@
 package com.pandavoid.snakegame;
 
 import com.pandavoid.snakegame.game.Game;
-import com.pandavoid.snakegame.game.board.Board;
 import com.pandavoid.snakegame.ui.window.MainWindow;
 import com.pandavoid.snakegame.ui.window.QuitWindow;
-
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.*;
 
 public class Main {
     private static Game game;
 	public static void main(String[]args) {
         ActionListener QuitListener = Main::QuitGameRequest;
         ActionListener CreditsListener = e -> Credits();
+        ActionListener one_playergame = e -> StartGame();
         ActionListener SettingsListener = e -> Settings();
         ActionListener StartGameListener = e -> StartGame();
 		new MainWindow(StartGameListener, SettingsListener, CreditsListener, QuitListener);
@@ -41,6 +40,7 @@ public class Main {
         System.out.println("settings");
     }
     private static void StartGame(){
+        Window.DisplayPreGameSettings();
         System.out.println("Game Starting...");
         game = new Game();
     }

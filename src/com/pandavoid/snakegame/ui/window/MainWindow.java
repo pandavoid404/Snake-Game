@@ -23,8 +23,10 @@ public class MainWindow {
 		window.CreateButton( 0 , 40 , "Quit Game",Color.BLACK, Color.WHITE , quitAction);
 	}
 
-	public void DisplayPreGameSettings() {
+	public void DisplayPreGameSettings(ActionListener one_playergame , ActionListener twoplayergeme ) {
 		ClearDisplay();
+		window.CreateButton(0 , 10 , "1 Player", Color.BLACK, Color.WHITE, one_playergame);
+		window.CreateButton(0 , 10 , "1 Player", Color.BLACK, Color.WHITE, twoplayergeme );
 	}
 	private void ClearDisplay() {
 
