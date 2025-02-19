@@ -14,11 +14,12 @@ class Panel {
 	JPanel GetPanel(){
 		return panel;
 	}
-	JLabel CreateLabel(int x, int y, String text) {
+	JLabel CreateLabel(int x, int y, String text ,int size,Color textColor ) {
 		JLabel label = new JLabel(text);
 		//add GridBagConstraints and add padding
 		GridBagConstraints gbc = new GridBagConstraints();
-		label.setFont(new Font("Monospaced", Font.BOLD, 80));
+		label.setFont(new Font("Monospaced", Font.BOLD, size));
+		label.setForeground(textColor);
 		gbc.insets = new Insets(10, 0, 10, 0);
 		gbc.gridx = x;
 		gbc.gridy = y;
