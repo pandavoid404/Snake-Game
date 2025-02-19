@@ -18,14 +18,9 @@ class Window {
             window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         }
     }
-    JPanel CreatePanel(int y ,int x ,int width , int height ){
-        GridBagConstraints gbc = new GridBagConstraints();
-        JPanel panel = new JPanel();
-        panel.setBackground(Color.CYAN); 
-        gbc.gridx = x;
-        gbc.gridy = y;
-        panel.setLayout(new FlowLayout());
-        panel.setPreferredSize(new Dimension(width, height));
+    Panel CreatePanel(int y ,int x ,int width , int height ){
+        Panel panel = new Panel(y ,x ,width ,height );
+        window.add(panel,panel.gbc);
         return panel;
     }
     JLabel CreateLabel(int x, int y, String text) {
