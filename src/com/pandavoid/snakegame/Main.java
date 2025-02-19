@@ -12,15 +12,19 @@ public class Main {
     private static Game game;
     private static MainWindow mainWindow;
 	public static void main(String[]args) {
-        MainMenu();
-	}
-
-    private static void MainMenu() {
         ActionListener QuitListener = Main::QuitGameRequest;
         ActionListener CreditsListener = e -> Credits();
         ActionListener SettingsListener = e -> Settings();
         ActionListener StartGameListener = e -> PreGameSettings();
         mainWindow = new MainWindow(StartGameListener, SettingsListener, CreditsListener, QuitListener);
+	}
+
+    private static void DisplayMainMenu() {
+        ActionListener QuitListener = Main::QuitGameRequest;
+        ActionListener CreditsListener = e -> Credits();
+        ActionListener SettingsListener = e -> Settings();
+        ActionListener StartGameListener = e -> PreGameSettings();
+        mainWindow.DisplayMenu(StartGameListener, SettingsListener, CreditsListener, QuitListener);
     }
 
     private static void QuitGameRequest(ActionEvent event) {
@@ -47,7 +51,7 @@ public class Main {
     private static void PreGameSettings() {
         ActionListener one_player_gameListener = e -> StartGame(1);
         ActionListener two_player_gameListener = e -> StartGame(2);
-        ActionListener backListener = e -> MainMenu();
+        ActionListener backListener = e -> DisplayMainMenu();
         mainWindow.DisplayPreGameSettings(one_player_gameListener, two_player_gameListener, backListener);
     }
 

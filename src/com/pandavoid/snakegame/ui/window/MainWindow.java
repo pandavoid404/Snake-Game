@@ -14,7 +14,7 @@ public class MainWindow {
 		window.ShowDisplay();
 	}
 
-	private void DisplayMenu(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
+	public void DisplayMenu(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
 		window.ClearDisplay();
 		window.CreateLabel( 0, 0, "SnakeGame");
 		window.CreateButton(0 , 1 ,1, "StartGame", Color.BLACK, Color.WHITE, StartGameAction);
