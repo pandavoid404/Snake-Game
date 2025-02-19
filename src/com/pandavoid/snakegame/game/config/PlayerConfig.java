@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class PlayerConfig {
 	private Color color;
-	PlayerConfig() {
+	public PlayerConfig() {
 		color = Color.BLUE;
 	}
 	public void SetColor(Color newColor) {
