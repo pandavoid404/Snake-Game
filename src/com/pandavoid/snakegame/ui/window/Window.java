@@ -19,7 +19,7 @@ class Window {
         }
     }
 
-    void CreateLabel(int x, int y, String text) {
+    JLabel CreateLabel(int x, int y, String text) {
         JLabel label = new JLabel(text);
         //add GridBagConstraints and add padding 
         GridBagConstraints gbc = new GridBagConstraints();
@@ -28,23 +28,25 @@ class Window {
         gbc.gridx = x;
         gbc.gridy = y;
         window.add(label,gbc);
+        return label;
     }
     //create function for create a button 
-    void CreateButton(int x, int y, int width ,String text, Color bgColor, Color textColor, ActionListener action){
+    JButton CreateButton(int x, int y, int width ,String text, Color bgColor, Color textColor, ActionListener action){
         GridBagConstraints gbc = new GridBagConstraints();
-        JButton create_button = new JButton(text);
+        JButton button = new JButton(text);
         //set size ,color and padding
-        create_button.setPreferredSize(new Dimension(200, 50));
-        create_button.setBackground(bgColor);
-        create_button.setForeground(textColor);
-        create_button.setFocusPainted(false);
-        create_button.addActionListener(action);
+        button.setPreferredSize(new Dimension(200, 50));
+        button.setBackground(bgColor);
+        button.setForeground(textColor);
+        button.setFocusPainted(false);
+        button.addActionListener(action);
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.gridx = x;
         gbc.gridy = y;
         gbc.gridwidth = width;
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        window.add(create_button,gbc);
+        window.add(button,gbc);
+        return button;
     }
     void ShowDisplay() {
         window.setVisible(true);
