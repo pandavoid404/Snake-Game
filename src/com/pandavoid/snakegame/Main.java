@@ -50,9 +50,14 @@ public class Main {
 
     private static void PreGameSettings() {
         ActionListener one_player_gameListener = e -> StartGame(1);
-        ActionListener two_player_gameListener = e -> StartGame(2);
+        ActionListener two_player_gameListener = e -> DisplayPlayerSelection(2);
         ActionListener backListener = e -> DisplayMainMenu();
         mainWindow.DisplayPreGameSettings(one_player_gameListener, two_player_gameListener, backListener);
+    }
+    private static void DisplayPlayerSelection(int players){
+        ActionListener Player_one_colorListener = e -> player_one_color();
+        ActionListener Player_two_colorListener = e -> player_two_color();
+        
     }
 
     private static void StartGame(int players){

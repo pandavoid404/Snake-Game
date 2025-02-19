@@ -31,4 +31,7 @@ public class MainWindow {
 		window.CreateButton(1  , 1,1, "2 Players", Color.BLACK, Color.WHITE, two_playergame );
 		window.UpdateDisplay();
 	}
+	public void DisplayPlayerSelection(){
+
+	}
 }
