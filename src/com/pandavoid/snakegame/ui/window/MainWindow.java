@@ -37,6 +37,7 @@ public class MainWindow {
 		panel1.CreateLabel(0,0,"Select Player");
 		if (players==2) {
 			Panel panel2 = window.CreatePanel(0,1,500,700);
+			panel2.CreateLabel(0,0,"Select Player2");
 		}
 		window.UpdateDisplay();
 	}
