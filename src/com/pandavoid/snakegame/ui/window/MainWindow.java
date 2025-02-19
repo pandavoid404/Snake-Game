@@ -21,11 +21,13 @@ public class MainWindow {
 		window.CreateButton(0,20,"Settings" ,Color.BLACK, Color.WHITE, SettingsAction);
 		window.CreateButton( 0 , 30 , "Credits",Color.BLACK, Color.WHITE , CreditsAction);
 		window.CreateButton( 0 , 40 , "Quit Game",Color.BLACK, Color.WHITE , quitAction);
+		window.UpdateDisplay();
 	}
 
 	public void DisplayPreGameSettings(ActionListener one_playergame , ActionListener two_playergame ) {
 		window.ClearDisplay();
 		window.CreateButton(0 , 10 , "1 Player", Color.BLACK, Color.WHITE, one_playergame);
 		window.CreateButton(0 , 10 , "2 Players", Color.BLACK, Color.WHITE, two_playergame );
+		window.UpdateDisplay();
 	}
 }

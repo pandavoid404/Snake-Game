@@ -81,4 +81,8 @@ class Window {
             }
         }
     }
+    void UpdateDisplay() {
+        window.revalidate();
+        window.repaint();
+    }
 }
