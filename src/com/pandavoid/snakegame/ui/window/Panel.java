@@ -9,7 +9,7 @@ class Panel {
 	Panel(int width, int height) {
 	    panel = new JPanel();
         panel.setBackground(Color.BLACK);
-		panel.setPreferredSize(new Dimension(200, 400));
+		panel.setPreferredSize(new Dimension(width, height));
 	}
 	JPanel getpanel(){
 		return panel;
