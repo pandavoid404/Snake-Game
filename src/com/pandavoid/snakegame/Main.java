@@ -10,13 +10,14 @@ import javax.swing.*;
 
 public class Main {
     private static Game game;
+    private static MainWindow mainWindow;
 	public static void main(String[]args) {
         ActionListener QuitListener = Main::QuitGameRequest;
         ActionListener CreditsListener = e -> Credits();
         ActionListener one_playergame = e -> StartGame();
         ActionListener SettingsListener = e -> Settings();
         ActionListener StartGameListener = e -> StartGame();
-		new MainWindow(StartGameListener, SettingsListener, CreditsListener, QuitListener);
+		mainWindow = new MainWindow(StartGameListener, SettingsListener, CreditsListener, QuitListener);
 
 	}
     private static void QuitGameRequest(ActionEvent event) {
@@ -40,7 +41,7 @@ public class Main {
         System.out.println("settings");
     }
     private static void StartGame(){
-        Window.DisplayPreGameSettings();
+        mainWindow.DisplayPreGameSettings();
         System.out.println("Game Starting...");
         game = new Game();
     }
