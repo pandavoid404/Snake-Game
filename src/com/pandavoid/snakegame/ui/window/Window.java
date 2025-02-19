@@ -56,15 +56,15 @@ class Window {
     void Close() {
         window.dispose();
     }
-    void HideControls(Boolean hidden) {
-        window.setUndecorated(hidden);
+    void HideControls() {
+        window.setUndecorated(true);
     }
     void SetPosition(Point location) {
         window.setLocation(location.x,location.y);
     }
 
-    void SetBGColor(Color color) {
-        window.getContentPane().setBackground(color);
+    void SetBGColor() {
+        window.getContentPane().setBackground(Color.WHITE);
     }
 
     void ClearDisplay() {
