@@ -14,11 +14,19 @@ public class MainWindow {
 		window.ShowDisplay();
 	}
 
-	private void DisplayMenu(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
+	public void DisplayMenu(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
+		ClearDisplay();
 		window.CreateLabel( 0, 0, "SnakeGame");
 		window.CreateButton(0 , 10 , "StartGame", Color.BLACK, Color.WHITE, StartGameAction);
 		window.CreateButton(0,20,"Settings" ,Color.BLACK, Color.WHITE, SettingsAction);
 		window.CreateButton( 0 , 30 , "Credits",Color.BLACK, Color.WHITE , CreditsAction);
 		window.CreateButton( 0 , 40 , "Quit Game",Color.BLACK, Color.WHITE , quitAction);
+	}
+
+	public void DisplayPreGameSettings() {
+		ClearDisplay();
+	}
+	private void ClearDisplay() {
+
 	}
 }
