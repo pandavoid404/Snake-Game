@@ -32,6 +32,12 @@ public class MainWindow {
 		window.UpdateDisplay();
 	}
 	public void DisplayPlayerSelection(){
+		window.ClearDisplay();
+		
+		window.UpdateDisplay();
+	}
+	public void Player_Color(){
 
 	}
+
 }

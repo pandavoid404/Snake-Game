@@ -7,10 +7,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-
 public class Main {
     private static Game game;
     private static MainWindow mainWindow;
+    
 	public static void main(String[]args) {
         ActionListener QuitListener = Main::QuitGameRequest;
         ActionListener CreditsListener = e -> Credits();
@@ -55,10 +55,8 @@ public class Main {
         mainWindow.DisplayPreGameSettings(one_player_gameListener, two_player_gameListener, backListener);
     }
     private static void DisplayPlayerSelection(int players){
-        ActionListener Player_one_colorListener = e -> player_one_color();
-        ActionListener Player_two_colorListener = e -> player_two_color();
         
-    }
+       }
 
     private static void StartGame(int players){
         System.out.println("Game Starting...");

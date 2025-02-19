@@ -18,7 +18,16 @@ class Window {
             window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         }
     }
-
+    JPanel CreatePanel(int y ,int x ,int width , int height ){
+        GridBagConstraints gbc = new GridBagConstraints();
+        JPanel panel = new JPanel();
+        panel.setBackground(Color.CYAN); 
+        gbc.gridx = x;
+        gbc.gridy = y;
+        panel.setLayout(new FlowLayout());
+        panel.setPreferredSize(new Dimension(width, height));
+        return panel;
+    }
     JLabel CreateLabel(int x, int y, String text) {
         JLabel label = new JLabel(text);
         //add GridBagConstraints and add padding 
