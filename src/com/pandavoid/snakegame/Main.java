@@ -1,6 +1,7 @@
 package com.pandavoid.snakegame;
 
 import com.pandavoid.snakegame.game.Game;
+import com.pandavoid.snakegame.game.config.GameConfig;
 import com.pandavoid.snakegame.ui.window.MainWindow;
 import com.pandavoid.snakegame.ui.window.QuitWindow;
 import java.awt.*;
@@ -49,17 +50,17 @@ public class Main {
     }
 
     private static void PreGameSettings() {
-        ActionListener one_player_gameListener = e -> StartGame(1);
+        ActionListener one_player_gameListener = e -> DisplayPlayerSelection(1);
         ActionListener two_player_gameListener = e -> DisplayPlayerSelection(2);
         ActionListener backListener = e -> DisplayMainMenu();
         mainWindow.DisplayPreGameSettings(one_player_gameListener, two_player_gameListener, backListener);
     }
     private static void DisplayPlayerSelection(int players){
-        mainWindow.DisplayPlayerSelection();
+        mainWindow.DisplayPlayerSelection(players);
        }
 
-    private static void StartGame(int players){
+    private static void StartGame(GameConfig config){
         System.out.println("Game Starting...");
-        game = new Game();
+        game = new Game(config);
     }
 } 

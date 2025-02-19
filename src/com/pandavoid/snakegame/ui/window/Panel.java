@@ -4,28 +4,16 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class Panel {
-	private JPanel panel;
-	GridBagConstraints gbc;
-	public Panel(int y , int x , int width , int height) {
+class Panel {
+	private final JPanel panel;
+	Panel(int width, int height) {
 	    panel = new JPanel();
         panel.setBackground(Color.LIGHT_GRAY);
         panel.add(new JLabel("Label in Box 1"));
         panel.add(new JButton("Button 1"));
 	}
-	public JPanel getpanel(){
+	JPanel getpanel(){
 		return panel;
-	}
-	JPanel CreatePanel(int y , int x , int width , int height ){
-		GridBagConstraints gbc = new GridBagConstraints();
-		JPanel newPanel = new JPanel();
-		newPanel.setBackground(Color.CYAN);
-		gbc.gridx = x;
-		gbc.gridy = y;
-		newPanel.setLayout(new FlowLayout());
-		newPanel.setPreferredSize(new Dimension(width, height));
-		panel.add(newPanel,gbc);
-		return newPanel;
 	}
 	JLabel CreateLabel(int x, int y, String text) {
 		JLabel label = new JLabel(text);

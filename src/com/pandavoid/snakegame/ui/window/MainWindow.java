@@ -31,14 +31,13 @@ public class MainWindow {
 		window.CreateButton(1  , 1,1, "2 Players", Color.BLACK, Color.WHITE, two_playergame );
 		window.UpdateDisplay();
 	}
-	public void DisplayPlayerSelection(){
+	public void DisplayPlayerSelection(int players){
 		window.ClearDisplay();
-		window.CreatePanel(0,1,500,700);
-		window.CreatePanel(1,2,500,700);
+		window.CreatePanel(0,0,500,700);
+		if (players==2) {
+			window.CreatePanel(0,1,500,700);
+		}
 		window.UpdateDisplay();
-	}
-	public void Player_Color(){
-
 	}
 
 }

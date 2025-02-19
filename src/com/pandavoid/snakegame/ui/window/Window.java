@@ -19,8 +19,12 @@ class Window {
         }
     }
     Panel CreatePanel(int y ,int x ,int width , int height ){
-        Panel panel = new Panel(y ,x ,width ,height );
-        window.add(panel.getpanel());
+        Panel panel = new Panel(width ,height );
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.gridx = x;
+        gbc.gridy = y;
+        window.add(panel.getpanel(),gbc);
         return panel;
     }
     JLabel CreateLabel(int x, int y, String text) {
