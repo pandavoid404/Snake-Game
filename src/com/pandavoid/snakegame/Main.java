@@ -56,8 +56,8 @@ public class Main {
         mainWindow.DisplayPreGameSettings(one_player_gameListener, two_player_gameListener, backListener);
     }
     private static void DisplayPlayerSelection(int players){
-        ActionListener StartGameAction = e -> StartGame();
-        mainWindow.DisplayPlayerSelection(players);
+        ActionListener StartGameListener = e -> StartGame(new GameConfig());
+        mainWindow.DisplayPlayerSelection(players,StartGameListener);
        }
 
     private static void StartGame(GameConfig config){
