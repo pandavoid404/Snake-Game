@@ -1,4 +1,4 @@
-package com.pandavoid.snakegame.logic;
+package com.pandavoid.snakegame.game.board;
 
 public class Board {
 	private final Cell[][] board;
