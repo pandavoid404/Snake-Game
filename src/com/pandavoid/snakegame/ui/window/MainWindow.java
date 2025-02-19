@@ -14,8 +14,8 @@ public class MainWindow {
 		window.ShowDisplay();
 	}
 
-	public void DisplayMenu(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
-		ClearDisplay();
+	private void DisplayMenu(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
+		window.ClearDisplay();
 		window.CreateLabel( 0, 0, "SnakeGame");
 		window.CreateButton(0 , 10 , "StartGame", Color.BLACK, Color.WHITE, StartGameAction);
 		window.CreateButton(0,20,"Settings" ,Color.BLACK, Color.WHITE, SettingsAction);
@@ -24,11 +24,8 @@ public class MainWindow {
 	}
 
 	public void DisplayPreGameSettings(ActionListener one_playergame , ActionListener two_playergame ) {
-		ClearDisplay();
+		window.ClearDisplay();
 		window.CreateButton(0 , 10 , "1 Player", Color.BLACK, Color.WHITE, one_playergame);
 		window.CreateButton(0 , 10 , "2 Players", Color.BLACK, Color.WHITE, two_playergame );
-	}
-	private void ClearDisplay() {
-
 	}
 }

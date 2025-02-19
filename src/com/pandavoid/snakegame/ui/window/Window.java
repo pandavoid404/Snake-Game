@@ -2,6 +2,8 @@ package com.pandavoid.snakegame.ui.window;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.concurrent.Callable;
 import javax.swing.*;
 
 class Window {
@@ -68,5 +70,15 @@ class Window {
     }
     Point GetPosition() {
         return window.getLocation();
+    }
+    void ClearDisplay() {
+        Component[] components = window.getContentPane().getComponents();
+        for (Component component : components) {
+            if (component instanceof JButton jbutton) {
+	            window.remove(jbutton);
+            } else if (component instanceof JLabel jlabel) {
+                window.remove(jlabel);
+            }
+        }
     }
 }
