@@ -24,10 +24,11 @@ public class MainWindow {
 		window.UpdateDisplay();
 	}
 
-	public void DisplayPreGameSettings(ActionListener one_playergame , ActionListener two_playergame ) {
+	public void DisplayPreGameSettings(ActionListener one_playergame , ActionListener two_playergame,ActionListener backListener ) {
 		window.ClearDisplay();
 		window.CreateButton(0 , 10 , "1 Player", Color.BLACK, Color.WHITE, one_playergame);
 		window.CreateButton(0 , 10 , "2 Players", Color.BLACK, Color.WHITE, two_playergame );
+		window.CreateButton(0 , 10 , "Back", Color.BLACK, Color.WHITE, backListener );
 		window.UpdateDisplay();
 	}
 }
