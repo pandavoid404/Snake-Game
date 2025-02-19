@@ -10,8 +10,6 @@ class Panel {
 	    panel = new JPanel();
         panel.setBackground(Color.BLACK);
 		panel.setPreferredSize(new Dimension(200, 400));
-        panel.add(new JLabel("Label in Box 1"));
-        panel.add(new JButton("Button 1"));
 	}
 	JPanel getpanel(){
 		return panel;
