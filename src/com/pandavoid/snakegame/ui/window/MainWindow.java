@@ -16,7 +16,7 @@ public class MainWindow {
 
 	public void DisplayMenu(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
 		window.ClearDisplay();
-		window.CreateLabel( 0, 0, "SnakeGame");
+		window.CreateLabel( 0, 0, "SnakeGame",80);
 		window.CreateButton(0 , 1 ,1, "StartGame", Color.BLACK, Color.WHITE, StartGameAction);
 		window.CreateButton(0,2,1,"Settings" ,Color.BLACK, Color.WHITE, SettingsAction);
 		window.CreateButton( 0 , 3 ,1, "Credits",Color.BLACK, Color.WHITE , CreditsAction);
@@ -31,13 +31,14 @@ public class MainWindow {
 		window.CreateButton(1  , 1,1, "2 Players", Color.BLACK, Color.WHITE, two_playergame );
 		window.UpdateDisplay();
 	}
-	public void DisplayPlayerSelection(int players){
+	public void DisplayPlayerSelection(int players,ActionListener StartGameAction){
 		window.ClearDisplay();
 		Panel panel1 = window.CreatePanel(0,0,500,700);
-		panel1.CreateLabel(0,0,"Select Player");
+		panel1.CreateLabel(0,0,"Select Player 1",10,Color.white);
+		panel1.CreateButon(0,1,1,"Change Color",Color.green,Color.white,StartGameAction);
 		if (players==2) {
 			Panel panel2 = window.CreatePanel(0,1,500,700);
-			panel2.CreateLabel(0,0,"Select Player2");
+			panel2.CreateLabel(0,0,"Select Player2",10,Color.white);
 		}
 		window.UpdateDisplay();
 	}
