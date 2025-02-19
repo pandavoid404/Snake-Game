@@ -33,7 +33,8 @@ public class MainWindow {
 	}
 	public void DisplayPlayerSelection(){
 		window.ClearDisplay();
-		
+		window.CreatePanel(0,1,500,700);
+		window.CreatePanel(1,2,500,700);
 		window.UpdateDisplay();
 	}
 	public void Player_Color(){

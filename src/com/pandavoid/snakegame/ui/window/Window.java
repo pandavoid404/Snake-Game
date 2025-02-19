@@ -20,7 +20,7 @@ class Window {
     }
     Panel CreatePanel(int y ,int x ,int width , int height ){
         Panel panel = new Panel(y ,x ,width ,height );
-        window.add(panel,panel.gbc);
+        window.add(panel.getpanel());
         return panel;
     }
     JLabel CreateLabel(int x, int y, String text) {

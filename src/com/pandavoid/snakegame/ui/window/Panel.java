@@ -1,20 +1,20 @@
 package com.pandavoid.snakegame.ui.window;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import javax.swing.*;
 
 public class Panel {
 	private JPanel panel;
 	GridBagConstraints gbc;
 	public Panel(int y , int x , int width , int height) {
-		gbc = new GridBagConstraints();
-		panel = new JPanel();
-		panel.setBackground(Color.CYAN);
-		gbc.gridx = x;
-		gbc.gridy = y;
-		panel.setLayout(new FlowLayout());
-		panel.setPreferredSize(new Dimension(width, height));
+	    panel = new JPanel();
+        panel.setBackground(Color.LIGHT_GRAY);
+        panel.add(new JLabel("Label in Box 1"));
+        panel.add(new JButton("Button 1"));
+	}
+	public JPanel getpanel(){
+		return panel;
 	}
 	JPanel CreatePanel(int y , int x , int width , int height ){
 		GridBagConstraints gbc = new GridBagConstraints();
