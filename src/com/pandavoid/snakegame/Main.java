@@ -44,8 +44,8 @@ public class Main {
         System.exit(0);
     }
     public static void Credits(){
-        mainWindow.DisplayCredits(); // Directly call the DisplayCredits() method
         ActionListener backListener = e -> DisplayMainMenu();
+        mainWindow.DisplayCredits(backListener); // Directly call the DisplayCredits() method
         System.out.println("Credits");
 
     }
