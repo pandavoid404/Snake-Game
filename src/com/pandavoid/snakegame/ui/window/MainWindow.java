@@ -59,8 +59,16 @@ public class MainWindow {
 	}
 	public void DisplayCredits( ActionListener backListener){
 		window.ClearDisplay();
-		window.CreateLabel("Programers", 18);
-		window.CreateButton(0 , 3,2, "Back", backListener );
+		window.CreateLabel("Programmers", 18, 0, 0);
+		window.CreateLabel("MrPanda_071", 13, 0, 1);
+		window.CreateLabel("EndlessVoid_303", 13, 0, 2);
+		window.CreateLabel("GraphicalDesigner", 18, 0, 3);
+		window.CreateLabel("MrPanda_071", 13, 0, 4);
+		window.CreateLabel("GameTesters", 18, 0, 5);
+		window.CreateLabel("Animator", 18, 0, 6);
+		window.CreateLabel("Specal thanks", 18, 0, 6);
+		window.CreateLabel("EndlessVoid_303 Mom", 13, 0, 7);
+		window.CreateButton(0 , 8,1, "Back", backListener );
 		window.UpdateDisplay();
 	}
 }
