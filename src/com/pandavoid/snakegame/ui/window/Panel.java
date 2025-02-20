@@ -32,8 +32,8 @@ class Panel {
 		JButton button = new JButton("Change Color");
 		//set size ,color and padding
 		button.setPreferredSize(new Dimension(200, 50));
-		button.setBackground(Color.green);
-		button.setForeground(Color.white);
+		button.setBackground(Color.white);
+		button.setForeground(Color.black);
 		button.setFocusPainted(false);
 		button.addActionListener(action);
 		gbc.insets = new Insets(10, 10, 10, 10);

@@ -5,7 +5,7 @@ import java.awt.*;
 public class GameConfig {
 	private int players;
 	private final PlayerConfig[] playerConfigs = new PlayerConfig[2];
-	private final static Color[] colors = { Color.BLUE, Color.RED,Color.GREEN,Color.YELLOW,Color.CYAN,Color.MAGENTA,Color.ORANGE,Color.PINK};
+	private final static Color[] colors = { new Color(0, 0, 139), Color.RED,new Color(0, 100, 0),Color.MAGENTA,new Color(255, 140, 0),new Color(128, 0, 128)};
 	public GameConfig() {
 		players = 1;
 	}
