@@ -63,14 +63,4 @@ public class MainWindow {
 		window.CreateButton(0 , 3,2, "Back", backListener );
 		window.UpdateDisplay();
 	}
-	public void DisplaySettings(){
-	}
-	public void DisplayMenu(){
-	}
-	public void DisplayPreGameSettings(){
-	}
-	public void DisplayPlayerSelection(){
-	}
-	public void DisplayGame(){
-	}
 }
