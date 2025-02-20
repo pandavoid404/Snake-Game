@@ -10,6 +10,7 @@ public class MainWindow {
 	private final Window window;
 	private static final short height = 700;
 	private static final short width = 1000;
+	private GamePanel gamePanel;
 	public MainWindow(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
 		window = new Window("SnakeGame",width,height);
 		window.SetMainWindow();
@@ -69,6 +70,12 @@ public class MainWindow {
 		window.CreateLabel("Specal thanks", 18, 0, 6);
 		window.CreateLabel("EndlessVoid_303 Mom", 13, 0, 7);
 		window.CreateButton(0 , 8,1, "Back", backListener );
+		window.UpdateDisplay();
+	}
+	public void DisplayGame() {
+		window.ClearDisplay();
+		gamePanel = new GamePanel();
+		window.AddPanel(gamePanel.getPanel());
 		window.UpdateDisplay();
 	}
 }

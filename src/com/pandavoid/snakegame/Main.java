@@ -70,5 +70,6 @@ public class Main {
     private static void StartGame(GameConfig config){
         System.out.println("Game Starting...");
         game = new Game(config);
+        mainWindow.DisplayGame();
     }
 } 
