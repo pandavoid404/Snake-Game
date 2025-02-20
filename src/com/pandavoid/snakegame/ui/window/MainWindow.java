@@ -19,7 +19,7 @@ public class MainWindow {
 
 	public void DisplayMenu(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
 		window.ClearDisplay();
-		window.CreateLabel("Snake Game" ,80);
+		window.CreateLabel("Snake Game" ,80, 0, 0);
 		window.CreateButton(0 , 1 ,1, "StartGame", StartGameAction);
 		window.CreateButton(0,2,1,"Settings" , SettingsAction);
 		window.CreateButton( 0 , 3 ,1, "Credits", CreditsAction);

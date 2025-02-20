@@ -23,15 +23,15 @@ class Window {
         window.add(panel.GetPanel(),gbc);
         return panel;
     }
-    void CreateLabel(String text, int size) {
+    void CreateLabel(String text, int size, int x, int y) {
         JLabel label = new JLabel("text");
         label.setText(text);
         //add GridBagConstraints and add padding 
         GridBagConstraints gbc = new GridBagConstraints();
         label.setFont(new Font("Monospaced", Font.BOLD, size));
         gbc.insets = new Insets(10, 0, 10, 0);  
-        gbc.gridx = 0;
-        gbc.gridy = 0;
+        gbc.gridx = x;
+        gbc.gridy = y;
         window.add(label,gbc);
     }
     //create function for create a button 
