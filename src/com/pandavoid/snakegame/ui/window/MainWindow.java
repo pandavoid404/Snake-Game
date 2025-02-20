@@ -54,5 +54,7 @@ public class MainWindow {
 		source.setBackground(gameConfig.getPlayerConfig(player).getColor());
 		window.UpdateDisplay();
 	}
+	public void DisplayGame(){
 
+	}
 }
