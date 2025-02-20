@@ -83,4 +83,7 @@ class Window {
         window.revalidate();
         window.repaint();
     }
+    Dimension GetWindowSize() {
+        return window.getSize();
+    }
 }
