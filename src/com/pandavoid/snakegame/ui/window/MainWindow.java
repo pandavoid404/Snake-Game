@@ -3,6 +3,7 @@ package com.pandavoid.snakegame.ui.window;
 import com.pandavoid.snakegame.game.config.GameConfig;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class MainWindow {
@@ -25,7 +26,9 @@ public class MainWindow {
 		window.CreateButton( 0 , 4 , 1,"Quit Game", quitAction);
 		window.UpdateDisplay();
 	}
-
+	public Dimension getSize(){
+		return window.GetWindowSize();
+	}
 	public void DisplayPreGameSettings(ActionListener one_playergame , ActionListener two_playergame,ActionListener backListener ) {
 		window.ClearDisplay();
 		window.CreateButton(0 , 1 ,1, "1 Player", one_playergame);
