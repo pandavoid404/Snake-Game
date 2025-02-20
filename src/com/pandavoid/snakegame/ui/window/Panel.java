@@ -10,6 +10,7 @@ class Panel {
 	    panel = new JPanel();
         panel.setBackground(Color.BLACK);
 		panel.setSize(new Dimension(width, height));
+		panel.setLayout(new GridBagLayout());
 	}
 	JPanel GetPanel(){
 		return panel;
