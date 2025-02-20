@@ -30,11 +30,12 @@ public class MainWindow {
 		window.CreateButton(1  , 1,1, "2 Players", two_playergame );
 		window.UpdateDisplay();
 	}
-	public void DisplayPlayerSelection(int players,ActionListener StartGameAction){
+	public void DisplayPlayerSelection(int players,ActionListener StartGameAction,ActionListener backListener){
 		window.ClearDisplay();
 		Panel panel1 = window.CreatePanel(0);
 		panel1.CreateLabel("Select Player 1");
 		panel1.CreateButton(StartGameAction);
+		window.CreateButton(0 , 2,2, "Back", backListener );
 		if (players==2) {
 			Panel panel2 = window.CreatePanel(1);
 			panel2.CreateLabel("Select Player2");
