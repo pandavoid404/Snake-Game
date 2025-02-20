@@ -84,6 +84,9 @@ class Window {
         window.revalidate();
         window.repaint();
     }
+    void SetFullscreen() {
+        window.setExtendedState(JFrame.MAXIMIZED_BOTH);
+    }
     Dimension GetWindowSize() {
         return window.getSize();
     }

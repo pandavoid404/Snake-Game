@@ -14,6 +14,7 @@ public class MainWindow {
 	public MainWindow(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
 		window = new Window("SnakeGame",width,height);
 		window.SetMainWindow();
+		window.SetFullscreen();
 		DisplayMenu(StartGameAction, SettingsAction, CreditsAction, quitAction);
 		window.ShowDisplay();
 	}
