@@ -74,6 +74,8 @@ class Window {
 	            window.remove(jbutton);
             } else if (component instanceof JLabel jlabel) {
                 window.remove(jlabel);
+            } else if (component instanceof JPanel jPanel) {
+                window.remove(jPanel);
             }
         }
     }
