@@ -31,11 +31,11 @@ public class MainWindow {
 	public Dimension getSize(){
 		return window.GetWindowSize();
 	}
-	public void DisplayPreGameSettings(ActionListener one_playergame , ActionListener two_playergame,ActionListener backListener ) {
+	public void DisplayPreGameSettings(ActionListener SinglePlayer , ActionListener Versus,ActionListener backListener ) {
 		window.ClearDisplay();
-		window.CreateButton(0 , 1 ,1, "1 Player", one_playergame);
+		window.CreateButton(0 , 1 ,1, "1 Player", SinglePlayer);
 		window.CreateButton(0 , 2,2, "Back", backListener );
-		window.CreateButton(1  , 1,1, "2 Players", two_playergame );
+		window.CreateButton(1  , 1,1, "2 Players", Versus );
 		window.UpdateDisplay();
 	}
 	public void DisplayPlayerSelection(GameConfig gameConfig, ActionListener StartGameAction, ActionListener backListener){
