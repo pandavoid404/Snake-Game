@@ -43,8 +43,11 @@ public class Main {
         System.out.println("quiting game");
         System.exit(0);
     }
-    private static void Credits(){
+    public static void Credits(){
+        mainWindow.DisplayCredits(); // Directly call the DisplayCredits() method
+        ActionListener backListener = e -> DisplayMainMenu();
         System.out.println("Credits");
+
     }
     private static void Settings(){
         System.out.println("settings");

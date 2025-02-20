@@ -18,7 +18,7 @@ public class MainWindow {
 
 	public void DisplayMenu(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
 		window.ClearDisplay();
-		window.CreateLabel();
+		window.CreateLabel("Snake Game" ,80);
 		window.CreateButton(0 , 1 ,1, "StartGame", StartGameAction);
 		window.CreateButton(0,2,1,"Settings" , SettingsAction);
 		window.CreateButton( 0 , 3 ,1, "Credits", CreditsAction);
@@ -54,7 +54,20 @@ public class MainWindow {
 		source.setBackground(gameConfig.getPlayerConfig(player).getColor());
 		window.UpdateDisplay();
 	}
+	public void DisplayCredits( ActionListener backListener){
+		window.ClearDisplay();
+		window.CreateLabel("Programers", 18);
+		window.CreateButton(0 , 3,2, "Back", backListener );
+		window.UpdateDisplay();
+	}
+	public void DisplaySettings(){
+	}
+	public void DisplayMenu(){
+	}
+	public void DisplayPreGameSettings(){
+	}
+	public void DisplayPlayerSelection(){
+	}
 	public void DisplayGame(){
-
 	}
 }
