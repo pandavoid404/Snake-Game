@@ -38,6 +38,7 @@ public class MainWindow {
 		if (players==2) {
 			Panel panel2 = window.CreatePanel(1);
 			panel2.CreateLabel("Select Player2");
+			panel2.CreateButton(StartGameAction);
 		}
 		window.UpdateDisplay();
 	}
