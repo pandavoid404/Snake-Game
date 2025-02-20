@@ -11,6 +11,7 @@ import javax.swing.*;
 public class Main {
     private static Game game;
     private static MainWindow mainWindow;
+    private static GameConfig gameConfig;
     
 	public static void main(String[]args) {
         ActionListener QuitListener = Main::QuitGameRequest;
@@ -50,15 +51,17 @@ public class Main {
     }
 
     private static void PreGameSettings() {
+        gameConfig = new GameConfig();
         ActionListener one_player_gameListener = e -> DisplayPlayerSelection(1);
         ActionListener two_player_gameListener = e -> DisplayPlayerSelection(2);
         ActionListener backListener = e -> DisplayMainMenu();
         mainWindow.DisplayPreGameSettings(one_player_gameListener, two_player_gameListener, backListener);
     }
     private static void DisplayPlayerSelection(int players){
-        ActionListener StartGameListener = e -> StartGame(new GameConfig());
+        gameConfig.setPlayers(players);
+        ActionListener StartGameListener = e -> StartGame(gameConfig);
         ActionListener backListener = e -> PreGameSettings();
-        mainWindow.DisplayPlayerSelection(players,StartGameListener,backListener);
+        mainWindow.DisplayPlayerSelection(gameConfig,StartGameListener,backListener);
        }
 
     private static void StartGame(GameConfig config){

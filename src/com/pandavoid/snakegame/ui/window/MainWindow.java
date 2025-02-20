@@ -1,5 +1,8 @@
 package com.pandavoid.snakegame.ui.window;
 
+import com.pandavoid.snakegame.game.config.GameConfig;
+
+import javax.swing.*;
 import java.awt.event.ActionListener;
 
 public class MainWindow {
@@ -30,17 +33,24 @@ public class MainWindow {
 		window.CreateButton(1  , 1,1, "2 Players", two_playergame );
 		window.UpdateDisplay();
 	}
-	public void DisplayPlayerSelection(int players,ActionListener StartGameAction,ActionListener backListener){
+	public void DisplayPlayerSelection(GameConfig gameConfig, ActionListener StartGameAction, ActionListener backListener){
 		window.ClearDisplay();
 		Panel panel1 = window.CreatePanel(0);
 		panel1.CreateLabel("Select Player 1");
-		panel1.CreateButton(StartGameAction);
+		ActionListener ChangeColorPlayer1Listener = e -> ChangeColor((JButton) e.getSource(), 0, gameConfig);
+		panel1.CreateButton(ChangeColorPlayer1Listener);
 		window.CreateButton(0 , 2,2, "Back", backListener );
-		if (players==2) {
+		if (gameConfig.getPlayers()==2) {
 			Panel panel2 = window.CreatePanel(1);
+			ActionListener ChangeColorPlayer2Listener = e -> ChangeColor((JButton) e.getSource(), 0, gameConfig);
 			panel2.CreateLabel("Select Player2");
-			panel2.CreateButton(StartGameAction);
+			panel2.CreateButton(ChangeColorPlayer2Listener);
 		}
+		window.UpdateDisplay();
+	}
+	public void ChangeColor(JButton source, int player, GameConfig gameConfig) {
+		gameConfig.getPlayerConfig(player).nextColor();
+		source.setBackground(gameConfig.getPlayerConfig(player).getColor());
 		window.UpdateDisplay();
 	}
 
