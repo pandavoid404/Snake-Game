@@ -17,4 +17,23 @@ public class Snake {
 		this.direction = config.getDirection();
 		this.position = config.getPosition();
 	}
+	public void Move() {
+		Point newPosition = new Point(position);
+		switch (direction) {
+			case UP:
+				newPosition.y--;
+				break;
+			case DOWN:
+				newPosition.y++;
+				break;
+			case LEFT:
+				newPosition.x--;
+				break;
+			case RIGHT:
+				newPosition.x++;
+				break;
+		}
+		System.out.println("Moving snake to " + newPosition);
+		position = newPosition;
+	}
 }
