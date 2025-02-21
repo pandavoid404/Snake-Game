@@ -90,7 +90,8 @@ class Window {
     Dimension GetWindowSize() {
         return window.getSize();
     }
-    void AddPanel(Panel panel) {
-        window.add(panel.GetPanel());
+    void AddPanel(JPanel panel) {
+        window.add(panel);
     }
+
 }

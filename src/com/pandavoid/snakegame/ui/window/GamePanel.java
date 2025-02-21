@@ -1,15 +1,12 @@
 package com.pandavoid.snakegame.ui.window;
 
-import javax.swing.*;
-
 class GamePanel {
-	private final Panel panel;
+	private final ImagePanel panel;
 	public GamePanel() {
-		panel = new Panel(600, 800);
+		panel = new ImagePanel("assets/defultbackgroundsnakegameboard.png", 600 , 400 );
 		panel.CreateLabel("Snake Game");
-
 		}
-	public Panel getPanel() {
+	public ImagePanel getPanel() {
 		return panel;
 	}
 }
