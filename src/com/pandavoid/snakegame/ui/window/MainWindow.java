@@ -68,7 +68,7 @@ public class MainWindow {
 		window.CreateLabel("MrPanda_071", 13, 0, 4);
 		window.CreateLabel("GameTesters", 18, 0, 5);
 		window.CreateLabel("Animator", 18, 0, 6);
-		window.CreateLabel("Specal thanks", 18, 0, 6);
+		window.CreateLabel("Special thanks", 18, 0, 6);
 		window.CreateLabel("EndlessVoid_303 Mom", 13, 0, 7);
 		window.CreateButton(0 , 8,1, "Back", backListener );
 		window.UpdateDisplay();
