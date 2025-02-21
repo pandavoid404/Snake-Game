@@ -2,6 +2,7 @@ package com.pandavoid.snakegame.ui.window;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -34,15 +35,15 @@ class ImagePanel extends JPanel {
             System.err.println("Warning: Background image is null.");
         }
     }
-    void CreateLabel(String text) {
+    void CreateLabel(String text, int x, int y, int size ) {
         JLabel label = new JLabel(text);
         //add GridBagConstraints and add padding
         GridBagConstraints gbc = new GridBagConstraints();
-        label.setFont(new Font("Monospaced", Font.BOLD, 10));
+        label.setFont(new Font("Monospaced", Font.BOLD, size));
         label.setForeground(Color.white);
         gbc.insets = new Insets(10, 0, 10, 0);
-        gbc.gridx = 0;
-        gbc.gridy = 0;
+        gbc.gridx = x;
+        gbc.gridy = y;
         this.add(label, gbc);
     }
 }

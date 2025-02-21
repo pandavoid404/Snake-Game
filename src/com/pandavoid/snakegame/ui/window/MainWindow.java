@@ -41,13 +41,13 @@ public class MainWindow {
 	public void DisplayPlayerSelection(GameConfig gameConfig, ActionListener StartGameAction, ActionListener backListener){
 		window.ClearDisplay();
 		Panel panel1 = window.CreatePanel(0);
-		panel1.CreateLabel("Select Player 1");
+		panel1.CreateLabel("Select Player 1" , 15);
 		ActionListener ChangeColorPlayer1Listener = e -> ChangeColor((JButton) e.getSource(), 0, gameConfig);
 		panel1.CreateButton(ChangeColorPlayer1Listener);
 		if (gameConfig.getPlayers()==2) {
 			Panel panel2 = window.CreatePanel(1);
 			ActionListener ChangeColorPlayer2Listener = e -> ChangeColor((JButton) e.getSource(), 0, gameConfig);
-			panel2.CreateLabel("Select Player2");
+			panel2.CreateLabel("Select Player2" ,15);
 			panel2.CreateButton(ChangeColorPlayer2Listener);
 		}
 		window.CreateButton(0 , 2,2, "Start Game", StartGameAction);
@@ -62,15 +62,15 @@ public class MainWindow {
 	public void DisplayCredits( ActionListener backListener){
 		window.ClearDisplay();
 		window.CreateLabel("Programmers", 18, 0, 0);
-		window.CreateLabel("MrPanda_071", 13, 0, 1);
-		window.CreateLabel("EndlessVoid_303", 13, 0, 2);
+		window.CreateLabel("EndlessVoid_303", 13, 0, 1);
+		window.CreateLabel("MrPanda_071", 13, 0, 2);
 		window.CreateLabel("GraphicalDesigner", 18, 0, 3);
 		window.CreateLabel("MrPanda_071", 13, 0, 4);
 		window.CreateLabel("GameTesters", 18, 0, 5);
 		window.CreateLabel("Animator", 18, 0, 6);
-		window.CreateLabel("Special thanks", 18, 0, 6);
-		window.CreateLabel("EndlessVoid_303 Mom", 13, 0, 7);
-		window.CreateButton(0 , 8,1, "Back", backListener );
+		window.CreateLabel("Special thanks", 18, 0, 7);
+		window.CreateLabel("EndlessVoid_303 Mom", 13, 0, 8);
+		window.CreateButton(0 , 9,1, "Back", backListener );
 		window.UpdateDisplay();
 	}
 	public void DisplayGame() {
