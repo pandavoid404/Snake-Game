@@ -15,6 +15,9 @@ public class Game {
 			snakes[1] = new Snake(this,config.getPlayerConfig(1));
 		}
 	}
+	public void TurnSnake() {
+
+	}
 	public void Move() {
 		for (Snake snake : snakes) {
 			snake.Move();

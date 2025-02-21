@@ -9,17 +9,42 @@ import java.awt.*;
 public class Snake {
 	private final Game game;
 	private final PlayerConfig config;
-	private Direction direction;
+	private Direction currentDirection;
+	private Direction newDirection;
 	private Point position;
 	public Snake(Game game, PlayerConfig config) {
 		this.game = game;
 		this.config = config;
-		this.direction = config.getDirection();
+		this.newDirection = config.getDirection();
 		this.position = config.getPosition();
+	}
+	public void TurnSnake(Direction direction) {
+		switch (direction) {
+			case UP:
+				if (this.currentDirection != Direction.DOWN) {
+					this.newDirection = direction;
+				}
+				break;
+			case DOWN:
+				if (this.currentDirection != Direction.UP) {
+					this.newDirection = direction;
+				}
+				break;
+			case LEFT:
+				if (this.currentDirection != Direction.RIGHT) {
+					this.newDirection = direction;
+				}
+			case RIGHT:
+				if (this.currentDirection != Direction.LEFT) {
+					this.newDirection = direction;
+				}
+				break;
+		}
 	}
 	public void Move() {
 		Point newPosition = new Point(position);
-		switch (direction) {
+		currentDirection = newDirection;
+		switch (currentDirection) {
 			case UP:
 				newPosition.y--;
 				break;
