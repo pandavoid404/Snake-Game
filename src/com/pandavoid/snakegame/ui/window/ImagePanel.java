@@ -37,12 +37,14 @@ class ImagePanel extends JPanel {
             System.err.println("Warning: Background image is null.");
         }
     }
-    void CreateLabel(String text, int x, int y, int size ) {
+    void CreateLabel(String text, int x, int y, int size, Color background_color) {
         JLabel label = new JLabel(text);
         //add GridBagConstraints and add padding
         GridBagConstraints gbc = new GridBagConstraints();
         label.setFont(new Font("Monospaced", Font.BOLD, size));
         label.setForeground(Color.white);
+        label.setBackground(background_color);
+        label.setOpaque(true);
         gbc.insets = new Insets(10, 0, 10, 0);
         gbc.gridx = x;
         gbc.gridy = y;
@@ -61,7 +63,6 @@ class ImagePanel extends JPanel {
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.gridwidth = 1;
-        //gbc.fill = GridBagConstraints.HORIZONTAL;
         this.add(button, gbc);
     }
 }

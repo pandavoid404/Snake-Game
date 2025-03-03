@@ -51,7 +51,8 @@ public class Main {
 
     }
     private static void Settings(){
-        System.out.println("settings");
+
+
     }
 
     private static void PreGameSettings() {
@@ -71,9 +72,7 @@ public class Main {
     private static void StartGame(GameConfig config){
         System.out.println("Game Starting...");
         game = new Game(config);
-        mainWindow.DisplayGame();
+        mainWindow.DisplayGame(game);
     }
-    public void add_button () {
-        ActionListener backListener = e -> DisplayMainMenu();
-    }
+
 } 

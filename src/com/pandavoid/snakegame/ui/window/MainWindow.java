@@ -1,5 +1,6 @@
 package com.pandavoid.snakegame.ui.window;
 
+import com.pandavoid.snakegame.game.Game;
 import com.pandavoid.snakegame.game.config.GameConfig;
 
 import javax.swing.*;
@@ -52,8 +53,8 @@ public class MainWindow {
 		panel1.CreateButton(BackColorPlayer1Listener, 1, 2);
 		if (gameConfig.getPlayers()==2) {
 			Panel panel2 = window.CreatePanel(0,2);
-			ActionListener ChangeColorPlayer2Listener = e -> ChangeColor(labelplayer2, 0, gameConfig,1);
-			ActionListener BackColorPlayer2Listener = e -> ChangeColor(labelplayer2, 0, gameConfig,-1);
+			ActionListener ChangeColorPlayer2Listener = e -> ChangeColor(labelplayer2, 1, gameConfig,1);
+			ActionListener BackColorPlayer2Listener = e -> ChangeColor(labelplayer2, 1, gameConfig,-1);
 			panel2.CreateLabel("Select Player2" ,15 ,2 ,0, 0 );
 			labelplayer2 = panel2.CreateLabel("    ",35,2,1, 0 );
 			labelplayer2.setOpaque(true);
@@ -83,9 +84,9 @@ public class MainWindow {
 		window.CreateButton(0 , 9,1, "Back", backListener );
 		window.UpdateDisplay();
 	}
-	public void DisplayGame() {
+	public void DisplayGame(Game game) {
 		window.ClearDisplay();
-		gamePanel = new GamePanel();
+		gamePanel = new GamePanel(game);
 		window.AddPanel(gamePanel.getPanel());
 		window.UpdateDisplay();
 	}
