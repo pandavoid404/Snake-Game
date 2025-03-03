@@ -3,9 +3,6 @@ package com.pandavoid.snakegame.ui.window;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 
 class Panel {
 	private final JPanel panel;
@@ -20,21 +17,31 @@ class Panel {
 	JPanel GetPanel() {
 		return panel;
 	}
-
-	void CreateLabel(String text , int size) {
+	Panel CreatePanel(int x ,int y){
+		Panel panel = new Panel(500, 700);
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(10, 10, 10, 10);
+		gbc.gridx = x;
+		gbc.gridy = y;
+		this.panel.add(panel.GetPanel(),gbc);
+		return panel;
+	}
+	JLabel CreateLabel(String text , int size ,int width , int y ,int x) {
 		JLabel label = new JLabel(text);
 		//add GridBagConstraints and add padding
 		GridBagConstraints gbc = new GridBagConstraints();
 		label.setFont(new Font("Monospaced", Font.BOLD, size));
 		label.setForeground(Color.white);
 		gbc.insets = new Insets(10, 0, 10, 0);
-		gbc.gridx = 0;
-		gbc.gridy = 0;
+		gbc.gridx = x;
+		gbc.gridy = y;
+		gbc.gridwidth = width;
 		panel.add(label, gbc);
+		return label;
 	}
 
 	//create function for create a button
-	void CreateButton(ActionListener action) {
+	void CreateButton(ActionListener action, int x, int y) {
 		GridBagConstraints gbc = new GridBagConstraints();
 		JButton button = new JButton("Change Color");
 		//set size ,color and padding
@@ -44,10 +51,10 @@ class Panel {
 		button.setFocusPainted(false);
 		button.addActionListener(action);
 		gbc.insets = new Insets(10, 10, 10, 10);
-		gbc.gridx = 0;
-		gbc.gridy = 1;
+		gbc.gridx = x;
+		gbc.gridy = y;
 		gbc.gridwidth = 1;
-		//gbc.fill = GridBagConstraints.HORIZONTAL;
 		panel.add(button, gbc);
 	}
+
 }

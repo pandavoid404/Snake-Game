@@ -73,4 +73,7 @@ public class Main {
         game = new Game(config);
         mainWindow.DisplayGame();
     }
+    public void add_button () {
+        ActionListener backListener = e -> DisplayMainMenu();
+    }
 } 

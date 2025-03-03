@@ -12,13 +12,14 @@ public class PlayerConfig {
 	public Color getColor() {
 		return gameConfig.getColors()[colorIndex];
 	}
-	public void nextColor() {
-		colorIndex++;
-		if (colorIndex >= gameConfig.getColors().length) {
+
+	public void ChangeColor(int amount) {
+		colorIndex += amount;
+		if (colorIndex < 0) {
+			colorIndex = gameConfig.getColors().length - 1;
+		}
+		else if (colorIndex >= gameConfig.getColors().length) {
 			colorIndex = 0;
 		}
-	}
-	public void previousColor(){
-		colorIndex--;
 	}
 }

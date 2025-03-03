@@ -10,6 +10,8 @@ public class MainWindow {
 	private final Window window;
 	private static final short height = 700;
 	private static final short width = 1000;
+	private static JLabel labelplayer1;
+	private static JLabel labelplayer2;
 	private GamePanel gamePanel;
 	public MainWindow(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
 		window = new Window("SnakeGame",width,height);
@@ -40,30 +42,31 @@ public class MainWindow {
 	}
 	public void DisplayPlayerSelection(GameConfig gameConfig, ActionListener StartGameAction, ActionListener backListener){
 		window.ClearDisplay();
-		Panel panel1 = window.CreatePanel(0);
-		panel1.CreateLabel("Select Player 1" , 15);
-		ActionListener ChangeColorPlayer1Listener = e -> ChangeColor((JButton) e.getSource(), 0, gameConfig);
-		panel1.CreateButton(ChangeColorPlayer1Listener);
+		Panel panel1 = window.CreatePanel(0,1);
+		panel1.CreateLabel("Select Player 1" , 15 , 2 ,0, 0 );
+		ActionListener ChangeColorPlayer1Listener = e -> ChangeColor(labelplayer1, 0, gameConfig, 1);
+		ActionListener BackColorPlayer1Listener = e -> ChangeColor(labelplayer1, 0, gameConfig , -1);
+		labelplayer1 = panel1.CreateLabel("    " , 35 , 2 ,1, 0 );
+		labelplayer1.setOpaque(true);
+		panel1.CreateButton(ChangeColorPlayer1Listener, 0, 2);
+		panel1.CreateButton(BackColorPlayer1Listener, 1, 2);
 		if (gameConfig.getPlayers()==2) {
-			Panel panel2 = window.CreatePanel(1);
-			ActionListener ChangeColorPlayer2Listener = e -> ChangeColor((JButton) e.getSource(), 0, gameConfig);
-			ActionListener BackColorPlayer2Listener = e -> BackColor((JButton) e.getSource(), 0, gameConfig);
-			panel2.CreateLabel("Select Player2" ,15);
-			panel2.CreateButton(ChangeColorPlayer2Listener);
-			panel2.CreateButton(BackColorPlayer2Listener);
+			Panel panel2 = window.CreatePanel(0,2);
+			ActionListener ChangeColorPlayer2Listener = e -> ChangeColor(labelplayer2, 0, gameConfig,1);
+			ActionListener BackColorPlayer2Listener = e -> ChangeColor(labelplayer2, 0, gameConfig,-1);
+			panel2.CreateLabel("Select Player2" ,15 ,2 ,0, 0 );
+			labelplayer2 = panel2.CreateLabel("    ",35,2,1, 0 );
+			labelplayer2.setOpaque(true);
+			panel2.CreateButton(ChangeColorPlayer2Listener, 0, 2);
+			panel2.CreateButton(BackColorPlayer2Listener, 1, 2);
 		}
-		window.CreateButton(0 , 2,2, "Start Game", StartGameAction);
-		window.CreateButton(0 , 3,2, "Back", backListener );
+		window.CreateButton(0 , 3,2, "Start Game", StartGameAction);
+		window.CreateButton(0 , 4,2, "Back", backListener );
 		window.UpdateDisplay();
 	}
-	public void ChangeColor(JButton source, int player, GameConfig gameConfig) {
-		gameConfig.getPlayerConfig(player).nextColor();
-		source.setBackground(gameConfig.getPlayerConfig(player).getColor());
-		window.UpdateDisplay();
-	}
-	public void BackColor(JButton source, int player, GameConfig gameConfig) {
-		gameConfig.getPlayerConfig(player).previousColor();
-		source.setBackground(gameConfig.getPlayerConfig(player).getColor());
+	public void ChangeColor(JLabel Color_label, int player, GameConfig gameConfig,int modify) {
+		gameConfig.getPlayerConfig(player).ChangeColor(modify);
+		Color_label.setBackground(gameConfig.getPlayerConfig(player).getColor());
 		window.UpdateDisplay();
 	}
 	public void DisplayCredits( ActionListener backListener){
