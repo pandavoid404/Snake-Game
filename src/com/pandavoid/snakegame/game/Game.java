@@ -6,12 +6,21 @@ import com.pandavoid.snakegame.game.snake.Snake;
 
 public class Game {
 	private final GameConfig config;
+	private final Snake[] snakes = new Snake[2];
 	public Game(GameConfig config) {
 		this.config = config;
 		Board board = new Board(10, 20);
-		Snake snake1 = new Snake(this,config.getPlayerConfig(0));
+		snakes[0] = new Snake(this,config.getPlayerConfig(0));
 		if (config.getPlayers()==2) {
-			Snake snake2 = new Snake(this,config.getPlayerConfig(1));
+			snakes[1] = new Snake(this,config.getPlayerConfig(1));
+		}
+	}
+	public void TurnSnake() {
+
+	}
+	public void Move() {
+		for (Snake snake : snakes) {
+			snake.Move();
 		}
 	}
 }
