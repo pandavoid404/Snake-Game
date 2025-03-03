@@ -6,9 +6,11 @@ import com.pandavoid.snakegame.game.snake.Snake;
 
 public class Game {
 	private final GameConfig config;
+	private final int Players;
 	private final Snake[] snakes = new Snake[2];
 	public Game(GameConfig config) {
 		this.config = config;
+		this.Players = config.getPlayers();
 		Board board = new Board(10, 20);
 		snakes[0] = new Snake(this,config.getPlayerConfig(0));
 		if (config.getPlayers()==2) {
