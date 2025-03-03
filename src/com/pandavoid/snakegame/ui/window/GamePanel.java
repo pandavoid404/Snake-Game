@@ -1,5 +1,7 @@
 package com.pandavoid.snakegame.ui.window;
 
+import java.awt.event.ActionListener;
+
 class GamePanel {
 	private final ImagePanel panel;
 	public GamePanel() {
@@ -9,4 +11,6 @@ class GamePanel {
 	public ImagePanel getPanel() {
 		return panel;
 	}
+
 }
+

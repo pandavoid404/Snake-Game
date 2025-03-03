@@ -47,8 +47,10 @@ public class MainWindow {
 		if (gameConfig.getPlayers()==2) {
 			Panel panel2 = window.CreatePanel(1);
 			ActionListener ChangeColorPlayer2Listener = e -> ChangeColor((JButton) e.getSource(), 0, gameConfig);
+			ActionListener BackColorPlayer2Listener = e -> BackColor((JButton) e.getSource(), 0, gameConfig);
 			panel2.CreateLabel("Select Player2" ,15);
 			panel2.CreateButton(ChangeColorPlayer2Listener);
+			panel2.CreateButton(BackColorPlayer2Listener);
 		}
 		window.CreateButton(0 , 2,2, "Start Game", StartGameAction);
 		window.CreateButton(0 , 3,2, "Back", backListener );
@@ -56,6 +58,11 @@ public class MainWindow {
 	}
 	public void ChangeColor(JButton source, int player, GameConfig gameConfig) {
 		gameConfig.getPlayerConfig(player).nextColor();
+		source.setBackground(gameConfig.getPlayerConfig(player).getColor());
+		window.UpdateDisplay();
+	}
+	public void BackColor(JButton source, int player, GameConfig gameConfig) {
+		gameConfig.getPlayerConfig(player).previousColor();
 		source.setBackground(gameConfig.getPlayerConfig(player).getColor());
 		window.UpdateDisplay();
 	}

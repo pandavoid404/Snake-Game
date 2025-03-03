@@ -46,4 +46,20 @@ class ImagePanel extends JPanel {
         gbc.gridy = y;
         this.add(label, gbc);
     }
+    void CreateButton(ActionListener action) {
+        GridBagConstraints gbc = new GridBagConstraints();
+        JButton button = new JButton("Change Color");
+        //set size ,color and padding
+        button.setPreferredSize(new Dimension(200, 50));
+        button.setBackground(Color.white);
+        button.setForeground(Color.black);
+        button.setFocusPainted(false);
+        button.addActionListener(action);
+        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.gridwidth = 1;
+        //gbc.fill = GridBagConstraints.HORIZONTAL;
+        this.add(button, gbc);
+    }
 }

@@ -18,4 +18,7 @@ public class PlayerConfig {
 			colorIndex = 0;
 		}
 	}
+	public void previousColor(){
+		colorIndex--;
+	}
 }
