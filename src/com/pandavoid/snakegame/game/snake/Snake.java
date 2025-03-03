@@ -9,6 +9,7 @@ import java.awt.*;
 public class Snake {
 	private final Game game;
 	private final PlayerConfig config;
+	private final Color snakeColor;
 	private Direction currentDirection;
 	private Direction newDirection;
 	private Point position;
@@ -17,6 +18,7 @@ public class Snake {
 		this.config = config;
 		this.newDirection = config.getDirection();
 		this.position = config.getPosition();
+		this.snakeColor = config.getColor();
 	}
 	public void TurnSnake(Direction direction) {
 		switch (direction) {
@@ -60,5 +62,8 @@ public class Snake {
 		}
 		System.out.println("Moving snake to " + newPosition);
 		position = newPosition;
+	}
+	public Color getColor() {
+		return snakeColor;
 	}
 }
