@@ -28,4 +28,8 @@ public class Game {
 	public Snake[] getSnakes() {
 		return snakes;
 	}
+
+	public int getPlayers() {
+		return Players;
+	}
 }
