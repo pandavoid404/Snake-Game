@@ -23,4 +23,7 @@ public class Game {
 			snake.Move();
 		}
 	}
+	public Snake[] getSnakes() {
+		return snakes;
+	}
 }
