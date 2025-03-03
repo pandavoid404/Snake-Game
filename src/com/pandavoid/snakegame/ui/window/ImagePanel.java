@@ -2,6 +2,7 @@ package com.pandavoid.snakegame.ui.window;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -9,7 +10,7 @@ import javax.imageio.ImageIO;
 class ImagePanel extends JPanel {
     private Image backgroundImage; // Store the background image
 
-    public ImagePanel(String imagePath, int width, int height) {
+    public ImagePanel(String imagePath, int width, int height,int x,int y) {
         // Load the background image during initialization
         try {
             backgroundImage = ImageIO.read(new File(imagePath));
@@ -17,10 +18,12 @@ class ImagePanel extends JPanel {
             System.err.println("Error: Could not load background image from path: " + imagePath);
             e.printStackTrace();
         }
-
         // Set size
         setPreferredSize(new Dimension(width, height));
-        setLayout(new GridBagLayout()); // Optional layout
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = x;
+        gbc.gridy = y;
+
     }
 
     @Override
@@ -34,15 +37,31 @@ class ImagePanel extends JPanel {
             System.err.println("Warning: Background image is null.");
         }
     }
-    void CreateLabel(String text) {
+    void CreateLabel(String text, int x, int y, int size ) {
         JLabel label = new JLabel(text);
         //add GridBagConstraints and add padding
         GridBagConstraints gbc = new GridBagConstraints();
-        label.setFont(new Font("Monospaced", Font.BOLD, 10));
+        label.setFont(new Font("Monospaced", Font.BOLD, size));
         label.setForeground(Color.white);
         gbc.insets = new Insets(10, 0, 10, 0);
-        gbc.gridx = 0;
-        gbc.gridy = 0;
+        gbc.gridx = x;
+        gbc.gridy = y;
         this.add(label, gbc);
+    }
+    void CreateButton(ActionListener action) {
+        GridBagConstraints gbc = new GridBagConstraints();
+        JButton button = new JButton("Change Color");
+        //set size ,color and padding
+        button.setPreferredSize(new Dimension(200, 50));
+        button.setBackground(Color.white);
+        button.setForeground(Color.black);
+        button.setFocusPainted(false);
+        button.addActionListener(action);
+        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.gridwidth = 1;
+        //gbc.fill = GridBagConstraints.HORIZONTAL;
+        this.add(button, gbc);
     }
 }

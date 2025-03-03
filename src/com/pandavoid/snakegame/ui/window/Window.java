@@ -14,12 +14,12 @@ class Window {
     void SetMainWindow() {
 	    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    Panel CreatePanel(int x ){
+    Panel CreatePanel(int x ,int y){
         Panel panel = new Panel(500, 700);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.gridx = x;
-        gbc.gridy = 0;
+        gbc.gridy = y;
         window.add(panel.GetPanel(),gbc);
         return panel;
     }

@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+
 public class Main {
     private static Game game;
     private static MainWindow mainWindow;
@@ -71,5 +72,8 @@ public class Main {
         System.out.println("Game Starting...");
         game = new Game(config);
         mainWindow.DisplayGame();
+    }
+    public void add_button () {
+        ActionListener backListener = e -> DisplayMainMenu();
     }
 } 
