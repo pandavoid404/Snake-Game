@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 class ImagePanel extends JPanel {
     private Image backgroundImage; // Store the background image
 
-    public ImagePanel(String imagePath, int width, int height) {
+    public ImagePanel(String imagePath, int width, int height,int x,int y) {
         // Load the background image during initialization
         try {
             backgroundImage = ImageIO.read(new File(imagePath));
@@ -18,10 +18,12 @@ class ImagePanel extends JPanel {
             System.err.println("Error: Could not load background image from path: " + imagePath);
             e.printStackTrace();
         }
-
         // Set size
         setPreferredSize(new Dimension(width, height));
-        setLayout(new GridBagLayout()); // Optional layout
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = x;
+        gbc.gridy = y;
+
     }
 
     @Override
