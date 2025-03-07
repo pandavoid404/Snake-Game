@@ -1,11 +1,13 @@
 package com.pandavoid.snakegame.ui.window;
 
+import com.pandavoid.snakegame.Main;
 import com.pandavoid.snakegame.game.Game;
 import com.pandavoid.snakegame.game.config.GameConfig;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainWindow {
 	private final Window window;
@@ -20,6 +22,19 @@ public class MainWindow {
 		window.SetFullscreen();
 		DisplayMenu(StartGameAction, SettingsAction, CreditsAction, quitAction);
 		window.ShowDisplay();
+		JComponent contentPane = (JComponent) window.GetContentPane();
+		InputMap inputMap = contentPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+		ActionMap actionMap = contentPane.getActionMap();
+
+		// Bind a key (e.g., "ENTER")
+		inputMap.put(KeyStroke.getKeyStroke("ESCAPE"), "escape menu");
+		actionMap.put("escape menu", new AbstractAction() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("escape menu requested");
+				Main.EscMenuRequest();
+			}
+		});
 	}
 
 	public void DisplayMenu(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
@@ -88,6 +103,14 @@ public class MainWindow {
 		window.ClearDisplay();
 		gamePanel = new GamePanel(game);
 		window.AddPanel(gamePanel.getPanel());
+		window.UpdateDisplay();
+	}
+	public java.awt.Window GetWindow() {
+		return window.GetWindow();
+	}
+	public void DisplayBugScreen(ActionListener backListener){
+		window.ClearDisplay();
+		window.CreateButton(0 , 9,1, "Back", backListener );
 		window.UpdateDisplay();
 	}
 }
