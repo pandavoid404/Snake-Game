@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-class Window {
+public class Window {
     private final JFrame window;
     Window(String title,int width,int height) {
         window = new JFrame(title);
@@ -23,6 +23,10 @@ class Window {
         window.add(panel.GetPanel(),gbc);
         return panel;
     }
+    Container GetContentPane() {
+        return window.getContentPane();
+    }
+
     void CreateLabel(String text, int size, int x, int y) {
         JLabel label = new JLabel("text");
         label.setText(text);
@@ -93,5 +97,7 @@ class Window {
     void AddPanel(JPanel panel) {
         window.add(panel);
     }
-
+    java.awt.Window GetWindow() {
+        return window;
+    }
 }

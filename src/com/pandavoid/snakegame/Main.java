@@ -3,6 +3,7 @@ package com.pandavoid.snakegame;
 import com.pandavoid.snakegame.enums.MainWindowState;
 import com.pandavoid.snakegame.game.Game;
 import com.pandavoid.snakegame.game.config.GameConfig;
+import com.pandavoid.snakegame.ui.window.EscWindow;
 import com.pandavoid.snakegame.ui.window.MainWindow;
 import com.pandavoid.snakegame.ui.window.QuitWindow;
 import java.awt.*;
@@ -14,6 +15,8 @@ public class Main {
     private static Game game;
     private static MainWindow mainWindow;
     private static GameConfig gameConfig;
+    private static EscWindow escWindow;
+    private static MainWindowState mainWindowState;
     
 	public static void main(String[]args) {
         mainWindowState = MainWindowState.MAIN_MENU;
