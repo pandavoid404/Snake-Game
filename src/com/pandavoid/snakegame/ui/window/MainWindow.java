@@ -49,17 +49,17 @@ public class MainWindow {
 		ActionListener BackColorPlayer1Listener = e -> ChangeColor(labelplayer1, 0, gameConfig , -1);
 		labelplayer1 = panel1.CreateLabel("    " , 35 , 2 ,1, 0 );
 		labelplayer1.setOpaque(true);
-		panel1.CreateButton(ChangeColorPlayer1Listener, 0, 2);
-		panel1.CreateButton(BackColorPlayer1Listener, 1, 2);
+		panel1.CreateButton(ChangeColorPlayer1Listener, 0, 2, 100, 50);
+		panel1.CreateButton(BackColorPlayer1Listener, 1, 2, 100, 50);
 		if (gameConfig.getPlayers()==2) {
-			Panel panel2 = window.CreatePanel(0,2);
+			Panel panel2 = window.CreatePanel(1,1);
 			ActionListener ChangeColorPlayer2Listener = e -> ChangeColor(labelplayer2, 1, gameConfig,1);
 			ActionListener BackColorPlayer2Listener = e -> ChangeColor(labelplayer2, 1, gameConfig,-1);
 			panel2.CreateLabel("Select Player2" ,15 ,2 ,0, 0 );
 			labelplayer2 = panel2.CreateLabel("    ",35,2,1, 0 );
 			labelplayer2.setOpaque(true);
-			panel2.CreateButton(ChangeColorPlayer2Listener, 0, 2);
-			panel2.CreateButton(BackColorPlayer2Listener, 1, 2);
+			panel2.CreateButton(ChangeColorPlayer2Listener, 0, 2, 100, 50);
+			panel2.CreateButton(BackColorPlayer2Listener, 1, 2, 100, 50);
 		}
 		window.CreateButton(0 , 3,2, "Start Game", StartGameAction);
 		window.CreateButton(0 , 4,2, "Back", backListener );
