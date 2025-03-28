@@ -10,6 +10,7 @@ public class Snake {
 	private final Game game;
 	private final PlayerConfig config;
 	private final Color snakeColor;
+	private int length;
 	private Direction currentDirection;
 	private Direction newDirection;
 	private Point position;
@@ -65,5 +66,17 @@ public class Snake {
 	}
 	public Color getColor() {
 		return snakeColor;
+	}
+
+	public void Collision() {
+		System.out.println("Snake collision");
+	}
+
+	public void increaseLength() {
+		length++;
+	}
+
+	public Point getPosition() {
+		return position;
 	}
 }
