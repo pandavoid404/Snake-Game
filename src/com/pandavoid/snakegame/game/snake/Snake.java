@@ -22,9 +22,9 @@ public class Snake {
 		this.newDirection = config.getDirection();
 		this.position = config.getPosition();
 		this.snakeColor = config.getColor();
-		this.snakeCells.add(new SnakeCell(this.config.getPosition().x, this.config.getPosition().y));
-		this.snakeCells.add(new SnakeCell(this.config.getPosition().x, this.config.getPosition().y-1));
-		this.snakeCells.add(new SnakeCell(this.config.getPosition().x, this.config.getPosition().y-2));
+		this.snakeCells.add(new SnakeCell(this.config.getPosition().x, this.config.getPosition().y,this));
+		this.snakeCells.add(new SnakeCell(this.config.getPosition().x, this.config.getPosition().y-1,this));
+		this.snakeCells.add(new SnakeCell(this.config.getPosition().x, this.config.getPosition().y-2,this));
 	}
 	public void TurnSnake(Direction direction) {
 		switch (direction) {
@@ -87,5 +87,9 @@ public class Snake {
 
 	public ArrayList<SnakeCell> getSnakeCells() {
 		return snakeCells;
+	}
+
+	public Game getGame() {
+		return game;
 	}
 }
