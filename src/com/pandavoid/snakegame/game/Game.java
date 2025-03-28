@@ -4,19 +4,21 @@ import com.pandavoid.snakegame.game.board.Board;
 import com.pandavoid.snakegame.game.config.GameConfig;
 import com.pandavoid.snakegame.game.snake.Snake;
 
+import java.util.ArrayList;
+
 public class Game {
 	private final GameConfig config;
 	private final int Players;
-	private final Snake[] snakes = new Snake[2];
+	private final ArrayList<Snake> snakes = new ArrayList<>();
 	private final Board board;
 
 	public Game(GameConfig config) {
 		this.config = config;
 		this.Players = config.getPlayers();
 		this.board = new Board(10, 20);
-		snakes[0] = new Snake(this,config.getPlayerConfig(0));
+		snakes.add(new Snake(this,config.getPlayerConfig(0)));
 		if (config.getPlayers()==2) {
-			snakes[1] = new Snake(this,config.getPlayerConfig(1));
+			snakes.add(new Snake(this,config.getPlayerConfig(1)));
 		}
 	}
 
@@ -41,7 +43,7 @@ public class Game {
 		board.GetCell(x, y).setOccupied(false);
 	}
 
-	public Snake[] getSnakes() {
+	public ArrayList<Snake> getSnakes() {
 		return snakes;
 	}
 

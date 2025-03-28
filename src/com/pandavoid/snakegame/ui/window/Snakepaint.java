@@ -13,8 +13,13 @@ public class Snakepaint extends JPanel {
     public Snakepaint(Game game) {
         this.game = game;
         for (Snake snake : game.getSnakes()) {
-            for (SnakeCell snakeCell : snake.getSnakeCells()) {
-                repaint();
+	        if (snake!=null) {
+		        for (SnakeCell snakeCell : snake.getSnakeCells()) {
+		            repaint();
+                    System.out.println("paint");
+		        }
+ 	        } else {
+                System.out.println("snake is null");
             }
         }
     }
@@ -22,6 +27,6 @@ public class Snakepaint extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setColor(Color.red);
-        g.fillRect(100,100,Boxsize,Boxsize);
+        g.fillRect(0,0,Boxsize,Boxsize);
     }
 }

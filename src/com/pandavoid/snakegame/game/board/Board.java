@@ -16,7 +16,7 @@ public class Board {
 		System.out.println("board generated");
 	}
 	public Cell GetCell(int x, int y) {
-		return board[y][x];
+		return board[y-1][x-1];
 	}
 
 	public Cell FindFreeCell() {

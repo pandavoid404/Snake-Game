@@ -15,7 +15,7 @@ public class Snake {
 	private Direction currentDirection;
 	private Direction newDirection;
 	private Point position;
-	private ArrayList<SnakeCell> snakeCells = new ArrayList<>();
+	private final ArrayList<SnakeCell> snakeCells = new ArrayList<>();
 	public Snake(Game game, PlayerConfig config) {
 		this.game = game;
 		this.config = config;

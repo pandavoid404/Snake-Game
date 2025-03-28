@@ -14,12 +14,13 @@ class GamePanel {
         this.game = game;
         panel = new ImagePanel("assets/defultbackgroundsnakegameboard.png", 1200, 700, 0, 1);
         this.snakepaint = new Snakepaint(this.game);
+        panel.add(snakepaint);
         if (game.getPlayers() >= 2) {
-        panel.CreateLabel("score player 1: ", 0, 0, 20, game.getSnakes()[0].getColor());
-        panel.CreateLabel("score player 2: ", 1, 0, 20, game.getSnakes()[1].getColor());
+        panel.CreateLabel("score player 1: ", 0, 0, 20, game.getSnakes().get(0).getColor());
+        panel.CreateLabel("score player 2: ", 1, 0, 20, game.getSnakes().get(1).getColor());
         }
         else {
-            panel.CreateLabel("score player: ", 0, 0, 20, game.getSnakes()[0].getColor());
+            panel.CreateLabel("score player: ", 0, 0, 20, game.getSnakes().getFirst().getColor());
         }
     }
 
