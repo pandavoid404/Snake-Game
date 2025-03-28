@@ -5,6 +5,7 @@ import com.pandavoid.snakegame.game.Game;
 import com.pandavoid.snakegame.game.config.PlayerConfig;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Snake {
 	private final Game game;
@@ -14,12 +15,16 @@ public class Snake {
 	private Direction currentDirection;
 	private Direction newDirection;
 	private Point position;
+	private ArrayList<SnakeCell> snakeCells = new ArrayList<>();
 	public Snake(Game game, PlayerConfig config) {
 		this.game = game;
 		this.config = config;
 		this.newDirection = config.getDirection();
 		this.position = config.getPosition();
 		this.snakeColor = config.getColor();
+		this.snakeCells.add(new SnakeCell(this.config.getPosition().x, this.config.getPosition().y));
+		this.snakeCells.add(new SnakeCell(this.config.getPosition().x, this.config.getPosition().y-1));
+		this.snakeCells.add(new SnakeCell(this.config.getPosition().x, this.config.getPosition().y-2));
 	}
 	public void TurnSnake(Direction direction) {
 		switch (direction) {
@@ -78,5 +83,9 @@ public class Snake {
 
 	public Point getPosition() {
 		return position;
+	}
+
+	public ArrayList<SnakeCell> getSnakeCells() {
+		return snakeCells;
 	}
 }
