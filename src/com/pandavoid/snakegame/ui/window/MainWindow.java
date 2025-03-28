@@ -1,11 +1,13 @@
 package com.pandavoid.snakegame.ui.window;
 
+import com.pandavoid.snakegame.Main;
 import com.pandavoid.snakegame.game.Game;
 import com.pandavoid.snakegame.game.config.GameConfig;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainWindow {
 	private final Window window;
@@ -20,6 +22,19 @@ public class MainWindow {
 		window.SetFullscreen();
 		DisplayMenu(StartGameAction, SettingsAction, CreditsAction, quitAction);
 		window.ShowDisplay();
+		JComponent contentPane = (JComponent) window.GetContentPane();
+		InputMap inputMap = contentPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+		ActionMap actionMap = contentPane.getActionMap();
+
+		// Bind a key (e.g., "ENTER")
+		inputMap.put(KeyStroke.getKeyStroke("ESCAPE"), "escape menu");
+		actionMap.put("escape menu", new AbstractAction() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("escape menu requested");
+				Main.EscMenuRequest();
+			}
+		});
 	}
 
 	public void DisplayMenu(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
@@ -49,17 +64,17 @@ public class MainWindow {
 		ActionListener BackColorPlayer1Listener = e -> ChangeColor(labelplayer1, 0, gameConfig , -1);
 		labelplayer1 = panel1.CreateLabel("    " , 35 , 2 ,1, 0 );
 		labelplayer1.setOpaque(true);
-		panel1.CreateButton(ChangeColorPlayer1Listener, 0, 2);
-		panel1.CreateButton(BackColorPlayer1Listener, 1, 2);
+		panel1.CreateButton(ChangeColorPlayer1Listener, 0, 2, 100, 50);
+		panel1.CreateButton(BackColorPlayer1Listener, 1, 2, 100, 50);
 		if (gameConfig.getPlayers()==2) {
-			Panel panel2 = window.CreatePanel(0,2);
+			Panel panel2 = window.CreatePanel(1,1);
 			ActionListener ChangeColorPlayer2Listener = e -> ChangeColor(labelplayer2, 1, gameConfig,1);
 			ActionListener BackColorPlayer2Listener = e -> ChangeColor(labelplayer2, 1, gameConfig,-1);
 			panel2.CreateLabel("Select Player2" ,15 ,2 ,0, 0 );
 			labelplayer2 = panel2.CreateLabel("    ",35,2,1, 0 );
 			labelplayer2.setOpaque(true);
-			panel2.CreateButton(ChangeColorPlayer2Listener, 0, 2);
-			panel2.CreateButton(BackColorPlayer2Listener, 1, 2);
+			panel2.CreateButton(ChangeColorPlayer2Listener, 0, 2, 100, 50);
+			panel2.CreateButton(BackColorPlayer2Listener, 1, 2, 100, 50);
 		}
 		window.CreateButton(0 , 3,2, "Start Game", StartGameAction);
 		window.CreateButton(0 , 4,2, "Back", backListener );
@@ -88,6 +103,14 @@ public class MainWindow {
 		window.ClearDisplay();
 		gamePanel = new GamePanel(game);
 		window.AddPanel(gamePanel.getPanel());
+		window.UpdateDisplay();
+	}
+	public java.awt.Window GetWindow() {
+		return window.GetWindow();
+	}
+	public void DisplayBugScreen(ActionListener backListener){
+		window.ClearDisplay();
+		window.CreateButton(0 , 9,1, "Back", backListener );
 		window.UpdateDisplay();
 	}
 }
