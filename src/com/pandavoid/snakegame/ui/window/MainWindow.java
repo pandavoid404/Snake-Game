@@ -39,7 +39,7 @@ public class MainWindow {
 
 	public void DisplayMenu(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
 		window.ClearDisplay();
-		window.CreateLabel("Snake Game" ,80, 0, 0);
+		window.CreateLabel("Snake Game" ,80, 0, 0, 1);
 		window.CreateButton(0 , 1 ,1, "StartGame", StartGameAction);
 		window.CreateButton(0,2,1,"Settings" , SettingsAction);
 		window.CreateButton( 0 , 3 ,1, "Credits", CreditsAction);
@@ -87,15 +87,15 @@ public class MainWindow {
 	}
 	public void DisplayCredits( ActionListener backListener){
 		window.ClearDisplay();
-		window.CreateLabel("Programmers", 18, 0, 0);
-		window.CreateLabel("EndlessVoid_303", 13, 0, 1);
-		window.CreateLabel("MrPanda_071", 13, 0, 2);
-		window.CreateLabel("GraphicalDesigner", 18, 0, 3);
-		window.CreateLabel("MrPanda_071", 13, 0, 4);
-		window.CreateLabel("GameTesters", 18, 0, 5);
-		window.CreateLabel("Animator", 18, 0, 6);
-		window.CreateLabel("Special thanks", 18, 0, 7);
-		window.CreateLabel("EndlessVoid_303 Mom", 13, 0, 8);
+		window.CreateLabel("Programmers", 18, 0, 0, 1);
+		window.CreateLabel("EndlessVoid_303", 13, 0, 1, 1);
+		window.CreateLabel("MrPanda_071", 13, 0, 2, 1);
+		window.CreateLabel("GraphicalDesigner", 18, 0, 3, 1);
+		window.CreateLabel("MrPanda_071", 13, 0, 4, 1);
+		window.CreateLabel("GameTesters", 18, 0, 5, 1);
+		window.CreateLabel("Animator", 18, 0, 6, 1);
+		window.CreateLabel("Special thanks", 18, 0, 7, 1);
+		window.CreateLabel("EndlessVoid_303 Mom", 13, 0, 8, 1);
 		window.CreateButton(0 , 9,1, "Back", backListener );
 		window.UpdateDisplay();
 	}
@@ -110,6 +110,20 @@ public class MainWindow {
 	}
 	public void DisplayBugScreen(ActionListener backListener){
 		window.ClearDisplay();
+		window.CreateLabel("Report Bug", 40,0 ,4, 2);
+		window.CreateJTextArea("In the title box please provide a clear and short bug titlen\n" +
+				"(Example: \"Game crashes when opening inventory\")",
+				10,0 ,5,false , 0 , 0,600,200);
+		window.CreateJTextArea("Title for the bug",
+				10,0 ,6,true, 10 ,2,600,200);
+		window.CreateJTextArea("Give a detailed description of the bug.\n" +
+				"-When did it happen? \n" +
+				"-What were you doing? \n" +
+				"-What should have happened instead? \n" +
+				"-Provide steps so we can recreate the bug.",
+				10,0 ,7,false, 10 ,0 , 600,200 );
+		window.CreateJTextArea("Description",
+				10,0 ,8,true, 10 ,0,600,200  );
 		window.CreateButton(0 , 9,1, "Back", backListener );
 		window.UpdateDisplay();
 	}

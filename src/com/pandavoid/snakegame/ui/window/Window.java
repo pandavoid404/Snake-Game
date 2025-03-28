@@ -27,16 +27,32 @@ public class Window {
         return window.getContentPane();
     }
 
-    void CreateLabel(String text, int size, int x, int y) {
+    void CreateLabel(String text, int size, int x, int y, int gwidth) {
         JLabel label = new JLabel("text");
         label.setText(text);
-        //add GridBagConstraints and add padding 
+        //add GridBagConstraints and add padding
         GridBagConstraints gbc = new GridBagConstraints();
         label.setFont(new Font("Monospaced", Font.BOLD, size));
         gbc.insets = new Insets(10, 0, 10, 0);  
         gbc.gridx = x;
         gbc.gridy = y;
+        gbc.gridwidth = gwidth;
         window.add(label,gbc);
+    }
+    void CreateJTextArea(String text, int size, int x, int y,boolean editable, int top , int bottom ,int boxwidth, int boxheight) {
+        JTextArea textArea = new JTextArea("text",10,30);
+        textArea.setText(text);
+        //set GridBagConstraints
+        GridBagConstraints gbc = new GridBagConstraints();
+        textArea.setFont(new Font("Monospaced", Font.BOLD, size));
+        gbc.insets = new Insets(top, 0, bottom, 0);
+        gbc.gridx = x;
+        gbc.gridy = y;
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
+        textArea.setEditable(editable);
+        window.add(textArea,gbc);
+
     }
     //create function for create a button 
     void CreateButton(int x, int y, int width , String text, ActionListener action){
@@ -55,6 +71,7 @@ public class Window {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         window.add(button,gbc);
     }
+
     void ShowDisplay() {
         window.setVisible(true);
     }
@@ -72,7 +89,7 @@ public class Window {
         window.getContentPane().setBackground(Color.WHITE);
     }
 
-    void ClearDisplay() {
+    void ClearDisplay() {;
         Component[] components = window.getContentPane().getComponents();
         for (Component component : components) {
             if (component instanceof JButton jbutton) {
@@ -81,6 +98,8 @@ public class Window {
                 window.remove(jlabel);
             } else if (component instanceof JPanel jPanel) {
                 window.remove(jPanel);
+            }else if (component instanceof  JTextArea JTextArea) {
+                window.remove(JTextArea);
             }
         }
     }

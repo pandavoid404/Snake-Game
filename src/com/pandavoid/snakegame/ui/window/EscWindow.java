@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 public class EscWindow {
     private final Window window;
     private static final short height = 500;
-    private static final short width = 300;
+    private static final short width = 200;
     public EscWindow(Point MainWindowPos, int MainWindowWidth, int MainWindowHeight) {
         System.out.println(MainWindowPos);
         window = new Window("SnakeGame", width, height);

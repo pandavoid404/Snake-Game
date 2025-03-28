@@ -3,6 +3,7 @@ package com.pandavoid.snakegame.ui.window;
 import com.pandavoid.snakegame.game.Game;
 import com.pandavoid.snakegame.game.snake.Snake;
 
+
 import java.awt.*;
 
 class GamePanel {
