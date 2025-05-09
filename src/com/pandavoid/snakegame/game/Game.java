@@ -22,7 +22,7 @@ public class Game {
 		this.config = config;
 		this.Players = config.getPlayers();
 		this.gamePanel = gamePanel;
-		this.board = new Board(10, 20);
+		this.board = new Board(33, 60);
 		snakes.add(new Snake(this,config.getPlayerConfig(0)));
 		actionMap.put("Move UP snake 1", new AbstractAction() {
 			@Override

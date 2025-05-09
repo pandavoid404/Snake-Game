@@ -19,7 +19,7 @@ public class Board {
 		System.out.println("board generated");
 	}
 	public Cell GetCell(int x, int y) {
-		return board[y-1][x-1];
+		return board[y][x];
 	}
 
 	public Cell FindFreeCell() {
@@ -38,13 +38,13 @@ public class Board {
 		return null;
 	}
 	public boolean OutsideArea(int x, int y) {
-		if (x <= 0) {
+		if (x < 0) {
 			return true;
 		}
 		if (x >= width) {
 			return true;
 		}
-		if (y <= 0) {
+		if (y < 0) {
 			return true;
 		}
 		return y >= height;
