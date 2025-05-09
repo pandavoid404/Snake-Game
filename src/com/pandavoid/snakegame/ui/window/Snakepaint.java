@@ -11,9 +11,9 @@ public class Snakepaint extends JPanel {
     private Game game;
     private final int Boxsize = 27;
     public Snakepaint(Game game) {
-
         this.game = game;
-        setOpaque(false);
+        setVisible(true);
+        setOpaque(true);
         for (Snake snake : game.getSnakes()) {
             if (snake != null) {
                 for (SnakeCell snakeCell : snake.getSnakeCells()) {

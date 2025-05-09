@@ -19,6 +19,7 @@ public class SnakeCell {
 		this.part = SnakePart.HEAD;
 		this.snake.getGame().takeCell(this.x,this.y,this.snake);
 		this.fromDirection = fromDirection;
+
 	}
 	public Point getPosition() {
 		return new Point(x,y);

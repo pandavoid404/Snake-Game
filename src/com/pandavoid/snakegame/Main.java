@@ -17,6 +17,7 @@ public class Main {
     private static GameConfig gameConfig;
     private static EscWindow escWindow;
     private static MainWindowState mainWindowState;
+
     
 	public static void main(String[]args) {
         mainWindowState = MainWindowState.MAIN_MENU;
@@ -99,6 +100,7 @@ public class Main {
         mainWindowState = MainWindowState.PLAYING;
         System.out.println("Game Starting...");
         game = new Game(config,mainWindow.GetActionmap());
+
         mainWindow.DisplayGame(game);
     }
     public static void BugReportScreen(){
@@ -107,6 +109,11 @@ public class Main {
         System.out.println("bug report");
         escWindow.Close();
         escWindow = null;
+    }
+    public void GameTick(){
+        while(game!=null){
+
+        }
     }
 
 } 
