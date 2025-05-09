@@ -50,7 +50,7 @@ public class Snake {
 				break;
 		}
 	}
-	public void Move() {
+	public boolean Move() {
 		Point newPosition = new Point(position);
 		currentDirection = newDirection;
 		switch (currentDirection) {
@@ -68,6 +68,10 @@ public class Snake {
 				break;
 		}
 		System.out.println("Moving snake to " + newPosition);
+		if (game.getBoard().OutsideArea(newPosition.x, newPosition.y)) {
+			System.out.println("Out of area");
+			return false;
+		}
 		position = newPosition;
 		snakeCells.addFirst(new SnakeCell(new Point(position.x,position.y),this,currentDirection));
 		System.out.println("Snake head added at x: "+position.x+" and y: "+position.y+" with direction: "+currentDirection.toString());
@@ -77,6 +81,7 @@ public class Snake {
 			updateTail();
 			System.out.println("Snake tail removed and tail updated because snake is longer than " + maxLength);
 		}
+		return true;
 	}
 	public Color getColor() {
 		return snakeColor;

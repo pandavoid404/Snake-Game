@@ -125,4 +125,7 @@ public class Game {
 	public GamePanel getGamePanel() {
 		return gamePanel;
 	}
+	public Board getBoard() {
+		return board;
+	}
 }

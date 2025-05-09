@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Board {
+	private int height, width;
 	private final Cell[][] board;
 	public Board(int height, int width) {
+		this.height = height;
+		this.width = width;
 		board = new Cell[height][width];
 		for (int RI = 0; RI < height;RI++) {
 			for (int CI = 0; CI < width;CI++) {
@@ -33,5 +36,17 @@ public class Board {
 			return freeCells.get(random.nextInt(freeCells.size()));
 		}
 		return null;
+	}
+	public boolean OutsideArea(int x, int y) {
+		if (x <= 0) {
+			return true;
+		}
+		if (x >= width) {
+			return true;
+		}
+		if (y <= 0) {
+			return true;
+		}
+		return y >= height;
 	}
 }

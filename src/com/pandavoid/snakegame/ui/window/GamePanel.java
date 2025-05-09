@@ -4,6 +4,7 @@ import com.pandavoid.snakegame.enums.Direction;
 import com.pandavoid.snakegame.game.Game;
 
 import java.awt.*;
+import java.util.Objects;
 
 public class GamePanel implements Runnable {
     private final ImagePanel panel;
