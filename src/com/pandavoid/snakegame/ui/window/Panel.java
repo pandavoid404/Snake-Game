@@ -57,4 +57,12 @@ class Panel {
 		panel.add(button, gbc);
 	}
 
+
+	public void addSnakePaint(Snakepaint snakepaint) {
+		panel.add(snakepaint);
+	}
+
+	public void setVisible(boolean b) {
+		panel.setVisible(b);
+	}
 }

@@ -29,7 +29,6 @@ class ImagePanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-
         // Draw the background image only if it's loaded
         if (backgroundImage != null) {
             g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
@@ -64,5 +63,9 @@ class ImagePanel extends JPanel {
         gbc.gridy = 1;
         gbc.gridwidth = 1;
         this.add(button, gbc);
+    }
+
+    public void add(Panel snakePanel) {
+        this.add(snakePanel.GetPanel());
     }
 }
