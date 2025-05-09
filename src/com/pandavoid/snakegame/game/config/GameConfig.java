@@ -12,10 +12,12 @@ public class GameConfig {
 	public void setPlayers(int amount) {
 		players = amount;
 		playerConfigs[0] = new PlayerConfig(this);
+		playerConfigs[0].setPosition(new Point(5, 30));
 		if (players == 1) {
 			playerConfigs[1] = null;
 		} else if (players == 2) {
 			playerConfigs[1] = new PlayerConfig(this);
+			playerConfigs[1].setPosition(new Point(55, 30));
 		}
 	}
 	public Color[] getColors() {
