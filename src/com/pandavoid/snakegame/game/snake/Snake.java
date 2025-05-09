@@ -77,6 +77,7 @@ public class Snake {
 		System.out.println("Snake head added at x: "+position.x+" and y: "+position.y+" with direction: "+currentDirection.toString());
 		updateHead(currentDirection);
 		if (snakeCells.size() > maxLength) {
+			game.getGamePanel().removeSnakeBlock(snakeCells.getLast().getSnakepaint());
 			snakeCells.removeLast();
 			updateTail();
 			System.out.println("Snake tail removed and tail updated because snake is longer than " + maxLength);

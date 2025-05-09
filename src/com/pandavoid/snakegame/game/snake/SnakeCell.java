@@ -43,4 +43,7 @@ public class SnakeCell {
 	public SnakePart getPart() {
 		return part;
 	}
+	public Snakepaint getSnakepaint() {
+		return snakepaint;
+	}
 }

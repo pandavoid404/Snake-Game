@@ -25,6 +25,9 @@ public class GamePanel implements Runnable {
         panel.add(snakepaint);
         return snakepaint;
     }
+    public void removeSnakeBlock(Snakepaint snakepaint) {
+        panel.remove(snakepaint);
+    }
 
     public ImagePanel getPanel() {
         return panel;
