@@ -1,6 +1,7 @@
 package com.pandavoid.snakegame.ui.window;
 
 import com.pandavoid.snakegame.Main;
+import com.pandavoid.snakegame.enums.Direction;
 import com.pandavoid.snakegame.game.Game;
 import com.pandavoid.snakegame.game.config.GameConfig;
 
@@ -27,12 +28,43 @@ public class MainWindow {
 		ActionMap actionMap = contentPane.getActionMap();
 
 		// Bind a key (e.g., "ENTER")
-		inputMap.put(KeyStroke.getKeyStroke("ESCAPE"), "escape menu");
-		actionMap.put("escape menu", new AbstractAction() {
+		inputMap.put(KeyStroke.getKeyStroke("ESCAPE"), "Escape Menu");
+		actionMap.put("Escape Menu", new AbstractAction() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("escape menu requested");
 				Main.EscMenuRequest();
+			}
+		});
+		inputMap.put(KeyStroke.getKeyStroke("W"), "Move UP");
+		actionMap.put("Move UP", new AbstractAction() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gamePanel.Move(Direction.UP);
+			}
+		});
+		inputMap.put(KeyStroke.getKeyStroke("D"), "Move RIGHT");
+		actionMap.put("Move RIGHT", new AbstractAction() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gamePanel.Move(Direction.RIGHT);
+				System.out.println("Move RIGHT");
+			}
+		});
+		inputMap.put(KeyStroke.getKeyStroke("S"), "Move DOWN");
+		actionMap.put("Move DOWN", new AbstractAction() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gamePanel.Move(Direction.DOWN);
+				System.out.println("Move DOWN");
+			}
+		});
+		inputMap.put(KeyStroke.getKeyStroke("A"), "Move LEFT");
+		actionMap.put("Move LEFT", new AbstractAction() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gamePanel.Move(Direction.LEFT);
+				System.out.println("Move LEFT");
 			}
 		});
 	}
