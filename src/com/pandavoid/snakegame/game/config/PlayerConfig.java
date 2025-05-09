@@ -14,7 +14,7 @@ public class PlayerConfig {
 		this.gameConfig = gameConfig;
 		this.colorIndex = 0;
 		this.direction = Direction.UP;
-		this.position = new Point(10, 10);
+		this.position = new Point(5, 30);
 	}
 	public Color getColor() {
 		return gameConfig.getColors()[colorIndex];

@@ -40,6 +40,11 @@ public class MainWindow {
 		inputMap.put(KeyStroke.getKeyStroke("D"), "Move RIGHT snake 1");
 		inputMap.put(KeyStroke.getKeyStroke("S"), "Move DOWN snake 1");
 		inputMap.put(KeyStroke.getKeyStroke("A"), "Move LEFT snake 1");
+		inputMap.put(KeyStroke.getKeyStroke("LEFT"), "Move LEFT snake 2");
+		inputMap.put(KeyStroke.getKeyStroke("UP"), "Move UP snake 2");
+		inputMap.put(KeyStroke.getKeyStroke("DOWN"), "Move DOWN snake 2");
+		inputMap.put(KeyStroke.getKeyStroke("RIGHT"), "Move RIGHT snake 2");
+
 	}
 
 	public void DisplayMenu(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
