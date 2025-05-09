@@ -67,7 +67,6 @@ public class Snake {
 		}
 		System.out.println("Moving snake to " + newPosition);
 		position = newPosition;
-		game.takeCell(position.x,position.y,this);
 		snakeCells.addFirst(new SnakeCell(position.x,position.y,this,currentDirection));
 		System.out.println("Snake head added at x: "+position.x+" and y: "+position.y+" with direction: "+currentDirection.toString());
 		updateHead(currentDirection);
