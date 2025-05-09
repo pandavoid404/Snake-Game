@@ -15,6 +15,7 @@ public class Snake {
 	private Direction currentDirection;
 	private Direction newDirection;
 	private Point position;
+	private int maxLength = 3;
 	private final ArrayList<SnakeCell> snakeCells = new ArrayList<>();
 	public Snake(Game game, PlayerConfig config) {
 		this.game = game;
@@ -22,9 +23,7 @@ public class Snake {
 		this.newDirection = config.getDirection();
 		this.position = config.getPosition();
 		this.snakeColor = config.getColor();
-		this.snakeCells.add(new SnakeCell(this.config.getPosition().x, this.config.getPosition().y,this));
-		this.snakeCells.add(new SnakeCell(this.config.getPosition().x, this.config.getPosition().y-1,this));
-		this.snakeCells.add(new SnakeCell(this.config.getPosition().x, this.config.getPosition().y-2,this));
+		this.snakeCells.add(new SnakeCell(this.config.getPosition().x, this.config.getPosition().y,this,Direction.RIGHT));
 	}
 	public void TurnSnake(Direction direction) {
 		switch (direction) {
@@ -68,6 +67,15 @@ public class Snake {
 		}
 		System.out.println("Moving snake to " + newPosition);
 		position = newPosition;
+		game.takeCell(position.x,position.y,this);
+		snakeCells.addFirst(new SnakeCell(position.x,position.y,this,currentDirection));
+		System.out.println("Snake head added at x: "+position.x+" and y: "+position.y+" with direction: "+currentDirection.toString());
+		updateHead(currentDirection);
+		if (snakeCells.size() > maxLength) {
+			snakeCells.removeLast();
+			updateTail();
+			System.out.println("Snake tail removed and tail updated because snake is longer than " + maxLength);
+		}
 	}
 	public Color getColor() {
 		return snakeColor;
@@ -76,7 +84,7 @@ public class Snake {
 	public void Collision() {
 		System.out.println("Snake collision");
 	}
-
+	
 	public void increaseLength() {
 		length++;
 	}
@@ -91,5 +99,17 @@ public class Snake {
 
 	public Game getGame() {
 		return game;
+	}
+
+	private void updateTail() {
+		if (snakeCells.size() > 1) {
+			snakeCells.getLast().isTail();
+		}
+	}
+	private void updateHead(Direction direction) {
+		if (snakeCells.size() > 1) {
+			snakeCells.get(1).setNextDirection(direction);
+			System.out.println(" old snake head updated with direction: " + direction);
+		}
 	}
 }

@@ -11,6 +11,7 @@ public class Game {
 	private final int Players;
 	private final ArrayList<Snake> snakes = new ArrayList<>();
 	private final Board board;
+	private int tick = 0;
 
 	public Game(GameConfig config) {
 		this.config = config;
@@ -54,6 +55,8 @@ public class Game {
 	public void tick() {
 		for (Snake snake : snakes) {
 			snake.Move();
+			tick+= 1;
+			System.out.println("tick: " + tick);
 		}
 	}
 }
