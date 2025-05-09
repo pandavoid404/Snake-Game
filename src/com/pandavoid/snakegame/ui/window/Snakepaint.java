@@ -24,7 +24,7 @@ public class Snakepaint extends JPanel {
             super.paintComponent(g);
             g.setColor(Color.red);
             g.fillRect(0, 0, boxsize, boxsize);
-            System.out.println("paintcomponent");
+//            System.out.println("paintcomponent");
             g.dispose();
     }
 }
