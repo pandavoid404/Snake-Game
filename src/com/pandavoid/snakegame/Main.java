@@ -4,6 +4,7 @@ import com.pandavoid.snakegame.enums.MainWindowState;
 import com.pandavoid.snakegame.game.Game;
 import com.pandavoid.snakegame.game.config.GameConfig;
 import com.pandavoid.snakegame.ui.window.EscWindow;
+import com.pandavoid.snakegame.ui.window.GamePanel;
 import com.pandavoid.snakegame.ui.window.MainWindow;
 import com.pandavoid.snakegame.ui.window.QuitWindow;
 import java.awt.*;
@@ -99,8 +100,12 @@ public class Main {
     private static void StartGame(GameConfig config){
         mainWindowState = MainWindowState.PLAYING;
         System.out.println("Game Starting...");
-        mainWindow.DisplayGame(game);
-        game = new Game(config,mainWindow.GetActionmap(),mainWindow.GetGamePanel());
+        GamePanel gamepanel = mainWindow.DisplayGame();
+        game = new Game(config,mainWindow.GetActionmap(),gamepanel);
+        gamepanel.DisplayGame(game);
+        // Start the game thread to run the game loop
+        Thread gameThread = new Thread(mainWindow.GetGamePanel());
+        gameThread.start();
     }
     public static void BugReportScreen(){
         ActionListener backListener = e -> ShowMainMenu();

@@ -1,14 +1,13 @@
 package com.pandavoid.snakegame.ui.window;
 
 import com.pandavoid.snakegame.Main;
-import com.pandavoid.snakegame.enums.Direction;
-import com.pandavoid.snakegame.game.Game;
 import com.pandavoid.snakegame.game.config.GameConfig;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.Objects;
 
 public class MainWindow {
 	private final Window window;
@@ -105,11 +104,12 @@ public class MainWindow {
 		window.CreateButton(0 , 9,1, "Back", backListener );
 		window.UpdateDisplay();
 	}
-	public void DisplayGame(Game game) {
+	public GamePanel DisplayGame() {
 		window.ClearDisplay();
-		gamePanel = new GamePanel(game);
+		gamePanel = new GamePanel();
 		window.AddPanel(gamePanel.getPanel());
 		window.UpdateDisplay();
+		return gamePanel;
 	}
 	public java.awt.Window GetWindow() {
 		return window.GetWindow();

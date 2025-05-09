@@ -115,10 +115,10 @@ public class Game {
 	}
 
 	public void tick() {
+		System.out.println("tick: " + tick);
 		for (Snake snake : snakes) {
 			snake.Move();
 			tick+= 1;
-			System.out.println("tick: " + tick);
 		}
 	}
 

@@ -8,12 +8,15 @@ import java.awt.*;
 public class GamePanel implements Runnable {
     private final ImagePanel panel;
     private final Panel HudPanel = null;
-    private final Game game;
+    private Game game;
 
-    public GamePanel(Game game) {
-        this.game = game;
+    public GamePanel() {
         panel = new ImagePanel("assets/defultbackgroundsnakegameboard.png", 1200, 660, 0, 1);
         panel.setLayout(null); // Use absolute positioning for ImagePanel
+    }
+    public void DisplayGame(Game game) {
+        Objects.requireNonNull(game);
+        this.game = game;
     }
 
     public Snakepaint createSnakeBlock(Point position) {
@@ -32,7 +35,11 @@ public class GamePanel implements Runnable {
         long targetTime = 1000 / targetFPS;
         while (true) {
             long startTime = System.currentTimeMillis();
-            game.tick();
+            if (game != null){
+                game.tick();
+            } else {
+                System.out.println("Game is null");
+            }
             long elapsedTime = System.currentTimeMillis() - startTime;
             if (elapsedTime < targetTime) {
                 try {
