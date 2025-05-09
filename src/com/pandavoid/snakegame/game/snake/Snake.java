@@ -11,11 +11,10 @@ public class Snake {
 	private final Game game;
 	private final PlayerConfig config;
 	private final Color snakeColor;
-	private int length;
 	private Direction currentDirection;
 	private Direction newDirection;
 	private Point position;
-	private int maxLength = 5;
+	private int maxLength;
 	private final ArrayList<SnakeCell> snakeCells = new ArrayList<>();
 	public Snake(Game game, PlayerConfig config) {
 		this.game = game;
@@ -23,6 +22,7 @@ public class Snake {
 		this.newDirection = config.getDirection();
 		this.position = config.getPosition();
 		this.snakeColor = config.getColor();
+		this.maxLength = config.getBaseLength();
 		this.snakeCells.add(new SnakeCell(new Point(this.config.getPosition().x, this.config.getPosition().y),this,newDirection));
 		Move();
 		Move();
@@ -93,7 +93,7 @@ public class Snake {
 	}
 	
 	public void increaseLength() {
-		length++;
+		maxLength++;
 	}
 
 	public Point getPosition() {

@@ -9,6 +9,7 @@ public class PlayerConfig {
 	private final GameConfig gameConfig;
 	private Direction direction;
 	private Point position;
+	private final int baseLength = 5;
 	public PlayerConfig(GameConfig gameConfig) {
 		this.gameConfig = gameConfig;
 		this.colorIndex = 0;
@@ -43,5 +44,8 @@ public class PlayerConfig {
 
 	public void setPosition(Point position) {
 		this.position = position;
+	}
+	public int getBaseLength() {
+		return baseLength;
 	}
 }
