@@ -15,7 +15,7 @@ public class Snake {
 	private Direction currentDirection;
 	private Direction newDirection;
 	private Point position;
-	private int maxLength = 3;
+	private int maxLength = 5;
 	private final ArrayList<SnakeCell> snakeCells = new ArrayList<>();
 	public Snake(Game game, PlayerConfig config) {
 		this.game = game;
