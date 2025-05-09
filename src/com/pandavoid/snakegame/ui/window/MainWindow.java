@@ -17,6 +17,7 @@ public class MainWindow {
 	private static JLabel labelplayer1;
 	private static JLabel labelplayer2;
 	private GamePanel gamePanel;
+	private ActionMap actionMap;
 	public MainWindow(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
 		window = new Window("SnakeGame",width,height);
 		window.SetMainWindow();
@@ -25,7 +26,7 @@ public class MainWindow {
 		window.ShowDisplay();
 		JComponent contentPane = (JComponent) window.GetContentPane();
 		InputMap inputMap = contentPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
-		ActionMap actionMap = contentPane.getActionMap();
+		this.actionMap = contentPane.getActionMap();
 
 		// Bind a key (e.g., "ENTER")
 		inputMap.put(KeyStroke.getKeyStroke("ESCAPE"), "Escape Menu");
@@ -158,5 +159,8 @@ public class MainWindow {
 				10,0 ,8,true, 10 ,0,600,200  );
 		window.CreateButton(0 , 9,1, "Back", backListener );
 		window.UpdateDisplay();
+	}
+	public ActionMap GetActionmap(){
+		return actionMap;
 	}
 }

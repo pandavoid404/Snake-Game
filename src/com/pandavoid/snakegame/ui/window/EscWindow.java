@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 public class EscWindow {
     private final Window window;
     private static final short height = 500;
-    private static final short width = 200;
+    private static final short width = 400;
     public EscWindow(Point MainWindowPos, int MainWindowWidth, int MainWindowHeight) {
         System.out.println(MainWindowPos);
         window = new Window("SnakeGame", width, height);
@@ -20,10 +20,10 @@ public class EscWindow {
         ActionListener SettingsListener = e -> Main.Settings();
         ActionListener BugScreenListener = e -> Main.BugReportScreen();
         window.CreateButton(0 ,1 ,1 ,"Back to Game",CancelListener);
-        window.CreateButton(0 ,2,1 ,"restart",CancelListener);
+        window.CreateButton(0 ,2, 1 ,"restart",CancelListener);
         window.CreateButton(0 ,3 ,1 ,"Settings", SettingsListener);
         window.CreateButton(0 ,4 ,1 ,"Bug Report",BugScreenListener);
-        window.CreateButton( 0 , 5 ,1, "Back to Main Menu", ToMainListener);
+        window.CreateButton(0 ,5 ,1, "Back to Main Menu", ToMainListener);
 
         window.ShowDisplay();
     }

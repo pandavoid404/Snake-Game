@@ -98,7 +98,7 @@ public class Main {
     private static void StartGame(GameConfig config){
         mainWindowState = MainWindowState.PLAYING;
         System.out.println("Game Starting...");
-        game = new Game(config);
+        game = new Game(config,mainWindow.GetActionmap());
         mainWindow.DisplayGame(game);
     }
     public static void BugReportScreen(){
