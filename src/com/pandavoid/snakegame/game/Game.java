@@ -4,21 +4,24 @@ import com.pandavoid.snakegame.enums.Direction;
 import com.pandavoid.snakegame.game.board.Board;
 import com.pandavoid.snakegame.game.config.GameConfig;
 import com.pandavoid.snakegame.game.snake.Snake;
+import com.pandavoid.snakegame.ui.window.GamePanel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 public class Game {
+	private final GamePanel gamePanel;
 	private final GameConfig config;
 	private final int Players;
 	private final ArrayList<Snake> snakes = new ArrayList<>();
 	private final Board board;
 	private int tick = 0;
 
-	public Game(GameConfig config, ActionMap actionMap) {
+	public Game(GameConfig config, ActionMap actionMap,GamePanel gamePanel) {
 		this.config = config;
 		this.Players = config.getPlayers();
+		this.gamePanel = gamePanel;
 		this.board = new Board(10, 20);
 		snakes.add(new Snake(this,config.getPlayerConfig(0)));
 		actionMap.put("Move UP snake 1", new AbstractAction() {
@@ -117,5 +120,9 @@ public class Game {
 			tick+= 1;
 			System.out.println("tick: " + tick);
 		}
+	}
+
+	public GamePanel getGamePanel() {
+		return gamePanel;
 	}
 }

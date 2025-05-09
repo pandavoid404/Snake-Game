@@ -2,27 +2,27 @@ package com.pandavoid.snakegame.game.snake;
 
 import com.pandavoid.snakegame.enums.Direction;
 import com.pandavoid.snakegame.enums.SnakePart;
+import com.pandavoid.snakegame.ui.window.Snakepaint;
 
 import java.awt.*;
 
 public class SnakeCell {
 	private final Snake snake;
-	private final int x;
-	private final int y;
+	private Point position;
 	private SnakePart part;
 	private final Direction fromDirection;
 	private Direction toDirection;
-	public SnakeCell(int x, int y, Snake snake, Direction fromDirection) {
-		this.x = x;
-		this.y = y;
+	private Snakepaint snakepaint;
+	public SnakeCell(Point position,Snake snake, Direction fromDirection) {
+		this.position = position;
 		this.snake = snake;
 		this.part = SnakePart.HEAD;
-		this.snake.getGame().takeCell(this.x,this.y,this.snake);
+		this.snake.getGame().takeCell(position.x,position.y,this.snake);
 		this.fromDirection = fromDirection;
-
+		this.snakepaint = snake.getGame().getGamePanel().createSnakeBlock(position);
 	}
 	public Point getPosition() {
-		return new Point(x,y);
+		return position;
 	}
 	public void isTail() {
 		this.part = SnakePart.TAIL;

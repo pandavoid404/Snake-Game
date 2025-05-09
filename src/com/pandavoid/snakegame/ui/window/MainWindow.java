@@ -136,4 +136,7 @@ public class MainWindow {
 	public ActionMap GetActionmap(){
 		return actionMap;
 	}
+	public GamePanel GetGamePanel() {
+		return gamePanel;
+	}
 }

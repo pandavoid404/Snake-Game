@@ -99,9 +99,8 @@ public class Main {
     private static void StartGame(GameConfig config){
         mainWindowState = MainWindowState.PLAYING;
         System.out.println("Game Starting...");
-        game = new Game(config,mainWindow.GetActionmap());
-
         mainWindow.DisplayGame(game);
+        game = new Game(config,mainWindow.GetActionmap(),mainWindow.GetGamePanel());
     }
     public static void BugReportScreen(){
         ActionListener backListener = e -> ShowMainMenu();

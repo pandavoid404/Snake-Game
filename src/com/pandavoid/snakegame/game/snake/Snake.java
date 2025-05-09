@@ -23,7 +23,9 @@ public class Snake {
 		this.newDirection = config.getDirection();
 		this.position = config.getPosition();
 		this.snakeColor = config.getColor();
-		this.snakeCells.add(new SnakeCell(this.config.getPosition().x, this.config.getPosition().y,this,Direction.RIGHT));
+		this.snakeCells.add(new SnakeCell(new Point(this.config.getPosition().x, this.config.getPosition().y),this,newDirection));
+		Move();
+		Move();
 	}
 	public void TurnSnake(Direction direction) {
 		switch (direction) {
@@ -67,7 +69,7 @@ public class Snake {
 		}
 		System.out.println("Moving snake to " + newPosition);
 		position = newPosition;
-		snakeCells.addFirst(new SnakeCell(position.x,position.y,this,currentDirection));
+		snakeCells.addFirst(new SnakeCell(new Point(position.x,position.y),this,currentDirection));
 		System.out.println("Snake head added at x: "+position.x+" and y: "+position.y+" with direction: "+currentDirection.toString());
 		updateHead(currentDirection);
 		if (snakeCells.size() > maxLength) {
