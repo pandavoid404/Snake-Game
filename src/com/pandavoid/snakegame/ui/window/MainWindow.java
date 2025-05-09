@@ -37,37 +37,10 @@ public class MainWindow {
 				Main.EscMenuRequest();
 			}
 		});
-		inputMap.put(KeyStroke.getKeyStroke("W"), "Move UP");
-		actionMap.put("Move UP", new AbstractAction() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				gamePanel.Move(Direction.UP);
-			}
-		});
-		inputMap.put(KeyStroke.getKeyStroke("D"), "Move RIGHT");
-		actionMap.put("Move RIGHT", new AbstractAction() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				gamePanel.Move(Direction.RIGHT);
-				System.out.println("Move RIGHT");
-			}
-		});
-		inputMap.put(KeyStroke.getKeyStroke("S"), "Move DOWN");
-		actionMap.put("Move DOWN", new AbstractAction() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				gamePanel.Move(Direction.DOWN);
-				System.out.println("Move DOWN");
-			}
-		});
-		inputMap.put(KeyStroke.getKeyStroke("A"), "Move LEFT");
-		actionMap.put("Move LEFT", new AbstractAction() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				gamePanel.Move(Direction.LEFT);
-				System.out.println("Move LEFT");
-			}
-		});
+		inputMap.put(KeyStroke.getKeyStroke("W"), "Move UP snake 1");
+		inputMap.put(KeyStroke.getKeyStroke("D"), "Move RIGHT snake 1");
+		inputMap.put(KeyStroke.getKeyStroke("S"), "Move DOWN snake 1");
+		inputMap.put(KeyStroke.getKeyStroke("A"), "Move LEFT snake 1");
 	}
 
 	public void DisplayMenu(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
