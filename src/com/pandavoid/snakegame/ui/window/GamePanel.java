@@ -32,12 +32,13 @@ public class GamePanel implements Runnable {
 
     @Override
     public void run() {
-        int targetFPS = 60;
+        int targetFPS = 6;
         long targetTime = 1000 / targetFPS;
         while (true) {
             long startTime = System.currentTimeMillis();
             if (game != null){
                 game.tick();
+                panel.repaint();
             } else {
                 System.out.println("Game is null");
             }
