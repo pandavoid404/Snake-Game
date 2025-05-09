@@ -109,10 +109,6 @@ public class Main {
         escWindow.Close();
         escWindow = null;
     }
-    public void GameTick(){
-        while(game!=null){
 
-        }
-    }
 
 } 
