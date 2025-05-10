@@ -1,7 +1,7 @@
 package com.pandavoid.snakegame.ui.window;
 
-import com.pandavoid.snakegame.enums.Direction;
 import com.pandavoid.snakegame.game.Game;
+import com.pandavoid.snakegame.ui.window.config.AssetConfig;
 
 import java.awt.*;
 import java.util.Objects;
@@ -20,13 +20,13 @@ public class GamePanel implements Runnable {
         this.game = game;
     }
 
-    public Snakepaint createSnakeBlock(Point position) {
-        Snakepaint snakepaint = new Snakepaint(this.game, position);
-        panel.add(snakepaint);
-        return snakepaint;
+    public AssetPaint createAsset(AssetConfig config) {
+        AssetPaint assetPaint = new AssetPaint(this.game,config);
+        panel.add(assetPaint);
+        return assetPaint;
     }
-    public void removeSnakeBlock(Snakepaint snakepaint) {
-        panel.remove(snakepaint);
+    public void removeSnakeBlock(AssetPaint assetPaint) {
+        panel.remove(assetPaint);
     }
 
     public ImagePanel getPanel() {

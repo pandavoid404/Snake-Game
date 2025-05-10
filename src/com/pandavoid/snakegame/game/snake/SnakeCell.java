@@ -2,7 +2,8 @@ package com.pandavoid.snakegame.game.snake;
 
 import com.pandavoid.snakegame.enums.Direction;
 import com.pandavoid.snakegame.enums.SnakePart;
-import com.pandavoid.snakegame.ui.window.Snakepaint;
+import com.pandavoid.snakegame.ui.window.AssetPaint;
+import com.pandavoid.snakegame.ui.window.config.AssetConfig;
 
 import java.awt.*;
 
@@ -12,14 +13,17 @@ public class SnakeCell {
 	private SnakePart part;
 	private final Direction fromDirection;
 	private Direction toDirection;
-	private Snakepaint snakepaint;
+	private AssetPaint assetPaint;
 	public SnakeCell(Point position,Snake snake, Direction fromDirection) {
+		AssetConfig config = new AssetConfig();
+		config.setPosition(position);
+		config.setColor(snake.getColor());
 		this.position = position;
 		this.snake = snake;
 		this.part = SnakePart.HEAD;
 		this.snake.getGame().takeCell(position.x,position.y,this.snake);
 		this.fromDirection = fromDirection;
-		this.snakepaint = snake.getGame().getGamePanel().createSnakeBlock(position);
+		this.assetPaint = snake.getGame().getGamePanel().createAsset(config);
 	}
 	public Point getPosition() {
 		return position;
@@ -43,7 +47,7 @@ public class SnakeCell {
 	public SnakePart getPart() {
 		return part;
 	}
-	public Snakepaint getSnakepaint() {
-		return snakepaint;
+	public AssetPaint getSnakepaint() {
+		return assetPaint;
 	}
 }

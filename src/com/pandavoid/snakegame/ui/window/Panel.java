@@ -58,8 +58,8 @@ class Panel {
 	}
 
 
-	public void addSnakePaint(Snakepaint snakepaint) {
-		panel.add(snakepaint);
+	public void addSnakePaint(AssetPaint assetPaint) {
+		panel.add(assetPaint);
 	}
 
 	public void setVisible(boolean b) {
