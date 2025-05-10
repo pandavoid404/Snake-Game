@@ -12,7 +12,7 @@ public class GamePanel implements Runnable {
     private Game game;
 
     public GamePanel() {
-        panel = new ImagePanel("assets/defultbackgroundsnakegameboard.png", 1200, 660, 0, 1);
+        panel = new ImagePanel("assets/background/gameboard/default.png", 1200, 660, 0, 1);
         panel.setLayout(null); // Use absolute positioning for ImagePanel
     }
     public void DisplayGame(Game game) {
