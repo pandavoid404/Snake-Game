@@ -1,5 +1,6 @@
 package com.pandavoid.snakegame.game.board;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -12,7 +13,7 @@ public class Board {
 		board = new Cell[height][width];
 		for (int RI = 0; RI < height;RI++) {
 			for (int CI = 0; CI < width;CI++) {
-				Cell cell = new Cell();
+				Cell cell = new Cell(new Point(CI,RI));
 				board[RI][CI] = cell;
 			}
 		}

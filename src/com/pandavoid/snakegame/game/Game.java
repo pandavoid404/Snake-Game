@@ -3,6 +3,7 @@ package com.pandavoid.snakegame.game;
 import com.pandavoid.snakegame.enums.Direction;
 import com.pandavoid.snakegame.game.board.Board;
 import com.pandavoid.snakegame.game.config.GameConfig;
+import com.pandavoid.snakegame.game.food.Food;
 import com.pandavoid.snakegame.game.snake.Snake;
 import com.pandavoid.snakegame.ui.window.GamePanel;
 
@@ -28,6 +29,9 @@ public class Game {
 		if (config.getPlayers()==2) {
 			snakes.add(new Snake(this,config.getPlayerConfig(1)));
 			addSnakeControls(actionMap,snakes.get(1),2);
+		}
+		for (int I = 0; I < config.getStartingFood();I++) {
+			spawnFood();
 		}
 	}
 	private void addSnakeControls(ActionMap actionMap,Snake snake,int SnakeNumber){
@@ -61,9 +65,11 @@ public class Game {
 	}
 
 	public void takeCell(int x, int y,Snake snake) {
-		if (board.GetCell(x, y).isFood()) {
-			board.GetCell(x, y).setFood(false);
-			placeFood();
+		Food food = board.GetCell(x, y).getFood();
+		if (food != null) {
+			getGamePanel().removeSnakeBlock(food.getAssetPaint());
+			board.GetCell(x, y).setFood(null);
+			spawnFood();
 			snake.increaseLength();
 		}
 		if (board.GetCell(x, y).isOccupied()) {

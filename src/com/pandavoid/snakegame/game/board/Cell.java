@@ -1,18 +1,24 @@
 package com.pandavoid.snakegame.game.board;
 
+import com.pandavoid.snakegame.game.food.Food;
+
+import java.awt.*;
+
 public class Cell {
 	private boolean occupied;
-	private boolean food;
-	public Cell() {
+	private Food food;
+	private final Point position;
+	public Cell(Point position) {
 		occupied = false;
-		food = false;
+		food = null;
+		this.position = position;
 	}
 
-	public boolean isFood() {
+	public Food getFood() {
 		return food;
 	}
 
-	public void setFood(boolean food) {
+	public void setFood(Food food) {
 		this.food = food;
 	}
 
@@ -22,5 +28,8 @@ public class Cell {
 
 	public void setOccupied(boolean occupied) {
 		this.occupied = occupied;
+	}
+	public Point getPosition() {
+		return position;
 	}
 }
