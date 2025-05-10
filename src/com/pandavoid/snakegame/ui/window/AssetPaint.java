@@ -26,7 +26,6 @@ public class AssetPaint extends JPanel {
             super.paintComponent(g);
             g.setColor(color);
             g.fillRect(0, 0, boxsize, boxsize);
-//            System.out.println("paintcomponent");
             g.dispose();
     }
 }
