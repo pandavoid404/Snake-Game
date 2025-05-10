@@ -24,69 +24,40 @@ public class Game {
 		this.gamePanel = gamePanel;
 		this.board = new Board(33, 60);
 		snakes.add(new Snake(this,config.getPlayerConfig(0)));
-		actionMap.put("Move UP snake 1", new AbstractAction() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				snakes.getFirst().TurnSnake(Direction.UP);
-				System.out.println("moving snake 1 up");
-			}
-		});
-		actionMap.put("Move DOWN snake 1", new AbstractAction() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				snakes.getFirst().TurnSnake(Direction.DOWN);
-				System.out.println("moving snake 1 down");
-			}
-		});
-		actionMap.put("Move LEFT snake 1", new AbstractAction() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				snakes.getFirst().TurnSnake(Direction.LEFT);
-				System.out.println("moving snake 1 left");
-			}
-		});
-		actionMap.put("Move RIGHT snake 1", new AbstractAction() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				snakes.getFirst().TurnSnake(Direction.RIGHT);
-				System.out.println("moving snake 1 right");
-			}
-		});
+		addSnakeControls(actionMap,snakes.get(0),1);
 		if (config.getPlayers()==2) {
 			snakes.add(new Snake(this,config.getPlayerConfig(1)));
-			actionMap.put("Move UP snake 2", new AbstractAction() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					snakes.getLast().TurnSnake(Direction.UP);
-					System.out.println("moving snake 2 up");
-				}
-			});
-			actionMap.put("Move DOWN snake 2", new AbstractAction() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					snakes.getLast().TurnSnake(Direction.DOWN);
-					System.out.println("moving snake 2 down");
-				}
-			});
-			actionMap.put("Move LEFT snake 2", new AbstractAction() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					snakes.getLast().TurnSnake(Direction.LEFT);
-					System.out.println("moving snake 2 left");
-				}
-			});
-			actionMap.put("Move RIGHT snake 2", new AbstractAction() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					snakes.getLast().TurnSnake(Direction.RIGHT);
-					System.out.println("moving snake 2 right");
-				}
-			});
+			addSnakeControls(actionMap,snakes.get(1),2);
 		}
 	}
-
-	private void placeFood() {
-		board.FindFreeCell().setFood(true);
+	private void addSnakeControls(ActionMap actionMap,Snake snake,int SnakeNumber){
+		actionMap.put("Move UP snake " + SnakeNumber, new AbstractAction() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				snake.TurnSnake(Direction.UP);
+			}
+		});
+		actionMap.put("Move DOWN snake " + SnakeNumber, new AbstractAction() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				snake.TurnSnake(Direction.DOWN);
+			}
+		});
+		actionMap.put("Move LEFT snake " + SnakeNumber, new AbstractAction() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				snake.TurnSnake(Direction.LEFT);
+			}
+		});
+		actionMap.put("Move RIGHT snake " + SnakeNumber, new AbstractAction() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				snake.TurnSnake(Direction.RIGHT);
+			}
+		});
+	}
+	private void spawnFood(){
+		new Food(this,board.FindFreeCell().getPosition());
 	}
 
 	public void takeCell(int x, int y,Snake snake) {
