@@ -1,16 +1,20 @@
-MIT License
-
+Custom MIT-like License
 Copyright (c) 2025 pandavoid404
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+of this software and associated documentation files (the "Software"), to use,
+copy, modify, merge, and use the Software for personal or internal purposes.
+Distribution of the Software, including selling copies, is also permitted
+under the condition that the original copyright notice and the following
+attribution requirement are met:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Attribution Requirement:
+If copies of the Software are sold, offered for sale, or otherwise distributed
+for commercial purposes, clear and visible credit must be given to the
+original author: "Created by PandaVoid404".
+
+This credit must be included in all user interfaces, documentation, and/or
+marketing materials where such distribution occurs.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
