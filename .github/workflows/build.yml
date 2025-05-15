@@ -33,7 +33,7 @@ jobs:
       - name: Create ZIP with JAR and assets folder
         run: |
           cd out
-          zip -r ../Snake-Game.zip Snake-Game.jar ../assets
+          zip -r Snake-Game.zip Snake-Game.jar ../assets
 
       - name: Upload ZIP to GitHub Release
         uses: softprops/action-gh-release@v1
