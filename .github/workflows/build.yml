@@ -23,9 +23,13 @@ jobs:
           mkdir -p out/classes
           javac -d out/classes $(find src -name "*.java")
 
+      - name: Create manifest file
+        run: |
+          echo "Main-Class: com.pandavoid.snakegame.Main" > manifest.txt
+
       - name: Create JAR file
         run: |
-          jar --create --file out/Snake-Game.jar -C out/classes .
+          jar --create --file out/Snake-Game.jar --manifest manifest.txt -C out/classes .
 
       - name: Upload JAR to GitHub Release
         uses: softprops/action-gh-release@v1
