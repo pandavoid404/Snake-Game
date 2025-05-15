@@ -32,7 +32,8 @@ jobs:
           jar --create --file out/Snake-Game.jar --manifest manifest.txt -C out/classes .
       - name: Create ZIP with JAR and assets folder
         run: |
-          zip -r out/Snake-Game.zip out/Snake-Game.jar assets
+          cd out
+          zip -r ../Snake-Game.zip Snake-Game.jar ../assets
 
       - name: Upload ZIP to GitHub Release
         uses: softprops/action-gh-release@v1
