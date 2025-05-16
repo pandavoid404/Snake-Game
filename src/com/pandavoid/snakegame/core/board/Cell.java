@@ -1,6 +1,6 @@
-package com.pandavoid.snakegame.game.board;
+package com.pandavoid.snakegame.core.board;
 
-import com.pandavoid.snakegame.game.food.Food;
+import com.pandavoid.snakegame.core.food.Food;
 
 import java.awt.*;
 

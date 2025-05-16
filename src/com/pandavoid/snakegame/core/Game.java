@@ -1,10 +1,10 @@
-package com.pandavoid.snakegame.game;
+package com.pandavoid.snakegame.core;
 
 import com.pandavoid.snakegame.enums.Direction;
-import com.pandavoid.snakegame.game.board.Board;
-import com.pandavoid.snakegame.game.config.GameConfig;
-import com.pandavoid.snakegame.game.food.Food;
-import com.pandavoid.snakegame.game.snake.Snake;
+import com.pandavoid.snakegame.core.board.Board;
+import com.pandavoid.snakegame.config.GameConfig;
+import com.pandavoid.snakegame.core.food.Food;
+import com.pandavoid.snakegame.core.snake.Snake;
 import com.pandavoid.snakegame.ui.window.GamePanel;
 
 import javax.swing.*;
@@ -62,26 +62,26 @@ public class Game {
 		});
 	}
 	private void spawnFood(){
-		new Food(this,board.FindFreeCell().getPosition());
+		new Food(this,board.findFreeCell().getPosition());
 	}
 
 	public void takeCell(int x, int y,Snake snake) {
-		Food food = board.GetCell(x, y).getFood();
+		Food food = board.getCell(x, y).getFood();
 		if (food != null) {
 			getGamePanel().removeSnakeBlock(food.getAssetPaint());
-			board.GetCell(x, y).setFood(null);
+			board.getCell(x, y).setFood(null);
 			spawnFood();
 			snake.increaseLength();
 		}
-		if (board.GetCell(x, y).isOccupied()) {
+		if (board.getCell(x, y).isOccupied()) {
 			snake.Collision();
 		} else {
-			board.GetCell(x, y).setOccupied(true);
+			board.getCell(x, y).setOccupied(true);
 		}
 	}
 
 	public void leaveCell(int x, int y,Snake snake) {
-		board.GetCell(x, y).setOccupied(false);
+		board.getCell(x, y).setOccupied(false);
 	}
 
 	public ArrayList<Snake> getSnakes() {

@@ -48,3 +48,11 @@ private methods: private void updateTail() {
                 			snakeCells.getLast().isTail();
                 		}
                 	}
+constants:
+variables:
+constructor:
+getters and setters:
+overides:
+public methods:
+private checks:
+private methods:

@@ -1,9 +1,9 @@
-package com.pandavoid.snakegame.game.snake;
+package com.pandavoid.snakegame.core.snake;
 
 import com.pandavoid.snakegame.Main;
 import com.pandavoid.snakegame.enums.Direction;
-import com.pandavoid.snakegame.game.Game;
-import com.pandavoid.snakegame.game.config.PlayerConfig;
+import com.pandavoid.snakegame.core.Game;
+import com.pandavoid.snakegame.config.PlayerConfig;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -69,7 +69,7 @@ public class Snake {
 				break;
 		}
 		System.out.println("Moving snake to " + newPosition);
-		if (game.getBoard().OutsideArea(newPosition.x, newPosition.y)) {
+		if (game.getBoard().isOutsideArea(newPosition.x, newPosition.y)) {
 			System.out.println("Out of area");
 			return false;
 		}

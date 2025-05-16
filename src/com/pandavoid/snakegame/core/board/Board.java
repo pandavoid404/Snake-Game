@@ -1,11 +1,12 @@
-package com.pandavoid.snakegame.game.board;
+package com.pandavoid.snakegame.core.board;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Board {
-	private int height, width;
+	private final int height;
+	private final int width;
 	private final Cell[][] board;
 	public Board(int height, int width) {
 		this.height = height;
@@ -19,11 +20,24 @@ public class Board {
 		}
 		System.out.println("board generated");
 	}
-	public Cell GetCell(int x, int y) {
+	public boolean isOutsideArea(int x, int y) {
+		if (x < 0) {
+			return true;
+		}
+		if (x >= width) {
+			return true;
+		}
+		if (y < 0) {
+			return true;
+		}
+		return y >= height;
+	}
+
+	public Cell getCell(int x, int y) {
 		return board[y][x];
 	}
 
-	public Cell FindFreeCell() {
+	public Cell findFreeCell() {
 		Random random = new Random();
 		ArrayList<Cell> freeCells = new ArrayList<>();
 		for (Cell[] cells : board) {
@@ -38,16 +52,5 @@ public class Board {
 		}
 		return null;
 	}
-	public boolean OutsideArea(int x, int y) {
-		if (x < 0) {
-			return true;
-		}
-		if (x >= width) {
-			return true;
-		}
-		if (y < 0) {
-			return true;
-		}
-		return y >= height;
-	}
+
 }

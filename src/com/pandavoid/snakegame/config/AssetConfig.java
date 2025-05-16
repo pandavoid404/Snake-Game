@@ -1,4 +1,4 @@
-package com.pandavoid.snakegame.ui.window.config;
+package com.pandavoid.snakegame.config;
 
 import java.awt.*;
 

@@ -1,11 +1,10 @@
 package com.pandavoid.snakegame;
 
 import com.pandavoid.snakegame.enums.MainWindowState;
-import com.pandavoid.snakegame.game.Game;
-import com.pandavoid.snakegame.game.config.GameConfig;
+import com.pandavoid.snakegame.core.Game;
+import com.pandavoid.snakegame.config.GameConfig;
 import com.pandavoid.snakegame.ui.window.*;
 
-import java.awt.*;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

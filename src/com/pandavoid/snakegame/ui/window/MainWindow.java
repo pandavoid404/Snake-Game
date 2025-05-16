@@ -1,13 +1,12 @@
 package com.pandavoid.snakegame.ui.window;
 
 import com.pandavoid.snakegame.Main;
-import com.pandavoid.snakegame.game.config.GameConfig;
+import com.pandavoid.snakegame.config.GameConfig;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.util.Objects;
 
 public class MainWindow {
 	private final Window window;

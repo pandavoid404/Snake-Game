@@ -58,7 +58,6 @@ public class Window {
     void CreateButton(int x, int y, int width , String text, ActionListener action){
         GridBagConstraints gbc = new GridBagConstraints();
         JButton button = new JButton(text);
-        //set size ,color and padding
         button.setPreferredSize(new Dimension(200, 50));
         button.setBackground(Color.BLACK);
         button.setForeground(Color.WHITE);
@@ -113,9 +112,11 @@ public class Window {
     Dimension GetWindowSize() {
         return window.getSize();
     }
+
     void AddPanel(JPanel panel) {
         window.add(panel);
     }
+
     java.awt.Window GetWindow() {
         return window;
     }

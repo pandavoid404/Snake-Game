@@ -1,4 +1,4 @@
-package com.pandavoid.snakegame.game.config;
+package com.pandavoid.snakegame.config;
 
 import com.pandavoid.snakegame.enums.Direction;
 

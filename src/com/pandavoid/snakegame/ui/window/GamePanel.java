@@ -1,9 +1,8 @@
 package com.pandavoid.snakegame.ui.window;
 
-import com.pandavoid.snakegame.game.Game;
-import com.pandavoid.snakegame.ui.window.config.AssetConfig;
+import com.pandavoid.snakegame.core.Game;
+import com.pandavoid.snakegame.config.AssetConfig;
 
-import java.awt.*;
 import java.util.Objects;
 
 public class GamePanel implements Runnable {
