@@ -7,12 +7,11 @@ import com.pandavoid.snakegame.config.AssetConfig;
 import java.awt.*;
 
 public class AssetPaint extends JPanel {
-    private Game game;
-    private final int boxsize = 20;
+	private final int boxsize = 20;
     private final Color color;
+
     public AssetPaint(Game game, AssetConfig config) {
-        this.game = game;
-        Point position = config.getPosition();
+	    Point position = config.getPosition();
         this.color = config.getColor();
         setVisible(true);
         setOpaque(true);

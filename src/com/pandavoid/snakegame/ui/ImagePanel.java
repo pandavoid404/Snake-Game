@@ -36,6 +36,7 @@ class ImagePanel extends JPanel {
             System.err.println("Warning: Background image is null.");
         }
     }
+
     void createLabel(String text, int x, int y, int size, Color background_color) {
         JLabel label = new JLabel(text);
         //add GridBagConstraints and add padding
@@ -49,10 +50,10 @@ class ImagePanel extends JPanel {
         gbc.gridy = y;
         this.add(label, gbc);
     }
+
     void createButton(ActionListener action) {
         GridBagConstraints gbc = new GridBagConstraints();
         JButton button = new JButton("Change Color");
-        //set size ,color and padding
         button.setPreferredSize(new Dimension(200, 50));
         button.setBackground(Color.white);
         button.setForeground(Color.black);

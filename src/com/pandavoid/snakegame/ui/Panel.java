@@ -6,6 +6,7 @@ import javax.swing.*;
 
 class Panel {
 	private final JPanel panel;
+
 	private Image backgroundImage;
 
 	Panel(int width, int height) {
@@ -14,9 +15,15 @@ class Panel {
 		panel.setSize(new Dimension(width, height));
 		panel.setLayout(new GridBagLayout());
 	}
+
 	JPanel getPanel() {
 		return panel;
 	}
+
+	public void setVisible(boolean b) {
+		panel.setVisible(b);
+	}
+
 	Panel createPanel(int x , int y){
 		Panel panel = new Panel(500, 700);
 		GridBagConstraints gbc = new GridBagConstraints();
@@ -26,6 +33,7 @@ class Panel {
 		this.panel.add(panel.getPanel(),gbc);
 		return panel;
 	}
+
 	JLabel createLabel(String text , int size , int width , int y , int x) {
 		JLabel label = new JLabel(text);
 		//add GridBagConstraints and add padding
@@ -56,12 +64,7 @@ class Panel {
 		panel.add(button, gbc);
 	}
 
-
 	public void addSnakePaint(AssetPaint assetPaint) {
 		panel.add(assetPaint);
-	}
-
-	public void setVisible(boolean b) {
-		panel.setVisible(b);
 	}
 }
