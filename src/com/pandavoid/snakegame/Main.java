@@ -114,6 +114,10 @@ public class Main {
         escWindow.Close();
         escWindow = null;
     }
+    public static void CloseGame() {
+        game = null;
+        mainWindow.RemoveGamePanel();
+    }
 
 
 } 

@@ -144,4 +144,7 @@ public class MainWindow {
 	public GamePanel GetGamePanel() {
 		return gamePanel;
 	}
+	public void RemoveGamePanel() {
+		gamePanel = null;
+	}
 }
