@@ -7,29 +7,21 @@ import java.util.Objects;
 
 public class GamePanel implements Runnable {
     private final ImagePanel panel;
-    private final Panel HudPanel = null;
-    private Game game;
+
+	private Game game;
 
     public GamePanel() {
         panel = new ImagePanel("assets/background/gameboard/default.png", 1200, 660, 0, 1);
         panel.setLayout(null); // Use absolute positioning for ImagePanel
     }
-    public void displayGame(Game game) {
-        Objects.requireNonNull(game);
-        this.game = game;
-    }
-
-    public AssetPaint createAsset(AssetConfig config) {
-        AssetPaint assetPaint = new AssetPaint(this.game,config);
-        panel.add(assetPaint);
-        return assetPaint;
-    }
-    public void removeSnakeBlock(AssetPaint assetPaint) {
-        panel.remove(assetPaint);
-    }
 
     public ImagePanel getPanel() {
         return panel;
+    }
+
+    public void setGame(Game game) {
+        Objects.requireNonNull(game);
+        this.game = game;
     }
 
     @Override
@@ -53,6 +45,16 @@ public class GamePanel implements Runnable {
                 }
             }
         }
+    }
+
+    public AssetPaint createAsset(AssetConfig config) {
+        AssetPaint assetPaint = new AssetPaint(this.game,config);
+        panel.add(assetPaint);
+        return assetPaint;
+    }
+
+    public void removeSnakeBlock(AssetPaint assetPaint) {
+        panel.remove(assetPaint);
     }
 }
 

@@ -6,14 +6,16 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class EscWindow {
+    private static final short HEIGHT = 500;
+    private static final short WIDTH = 400;
+
     private final Window window;
-    private static final short height = 500;
-    private static final short width = 400;
+
     public EscWindow(Point MainWindowPos, int MainWindowWidth, int MainWindowHeight) {
         System.out.println(MainWindowPos);
-        window = new Window("SnakeGame", width, height);
+        window = new Window("SnakeGame", WIDTH, HEIGHT);
         window.setBGColor();
-        window.setPosition(new Point(MainWindowPos.x+MainWindowWidth/2-width/2,MainWindowPos.y+MainWindowHeight/2-height/2));
+        window.setPosition(new Point(MainWindowPos.x+MainWindowWidth/2- WIDTH /2,MainWindowPos.y+MainWindowHeight/2- HEIGHT /2));
         window.hideControls();
         ActionListener CancelListener = e-> Main.closeEscMenu();
         ActionListener ToMainListener = e-> Main.escMenuToMainMenu();
@@ -27,8 +29,8 @@ public class EscWindow {
 
         window.showDisplay();
     }
+
     public void close() {
         window.close();
     }
-
 }

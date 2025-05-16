@@ -9,15 +9,19 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class MainWindow {
-	private final Window window;
-	private static final short height = 700;
-	private static final short width = 1000;
+	private static final short HEIGHT = 700;
+	private static final short WIDTH = 1000;
+
 	private static JLabel labelplayer1;
 	private static JLabel labelplayer2;
+
+	private final Window window;
+
 	private GamePanel gamePanel;
 	private ActionMap actionMap;
+
 	public MainWindow(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
-		window = new Window("SnakeGame",width,height);
+		window = new Window("SnakeGame", WIDTH, HEIGHT);
 		window.setMainWindow();
 		window.setFullscreen();
 		displayMenu(StartGameAction, SettingsAction, CreditsAction, quitAction);
@@ -46,6 +50,25 @@ public class MainWindow {
 
 	}
 
+	public Dimension getSize(){
+		return window.getWindowSize();
+	}
+
+	public java.awt.Window getWindow() {
+		return window.getWindow();
+	}
+
+	public ActionMap getActionmap(){
+		return actionMap;
+	}
+	public GamePanel getGamePanel() {
+		return gamePanel;
+	}
+
+	public void removeGamePanel() {
+		gamePanel = null;
+	}
+
 	public void displayMenu(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
 		window.clearDisplay();
 		window.createLabel("Snake Game" ,80, 0, 0, 1);
@@ -55,9 +78,7 @@ public class MainWindow {
 		window.createButton( 0 , 4 , 1,"Quit Game", quitAction);
 		window.updateDisplay();
 	}
-	public Dimension getSize(){
-		return window.getWindowSize();
-	}
+
 	public void displayPreGameSettings(ActionListener SinglePlayer , ActionListener Versus, ActionListener backListener ) {
 		window.clearDisplay();
 		window.createButton(0 , 1 ,1, "1 Player", SinglePlayer);
@@ -65,6 +86,7 @@ public class MainWindow {
 		window.createButton(1  , 1,1, "2 Players", Versus );
 		window.updateDisplay();
 	}
+
 	public void displayPlayerSelection(GameConfig gameConfig, ActionListener StartGameAction, ActionListener backListener){
 		window.clearDisplay();
 		Panel panel1 = window.createPanel(0,1);
@@ -89,11 +111,13 @@ public class MainWindow {
 		window.createButton(0 , 4,2, "Back", backListener );
 		window.updateDisplay();
 	}
+
 	public void changeColor(JLabel Color_label, int player, GameConfig gameConfig, int modify) {
 		gameConfig.getPlayerConfig(player).changeColor(modify);
 		Color_label.setBackground(gameConfig.getPlayerConfig(player).getColor());
 		window.updateDisplay();
 	}
+
 	public void displayCredits(ActionListener backListener){
 		window.clearDisplay();
 		window.createLabel("Programmers", 18, 0, 0, 1);
@@ -108,6 +132,7 @@ public class MainWindow {
 		window.createButton(0 , 9,1, "Back", backListener );
 		window.updateDisplay();
 	}
+
 	public void displaySettings(ActionListener backListener) {
 		window.clearDisplay();
 		window.createLabel("Settings", 30, 0, 0, 2);
@@ -118,6 +143,7 @@ public class MainWindow {
 		window.createButton(0 , 3,2, "Back", backListener );
 		window.updateDisplay();
 	}
+
 	public GamePanel displayGame() {
 		window.clearDisplay();
 		gamePanel = new GamePanel();
@@ -125,9 +151,7 @@ public class MainWindow {
 		window.updateDisplay();
 		return gamePanel;
 	}
-	public java.awt.Window getWindow() {
-		return window.getWindow();
-	}
+
 	public void displayBugScreen(ActionListener backListener){
 		window.clearDisplay();
 		window.createLabel("Report Bug", 40,0 ,4, 2);
@@ -146,14 +170,5 @@ public class MainWindow {
 				10,0 ,8,true, 10 ,0,600,200  );
 		window.createButton(0 , 9,1, "Back", backListener );
 		window.updateDisplay();
-	}
-	public ActionMap getActionmap(){
-		return actionMap;
-	}
-	public GamePanel getGamePanel() {
-		return gamePanel;
-	}
-	public void removeGamePanel() {
-		gamePanel = null;
 	}
 }

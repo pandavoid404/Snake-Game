@@ -6,14 +6,41 @@ import javax.swing.*;
 
 public class Window {
     private final JFrame window;
+
     Window(String title,int width,int height) {
         window = new JFrame(title);
         window.setSize(width,height);
         window.setLayout(new GridBagLayout());
     }
+
+    Container getContentPane() {
+        return window.getContentPane();
+    }
+
+    java.awt.Window getWindow() {
+        return window;
+    }
+
+    Dimension getWindowSize() {
+        return window.getSize();
+    }
+
+    void setFullscreen() {
+        window.setExtendedState(JFrame.MAXIMIZED_BOTH);
+    }
+
     void setMainWindow() {
 	    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
+    void setPosition(Point location) {
+        window.setLocation(location.x,location.y);
+    }
+
+    void setBGColor() {
+        window.getContentPane().setBackground(Color.WHITE);
+    }
+
     Panel createPanel(int x , int y){
         Panel panel = new Panel(500, 700);
         GridBagConstraints gbc = new GridBagConstraints();
@@ -22,9 +49,6 @@ public class Window {
         gbc.gridy = y;
         window.add(panel.getPanel(),gbc);
         return panel;
-    }
-    Container getContentPane() {
-        return window.getContentPane();
     }
 
     void createLabel(String text, int size, int x, int y, int gwidth) {
@@ -39,6 +63,7 @@ public class Window {
         gbc.gridwidth = gwidth;
         window.add(label,gbc);
     }
+
     void createJTextArea(String text, int size, int x, int y, boolean editable, int top , int bottom , int boxwidth, int boxheight) {
         JTextArea textArea = new JTextArea("text",10,30);
         textArea.setText(text);
@@ -52,7 +77,6 @@ public class Window {
         textArea.setWrapStyleWord(true);
         textArea.setEditable(editable);
         window.add(textArea,gbc);
-
     }
     //create function for create a button 
     void createButton(int x, int y, int width , String text, ActionListener action){
@@ -74,18 +98,9 @@ public class Window {
     void showDisplay() {
         window.setVisible(true);
     }
-    void close() {
-        window.dispose();
-    }
+
     void hideControls() {
         window.setUndecorated(true);
-    }
-    void setPosition(Point location) {
-        window.setLocation(location.x,location.y);
-    }
-
-    void setBGColor() {
-        window.getContentPane().setBackground(Color.WHITE);
     }
 
     void clearDisplay() {;
@@ -102,22 +117,17 @@ public class Window {
             }
         }
     }
+
     void updateDisplay() {
         window.revalidate();
         window.repaint();
-    }
-    void setFullscreen() {
-        window.setExtendedState(JFrame.MAXIMIZED_BOTH);
-    }
-    Dimension getWindowSize() {
-        return window.getSize();
     }
 
     void addPanel(JPanel panel) {
         window.add(panel);
     }
 
-    java.awt.Window getWindow() {
-        return window;
+    void close() {
+        window.dispose();
     }
 }
