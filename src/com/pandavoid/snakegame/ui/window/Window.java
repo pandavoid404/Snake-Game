@@ -11,23 +11,23 @@ public class Window {
         window.setSize(width,height);
         window.setLayout(new GridBagLayout());
     }
-    void SetMainWindow() {
+    void setMainWindow() {
 	    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    Panel CreatePanel(int x ,int y){
+    Panel createPanel(int x , int y){
         Panel panel = new Panel(500, 700);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.gridx = x;
         gbc.gridy = y;
-        window.add(panel.GetPanel(),gbc);
+        window.add(panel.getPanel(),gbc);
         return panel;
     }
-    Container GetContentPane() {
+    Container getContentPane() {
         return window.getContentPane();
     }
 
-    void CreateLabel(String text, int size, int x, int y, int gwidth) {
+    void createLabel(String text, int size, int x, int y, int gwidth) {
         JLabel label = new JLabel("text");
         label.setText(text);
         //add GridBagConstraints and add padding
@@ -39,7 +39,7 @@ public class Window {
         gbc.gridwidth = gwidth;
         window.add(label,gbc);
     }
-    void CreateJTextArea(String text, int size, int x, int y,boolean editable, int top , int bottom ,int boxwidth, int boxheight) {
+    void createJTextArea(String text, int size, int x, int y, boolean editable, int top , int bottom , int boxwidth, int boxheight) {
         JTextArea textArea = new JTextArea("text",10,30);
         textArea.setText(text);
         //set GridBagConstraints
@@ -55,7 +55,7 @@ public class Window {
 
     }
     //create function for create a button 
-    void CreateButton(int x, int y, int width , String text, ActionListener action){
+    void createButton(int x, int y, int width , String text, ActionListener action){
         GridBagConstraints gbc = new GridBagConstraints();
         JButton button = new JButton(text);
         button.setPreferredSize(new Dimension(200, 50));
@@ -71,24 +71,24 @@ public class Window {
         window.add(button,gbc);
     }
 
-    void ShowDisplay() {
+    void showDisplay() {
         window.setVisible(true);
     }
-    void Close() {
+    void close() {
         window.dispose();
     }
-    void HideControls() {
+    void hideControls() {
         window.setUndecorated(true);
     }
-    void SetPosition(Point location) {
+    void setPosition(Point location) {
         window.setLocation(location.x,location.y);
     }
 
-    void SetBGColor() {
+    void setBGColor() {
         window.getContentPane().setBackground(Color.WHITE);
     }
 
-    void ClearDisplay() {;
+    void clearDisplay() {;
         Component[] components = window.getContentPane().getComponents();
         for (Component component : components) {
             if (component instanceof JButton jbutton) {
@@ -102,22 +102,22 @@ public class Window {
             }
         }
     }
-    void UpdateDisplay() {
+    void updateDisplay() {
         window.revalidate();
         window.repaint();
     }
-    void SetFullscreen() {
+    void setFullscreen() {
         window.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
-    Dimension GetWindowSize() {
+    Dimension getWindowSize() {
         return window.getSize();
     }
 
-    void AddPanel(JPanel panel) {
+    void addPanel(JPanel panel) {
         window.add(panel);
     }
 
-    java.awt.Window GetWindow() {
+    java.awt.Window getWindow() {
         return window;
     }
 }

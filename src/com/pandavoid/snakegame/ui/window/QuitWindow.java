@@ -10,15 +10,15 @@ public class QuitWindow {
 	public QuitWindow(ActionListener QuitGameListener,Point MainWindowPos,int MainWindowWidth,int MainWindowHeight) {
 		System.out.println(MainWindowPos);
 		window = new Window("SnakeGame", width, height);
-		window.SetBGColor();
-		window.SetPosition(new Point(MainWindowPos.x+MainWindowWidth/2-width/2,MainWindowPos.y+MainWindowHeight/2-height/7*2));
-		window.HideControls();
-		ActionListener CancelListener = e-> Cancel();
-		window.CreateButton( 0 , 40 ,1, "Quit Game", QuitGameListener);
-		window.CreateButton( 10 , 40 ,1, "Cancel", CancelListener);
-		window.ShowDisplay();
+		window.setBGColor();
+		window.setPosition(new Point(MainWindowPos.x+MainWindowWidth/2-width/2,MainWindowPos.y+MainWindowHeight/2-height/7*2));
+		window.hideControls();
+		ActionListener CancelListener = e-> cancel();
+		window.createButton( 0 , 40 ,1, "Quit Game", QuitGameListener);
+		window.createButton( 10 , 40 ,1, "Cancel", CancelListener);
+		window.showDisplay();
 	}
-	private void Cancel() {
-		window.Close();
+	private void cancel() {
+		window.close();
 	}
 }

@@ -25,10 +25,10 @@ public class Snake {
 		this.snakeColor = config.getColor();
 		this.maxLength = config.getBaseLength();
 		this.snakeCells.add(new SnakeCell(new Point(this.config.getPosition().x, this.config.getPosition().y),this,newDirection));
-		Move();
-		Move();
+		move();
+		move();
 	}
-	public void TurnSnake(Direction direction) {
+	public void turnSnake(Direction direction) {
 		switch (direction) {
 			case UP:
 				if (this.currentDirection != Direction.DOWN) {
@@ -51,7 +51,7 @@ public class Snake {
 				break;
 		}
 	}
-	public boolean Move() {
+	public boolean move() {
 		Point newPosition = new Point(position);
 		currentDirection = newDirection;
 		switch (currentDirection) {
@@ -92,7 +92,7 @@ public class Snake {
 		return snakeColor;
 	}
 
-	public void Collision() {
+	public void collision() {
 		System.out.println("Snake collision");
 		game.gamerun = false;
 		Main.gameOverWindow();

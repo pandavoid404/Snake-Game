@@ -36,7 +36,7 @@ class ImagePanel extends JPanel {
             System.err.println("Warning: Background image is null.");
         }
     }
-    void CreateLabel(String text, int x, int y, int size, Color background_color) {
+    void createLabel(String text, int x, int y, int size, Color background_color) {
         JLabel label = new JLabel(text);
         //add GridBagConstraints and add padding
         GridBagConstraints gbc = new GridBagConstraints();
@@ -49,7 +49,7 @@ class ImagePanel extends JPanel {
         gbc.gridy = y;
         this.add(label, gbc);
     }
-    void CreateButton(ActionListener action) {
+    void createButton(ActionListener action) {
         GridBagConstraints gbc = new GridBagConstraints();
         JButton button = new JButton("Change Color");
         //set size ,color and padding
@@ -65,7 +65,7 @@ class ImagePanel extends JPanel {
         this.add(button, gbc);
     }
 
-    public void add(Panel snakePanel) {
-        this.add(snakePanel.GetPanel());
+    public void addSnakePanel(Panel snakePanel) {
+        this.add(snakePanel.getPanel());
     }
 }

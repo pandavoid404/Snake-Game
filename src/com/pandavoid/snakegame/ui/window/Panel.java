@@ -14,19 +14,19 @@ class Panel {
 		panel.setSize(new Dimension(width, height));
 		panel.setLayout(new GridBagLayout());
 	}
-	JPanel GetPanel() {
+	JPanel getPanel() {
 		return panel;
 	}
-	Panel CreatePanel(int x ,int y){
+	Panel createPanel(int x , int y){
 		Panel panel = new Panel(500, 700);
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.insets = new Insets(10, 10, 10, 10);
 		gbc.gridx = x;
 		gbc.gridy = y;
-		this.panel.add(panel.GetPanel(),gbc);
+		this.panel.add(panel.getPanel(),gbc);
 		return panel;
 	}
-	JLabel CreateLabel(String text , int size ,int width , int y ,int x) {
+	JLabel createLabel(String text , int size , int width , int y , int x) {
 		JLabel label = new JLabel(text);
 		//add GridBagConstraints and add padding
 		GridBagConstraints gbc = new GridBagConstraints();
@@ -41,10 +41,9 @@ class Panel {
 	}
 
 	//create function for create a button
-	void CreateButton(ActionListener action, int x, int y, int width, int height) {
+	void createButton(ActionListener action, int x, int y, int width, int height) {
 		GridBagConstraints gbc = new GridBagConstraints();
 		JButton button = new JButton("Change Color");
-		//set size ,color and padding
 		button.setPreferredSize(new Dimension(width, height));
 		button.setBackground(Color.white);
 		button.setForeground(Color.black);

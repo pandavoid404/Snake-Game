@@ -14,25 +14,25 @@ public class GameOverWindow {
         System.out.println(MainWindowPos);
         Players = Main.getGame().getPlayers();
         window = new Window("SnakeGame", width, height);
-        window.SetBGColor();
-        window.SetPosition(new Point(MainWindowPos.x+MainWindowWidth/2-width/2,MainWindowPos.y+MainWindowHeight/2-height/2));
-        window.HideControls();
-        window.CreateLabel("Game Over", 30, 0, 0, 1);
+        window.setBGColor();
+        window.setPosition(new Point(MainWindowPos.x+MainWindowWidth/2-width/2,MainWindowPos.y+MainWindowHeight/2-height/2));
+        window.hideControls();
+        window.createLabel("Game Over", 30, 0, 0, 1);
         if (Players == 1) {
-            window.CreateLabel("Score Player", 10, 0, 1, 1);
+            window.createLabel("Score Player", 10, 0, 1, 1);
         }
         else{
-            window.CreateLabel("Score Player 1", 10, 0, 1, 1);
-            window.CreateLabel("Score Player 2", 10, 0, 2, 1);
+            window.createLabel("Score Player 1", 10, 0, 1, 1);
+            window.createLabel("Score Player 2", 10, 0, 2, 1);
         }
         //ActionListener CancelListener = e-> Main.CloseEscMenu();
-        ActionListener ToMainListener = e-> Main.GameOverWindowToMainWindow();
-        window.CreateButton(0 ,3, 1 ,"restart",null);
-        window.CreateButton(0 ,4 ,1, "Back to Main Menu", ToMainListener);
-        window.ShowDisplay();
+        ActionListener ToMainListener = e-> Main.gameOverWindowToMainWindow();
+        window.createButton(0 ,3, 1 ,"restart",null);
+        window.createButton(0 ,4 ,1, "Back to Main Menu", ToMainListener);
+        window.showDisplay();
     }
-    public void Close() {
-        window.Close();
+    public void close() {
+        window.close();
     }
 
 }

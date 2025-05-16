@@ -39,25 +39,25 @@ public class Game {
 		actionMap.put("Move UP snake " + SnakeNumber, new AbstractAction() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				snake.TurnSnake(Direction.UP);
+				snake.turnSnake(Direction.UP);
 			}
 		});
 		actionMap.put("Move DOWN snake " + SnakeNumber, new AbstractAction() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				snake.TurnSnake(Direction.DOWN);
+				snake.turnSnake(Direction.DOWN);
 			}
 		});
 		actionMap.put("Move LEFT snake " + SnakeNumber, new AbstractAction() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				snake.TurnSnake(Direction.LEFT);
+				snake.turnSnake(Direction.LEFT);
 			}
 		});
 		actionMap.put("Move RIGHT snake " + SnakeNumber, new AbstractAction() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				snake.TurnSnake(Direction.RIGHT);
+				snake.turnSnake(Direction.RIGHT);
 			}
 		});
 	}
@@ -74,7 +74,7 @@ public class Game {
 			snake.increaseLength();
 		}
 		if (board.getCell(x, y).isOccupied()) {
-			snake.Collision();
+			snake.collision();
 		} else {
 			board.getCell(x, y).setOccupied(true);
 		}
@@ -95,7 +95,7 @@ public class Game {
 	public void tick() {
 		System.out.println("tick: " + tick);
 		for (Snake snake : snakes) {
-			snake.Move();
+			snake.move();
 			tick+= 1;
 		}
 	}

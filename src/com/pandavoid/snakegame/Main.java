@@ -21,114 +21,114 @@ public class Main {
     
 	public static void main(String[]args) {
         mainWindowState = MainWindowState.MAIN_MENU;
-        ActionListener QuitListener = Main::QuitGameRequest;
-        ActionListener CreditsListener = e -> Credits();
-        ActionListener SettingsListener = e -> Settings();
-        ActionListener StartGameListener = e -> PreGameSettings();
+        ActionListener QuitListener = Main::quitGameRequest;
+        ActionListener CreditsListener = e -> credits();
+        ActionListener SettingsListener = e -> settings();
+        ActionListener StartGameListener = e -> preGameSettings();
         mainWindow = new MainWindow(StartGameListener, SettingsListener, CreditsListener, QuitListener);
 	}
 
-    private static void ShowMainMenu() {
+    private static void showMainMenu() {
         mainWindowState = MainWindowState.MAIN_MENU;
-        ActionListener QuitListener = Main::QuitGameRequest;
-        ActionListener CreditsListener = e -> Credits();
-        ActionListener SettingsListener = e -> Settings();
-        ActionListener StartGameListener = e -> PreGameSettings();
-        mainWindow.DisplayMenu(StartGameListener, SettingsListener, CreditsListener, QuitListener);
+        ActionListener QuitListener = Main::quitGameRequest;
+        ActionListener CreditsListener = e -> credits();
+        ActionListener SettingsListener = e -> settings();
+        ActionListener StartGameListener = e -> preGameSettings();
+        mainWindow.displayMenu(StartGameListener, SettingsListener, CreditsListener, QuitListener);
     }
 
-    public static void EscMenuToMainMenu() {
-        CloseEscMenu();
-        ShowMainMenu();
+    public static void escMenuToMainMenu() {
+        closeEscMenu();
+        showMainMenu();
     }
-    public static void GameOverWindowToMainWindow() {
-        CloseGameOverWindow();
-        ShowMainMenu();
+    public static void gameOverWindowToMainWindow() {
+        closeGameOverWindow();
+        showMainMenu();
     }
 
 
-    public static void EscMenuRequest() {
+    public static void escMenuRequest() {
         if (escWindow != null) {
-            CloseEscMenu();
+            closeEscMenu();
         } else if (mainWindowState == MainWindowState.PLAYING ) {
-            Window window = mainWindow.GetWindow();
+            Window window = mainWindow.getWindow();
             escWindow = new EscWindow(window.getLocation(),window.getWidth(),window.getHeight());
         }
     }
 
-    public static void CloseEscMenu() {
-        escWindow.Close();
+    public static void closeEscMenu() {
+        escWindow.close();
         escWindow = null;
     }
-    public static void CloseGameOverWindow() {
-        gameOverWindow.Close();
+    public static void closeGameOverWindow() {
+        gameOverWindow.close();
     }
 
-    private static void QuitGameRequest(ActionEvent event) {
+    private static void quitGameRequest(ActionEvent event) {
         JButton source = (JButton) event.getSource();
         JPanel panel = (JPanel) source.getParent();
         JLayeredPane pane = (JLayeredPane) panel.getParent();
         JRootPane rootPane = (JRootPane) pane.getParent();
         Window mainwindow = (Window) rootPane.getParent();
         System.out.println("requesting to quit game");
-        ActionListener QuitGameListener = e -> QuitGame();
+        ActionListener QuitGameListener = e -> quitGame();
         new QuitWindow(QuitGameListener,mainwindow.getLocation(),mainwindow.getWidth(),mainwindow.getHeight());
     }
-    private static void QuitGame(){
+    private static void quitGame(){
         System.out.println("quiting game");
         System.exit(0);
     }
-    public static void Credits(){
-        ActionListener backListener = e -> ShowMainMenu();
-        mainWindow.DisplayCredits(backListener); // Directly call the DisplayCredits() method
+    public static void credits(){
+        ActionListener backListener = e -> showMainMenu();
+        mainWindow.displayCredits(backListener); // Directly call the DisplayCredits() method
         System.out.println("Credits");
 
     }
-    public static void Settings(){
-        ActionListener backListener = e -> ShowMainMenu();
-        mainWindow.DisplaySettings(backListener);
+    public static void settings(){
+        ActionListener backListener = e -> showMainMenu();
+        mainWindow.displaySettings(backListener);
         System.out.println("settings");
     }
 
-    private static void PreGameSettings() {
+    private static void preGameSettings() {
         mainWindowState = MainWindowState.PLAYER_SELECTION;
         gameConfig = new GameConfig();
-        ActionListener one_player_gameListener = e -> DisplayPlayerSelection(1);
-        ActionListener two_player_gameListener = e -> DisplayPlayerSelection(2);
-        ActionListener backListener = e -> ShowMainMenu();
-        mainWindow.DisplayPreGameSettings(one_player_gameListener, two_player_gameListener, backListener);
+        ActionListener one_player_gameListener = e -> displayPlayerSelection(1);
+        ActionListener two_player_gameListener = e -> displayPlayerSelection(2);
+        ActionListener backListener = e -> showMainMenu();
+        mainWindow.displayPreGameSettings(one_player_gameListener, two_player_gameListener, backListener);
     }
-    private static void DisplayPlayerSelection(int players){
+    private static void displayPlayerSelection(int players){
         mainWindowState = MainWindowState.PLAYER_COLOR_SELECTION;
         gameConfig.setPlayers(players);
-        ActionListener StartGameListener = e -> StartGame(gameConfig);
-        ActionListener backListener = e -> PreGameSettings();
-        mainWindow.DisplayPlayerSelection(gameConfig,StartGameListener,backListener);
+        ActionListener StartGameListener = e -> startGame(gameConfig);
+        ActionListener backListener = e -> preGameSettings();
+        mainWindow.displayPlayerSelection(gameConfig,StartGameListener,backListener);
        }
 
-    private static void StartGame(GameConfig config){
+    private static void startGame(GameConfig config){
         mainWindowState = MainWindowState.PLAYING;
         System.out.println("Game Starting...");
-        GamePanel gamepanel = mainWindow.DisplayGame();
-        game = new Game(config,mainWindow.GetActionmap(),gamepanel);
-        gamepanel.DisplayGame(game);
+        GamePanel gamepanel = mainWindow.displayGame();
+        game = new Game(config,mainWindow.getActionmap(),gamepanel);
+        gamepanel.displayGame(game);
         // Start the game thread to run the game loop
-        Thread gameThread = new Thread(mainWindow.GetGamePanel());
+        Thread gameThread = new Thread(mainWindow.getGamePanel());
         gameThread.start();
     }
-    public static void BugReportScreen(){
-        ActionListener backListener = e -> ShowMainMenu();
-        mainWindow.DisplayBugScreen(backListener); // Directly call the DisplayCredits() method
+    public static void bugReportScreen(){
+        ActionListener backListener = e -> showMainMenu();
+        mainWindow.displayBugScreen(backListener); // Directly call the DisplayCredits() method
         System.out.println("bug report");
-        escWindow.Close();
+        escWindow.close();
         escWindow = null;
     }
-    public static void CloseGame() {
+    public static void closeGame() {
         game = null;
-        mainWindow.RemoveGamePanel();
+        mainWindow.removeGamePanel();
     }
     public static void gameOverWindow(){
-        Window window = mainWindow.GetWindow();
+        Window window = mainWindow.getWindow();
         gameOverWindow = new GameOverWindow(window.getLocation(),window.getWidth(),window.getHeight());
     }
     public static Game getGame(){

@@ -20,7 +20,7 @@ public class PlayerConfig {
 		return gameConfig.getColors()[colorIndex];
 	}
 
-	public void ChangeColor(int amount) {
+	public void changeColor(int amount) {
 		colorIndex += amount;
 		if (colorIndex < 0) {
 			colorIndex = gameConfig.getColors().length - 1;

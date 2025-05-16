@@ -14,7 +14,7 @@ public class GamePanel implements Runnable {
         panel = new ImagePanel("assets/background/gameboard/default.png", 1200, 660, 0, 1);
         panel.setLayout(null); // Use absolute positioning for ImagePanel
     }
-    public void DisplayGame(Game game) {
+    public void displayGame(Game game) {
         Objects.requireNonNull(game);
         this.game = game;
     }

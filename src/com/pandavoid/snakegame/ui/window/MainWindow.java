@@ -18,11 +18,11 @@ public class MainWindow {
 	private ActionMap actionMap;
 	public MainWindow(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
 		window = new Window("SnakeGame",width,height);
-		window.SetMainWindow();
-		window.SetFullscreen();
-		DisplayMenu(StartGameAction, SettingsAction, CreditsAction, quitAction);
-		window.ShowDisplay();
-		JComponent contentPane = (JComponent) window.GetContentPane();
+		window.setMainWindow();
+		window.setFullscreen();
+		displayMenu(StartGameAction, SettingsAction, CreditsAction, quitAction);
+		window.showDisplay();
+		JComponent contentPane = (JComponent) window.getContentPane();
 		InputMap inputMap = contentPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
 		this.actionMap = contentPane.getActionMap();
 
@@ -32,7 +32,7 @@ public class MainWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("escape menu requested");
-				Main.EscMenuRequest();
+				Main.escMenuRequest();
 			}
 		});
 		inputMap.put(KeyStroke.getKeyStroke("W"), "Move UP snake 1");
@@ -46,114 +46,114 @@ public class MainWindow {
 
 	}
 
-	public void DisplayMenu(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
-		window.ClearDisplay();
-		window.CreateLabel("Snake Game" ,80, 0, 0, 1);
-		window.CreateButton(0 , 1 ,1, "StartGame", StartGameAction);
-		window.CreateButton(0,2,1,"Settings" , SettingsAction);
-		window.CreateButton( 0 , 3 ,1, "Credits", CreditsAction);
-		window.CreateButton( 0 , 4 , 1,"Quit Game", quitAction);
-		window.UpdateDisplay();
+	public void displayMenu(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
+		window.clearDisplay();
+		window.createLabel("Snake Game" ,80, 0, 0, 1);
+		window.createButton(0 , 1 ,1, "StartGame", StartGameAction);
+		window.createButton(0,2,1,"Settings" , SettingsAction);
+		window.createButton( 0 , 3 ,1, "Credits", CreditsAction);
+		window.createButton( 0 , 4 , 1,"Quit Game", quitAction);
+		window.updateDisplay();
 	}
 	public Dimension getSize(){
-		return window.GetWindowSize();
+		return window.getWindowSize();
 	}
-	public void DisplayPreGameSettings(ActionListener SinglePlayer , ActionListener Versus,ActionListener backListener ) {
-		window.ClearDisplay();
-		window.CreateButton(0 , 1 ,1, "1 Player", SinglePlayer);
-		window.CreateButton(0 , 2,2, "Back", backListener );
-		window.CreateButton(1  , 1,1, "2 Players", Versus );
-		window.UpdateDisplay();
+	public void displayPreGameSettings(ActionListener SinglePlayer , ActionListener Versus, ActionListener backListener ) {
+		window.clearDisplay();
+		window.createButton(0 , 1 ,1, "1 Player", SinglePlayer);
+		window.createButton(0 , 2,2, "Back", backListener );
+		window.createButton(1  , 1,1, "2 Players", Versus );
+		window.updateDisplay();
 	}
-	public void DisplayPlayerSelection(GameConfig gameConfig, ActionListener StartGameAction, ActionListener backListener){
-		window.ClearDisplay();
-		Panel panel1 = window.CreatePanel(0,1);
-		panel1.CreateLabel("Select Player 1" , 15 , 2 ,0, 0 );
-		ActionListener ChangeColorPlayer1Listener = e -> ChangeColor(labelplayer1, 0, gameConfig, 1);
-		ActionListener BackColorPlayer1Listener = e -> ChangeColor(labelplayer1, 0, gameConfig , -1);
-		labelplayer1 = panel1.CreateLabel("    " , 35 , 2 ,1, 0 );
+	public void displayPlayerSelection(GameConfig gameConfig, ActionListener StartGameAction, ActionListener backListener){
+		window.clearDisplay();
+		Panel panel1 = window.createPanel(0,1);
+		panel1.createLabel("Select Player 1" , 15 , 2 ,0, 0 );
+		ActionListener ChangeColorPlayer1Listener = e -> changeColor(labelplayer1, 0, gameConfig, 1);
+		ActionListener BackColorPlayer1Listener = e -> changeColor(labelplayer1, 0, gameConfig , -1);
+		labelplayer1 = panel1.createLabel("    " , 35 , 2 ,1, 0 );
 		labelplayer1.setOpaque(true);
-		panel1.CreateButton(ChangeColorPlayer1Listener, 0, 2, 100, 50);
-		panel1.CreateButton(BackColorPlayer1Listener, 1, 2, 100, 50);
+		panel1.createButton(ChangeColorPlayer1Listener, 0, 2, 100, 50);
+		panel1.createButton(BackColorPlayer1Listener, 1, 2, 100, 50);
 		if (gameConfig.getPlayers()==2) {
-			Panel panel2 = window.CreatePanel(1,1);
-			ActionListener ChangeColorPlayer2Listener = e -> ChangeColor(labelplayer2, 1, gameConfig,1);
-			ActionListener BackColorPlayer2Listener = e -> ChangeColor(labelplayer2, 1, gameConfig,-1);
-			panel2.CreateLabel("Select Player2" ,15 ,2 ,0, 0 );
-			labelplayer2 = panel2.CreateLabel("    ",35,2,1, 0 );
+			Panel panel2 = window.createPanel(1,1);
+			ActionListener ChangeColorPlayer2Listener = e -> changeColor(labelplayer2, 1, gameConfig,1);
+			ActionListener BackColorPlayer2Listener = e -> changeColor(labelplayer2, 1, gameConfig,-1);
+			panel2.createLabel("Select Player2" ,15 ,2 ,0, 0 );
+			labelplayer2 = panel2.createLabel("    ",35,2,1, 0 );
 			labelplayer2.setOpaque(true);
-			panel2.CreateButton(ChangeColorPlayer2Listener, 0, 2, 100, 50);
-			panel2.CreateButton(BackColorPlayer2Listener, 1, 2, 100, 50);
+			panel2.createButton(ChangeColorPlayer2Listener, 0, 2, 100, 50);
+			panel2.createButton(BackColorPlayer2Listener, 1, 2, 100, 50);
 		}
-		window.CreateButton(0 , 3,2, "Start Game", StartGameAction);
-		window.CreateButton(0 , 4,2, "Back", backListener );
-		window.UpdateDisplay();
+		window.createButton(0 , 3,2, "Start Game", StartGameAction);
+		window.createButton(0 , 4,2, "Back", backListener );
+		window.updateDisplay();
 	}
-	public void ChangeColor(JLabel Color_label, int player, GameConfig gameConfig,int modify) {
-		gameConfig.getPlayerConfig(player).ChangeColor(modify);
+	public void changeColor(JLabel Color_label, int player, GameConfig gameConfig, int modify) {
+		gameConfig.getPlayerConfig(player).changeColor(modify);
 		Color_label.setBackground(gameConfig.getPlayerConfig(player).getColor());
-		window.UpdateDisplay();
+		window.updateDisplay();
 	}
-	public void DisplayCredits( ActionListener backListener){
-		window.ClearDisplay();
-		window.CreateLabel("Programmers", 18, 0, 0, 1);
-		window.CreateLabel("EndlessVoid_303", 13, 0, 1, 1);
-		window.CreateLabel("MrPanda_071", 13, 0, 2, 1);
-		window.CreateLabel("GraphicalDesigner", 18, 0, 3, 1);
-		window.CreateLabel("MrPanda_071", 13, 0, 4, 1);
-		window.CreateLabel("GameTesters", 18, 0, 5, 1);
-		window.CreateLabel("Animator", 18, 0, 6, 1);
-		window.CreateLabel("Special thanks", 18, 0, 7, 1);
-		window.CreateLabel("EndlessVoid_303 Mom", 13, 0, 8, 1);
-		window.CreateButton(0 , 9,1, "Back", backListener );
-		window.UpdateDisplay();
+	public void displayCredits(ActionListener backListener){
+		window.clearDisplay();
+		window.createLabel("Programmers", 18, 0, 0, 1);
+		window.createLabel("EndlessVoid_303", 13, 0, 1, 1);
+		window.createLabel("MrPanda_071", 13, 0, 2, 1);
+		window.createLabel("GraphicalDesigner", 18, 0, 3, 1);
+		window.createLabel("MrPanda_071", 13, 0, 4, 1);
+		window.createLabel("GameTesters", 18, 0, 5, 1);
+		window.createLabel("Animator", 18, 0, 6, 1);
+		window.createLabel("Special thanks", 18, 0, 7, 1);
+		window.createLabel("EndlessVoid_303 Mom", 13, 0, 8, 1);
+		window.createButton(0 , 9,1, "Back", backListener );
+		window.updateDisplay();
 	}
-	public void DisplaySettings(ActionListener backListener) {
-		window.ClearDisplay();
-		window.CreateLabel("Settings", 30, 0, 0, 2);
-		window.CreateLabel("Sound", 15, 0, 1, 1);
-		window.CreateButton(1 , 1 ,1, "On", null);
-		window.CreateLabel("Music", 15, 0, 2, 1);
-		window.CreateButton(1 , 2,1, "On", null);
-		window.CreateButton(0 , 3,2, "Back", backListener );
-		window.UpdateDisplay();
+	public void displaySettings(ActionListener backListener) {
+		window.clearDisplay();
+		window.createLabel("Settings", 30, 0, 0, 2);
+		window.createLabel("Sound", 15, 0, 1, 1);
+		window.createButton(1 , 1 ,1, "On", null);
+		window.createLabel("Music", 15, 0, 2, 1);
+		window.createButton(1 , 2,1, "On", null);
+		window.createButton(0 , 3,2, "Back", backListener );
+		window.updateDisplay();
 	}
-	public GamePanel DisplayGame() {
-		window.ClearDisplay();
+	public GamePanel displayGame() {
+		window.clearDisplay();
 		gamePanel = new GamePanel();
-		window.AddPanel(gamePanel.getPanel());
-		window.UpdateDisplay();
+		window.addPanel(gamePanel.getPanel());
+		window.updateDisplay();
 		return gamePanel;
 	}
-	public java.awt.Window GetWindow() {
-		return window.GetWindow();
+	public java.awt.Window getWindow() {
+		return window.getWindow();
 	}
-	public void DisplayBugScreen(ActionListener backListener){
-		window.ClearDisplay();
-		window.CreateLabel("Report Bug", 40,0 ,4, 2);
-		window.CreateJTextArea("In the title box please provide a clear and short bug titlen\n" +
+	public void displayBugScreen(ActionListener backListener){
+		window.clearDisplay();
+		window.createLabel("Report Bug", 40,0 ,4, 2);
+		window.createJTextArea("In the title box please provide a clear and short bug titlen\n" +
 				"(Example: \"Game crashes when opening inventory\")",
 				10,0 ,5,false , 0 , 0,600,200);
-		window.CreateJTextArea("Title for the bug",
+		window.createJTextArea("Title for the bug",
 				10,0 ,6,true, 10 ,2,600,200);
-		window.CreateJTextArea("Give a detailed description of the bug.\n" +
+		window.createJTextArea("Give a detailed description of the bug.\n" +
 				"-When did it happen? \n" +
 				"-What were you doing? \n" +
 				"-What should have happened instead? \n" +
 				"-Provide steps so we can recreate the bug.",
 				10,0 ,7,false, 10 ,0 , 600,200 );
-		window.CreateJTextArea("Description",
+		window.createJTextArea("Description",
 				10,0 ,8,true, 10 ,0,600,200  );
-		window.CreateButton(0 , 9,1, "Back", backListener );
-		window.UpdateDisplay();
+		window.createButton(0 , 9,1, "Back", backListener );
+		window.updateDisplay();
 	}
-	public ActionMap GetActionmap(){
+	public ActionMap getActionmap(){
 		return actionMap;
 	}
-	public GamePanel GetGamePanel() {
+	public GamePanel getGamePanel() {
 		return gamePanel;
 	}
-	public void RemoveGamePanel() {
+	public void removeGamePanel() {
 		gamePanel = null;
 	}
 }
