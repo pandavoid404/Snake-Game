@@ -18,6 +18,7 @@ public class Game {
 	private final ArrayList<Snake> snakes = new ArrayList<>();
 	private final Board board;
 	private int tick = 0;
+	public boolean gamerun = true;
 
 	public Game(GameConfig config, ActionMap actionMap,GamePanel gamePanel) {
 		this.config = config;

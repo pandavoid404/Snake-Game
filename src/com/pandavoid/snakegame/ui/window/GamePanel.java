@@ -37,7 +37,7 @@ public class GamePanel implements Runnable {
     public void run() {
         int targetFPS = 10;
         long targetTime = 1000 / targetFPS;
-        while (true) {
+        while (game.gamerun) {
             long startTime = System.currentTimeMillis();
             if (game != null){
                 game.tick();

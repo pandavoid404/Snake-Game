@@ -77,9 +77,12 @@ public class Snake {
 		System.out.println("Snake head added at x: "+position.x+" and y: "+position.y+" with direction: "+currentDirection.toString());
 		updateHead(currentDirection);
 		if (snakeCells.size() > maxLength) {
+			SnakeCell lastCell = snakeCells.getLast();
+			game.leaveCell(lastCell.getPosition().x, lastCell.getPosition().y, this);
 			game.getGamePanel().removeSnakeBlock(snakeCells.getLast().getSnakepaint());
-			snakeCells.removeLast();
+			game.getGamePanel().removeSnakeBlock(lastCell.getSnakepaint());
 			updateTail();
+			snakeCells.remove(lastCell);
 			System.out.println("Snake tail removed and tail updated because snake is longer than " + maxLength);
 		}
 		return true;
@@ -90,6 +93,7 @@ public class Snake {
 
 	public void Collision() {
 		System.out.println("Snake collision");
+		game.gamerun = false;
 	}
 	
 	public void increaseLength() {
