@@ -10,18 +10,14 @@ public class GamePanel implements Runnable {
     private final ImagePanel panel;
     private final Panel HudPanel = null;
     private Game game;
-    private Window window;
 
-    public GamePanel(Window window) {
+    public GamePanel() {
         panel = new ImagePanel("assets/background/gameboard/default.png", 1200, 660, 0, 1);
         panel.setLayout(null); // Use absolute positioning for ImagePanel
     }
     public void DisplayGame(Game game) {
         Objects.requireNonNull(game);
         this.game = game;
-    }
-    public Window getwindow() {
-        return window;
     }
 
     public AssetPaint createAsset(AssetConfig config) {
@@ -39,7 +35,7 @@ public class GamePanel implements Runnable {
 
     @Override
     public void run() {
-        int targetFPS = 8;
+        int targetFPS = 10;
         long targetTime = 1000 / targetFPS;
         while (game.gamerun) {
             long startTime = System.currentTimeMillis();

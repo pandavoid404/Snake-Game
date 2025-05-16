@@ -109,14 +109,9 @@ public class MainWindow {
 		window.CreateButton(0 , 9,1, "Back", backListener );
 		window.UpdateDisplay();
 	}
-	public void DispaySettings(ActionListener backListener) {
-		window.ClearDisplay();
-		window.CreateButton(0 , 0,1, "Back", backListener );
-		window.UpdateDisplay();
-	}
 	public GamePanel DisplayGame() {
 		window.ClearDisplay();
-		gamePanel = new GamePanel(this.window);
+		gamePanel = new GamePanel();
 		window.AddPanel(gamePanel.getPanel());
 		window.UpdateDisplay();
 		return gamePanel;

@@ -3,10 +3,11 @@ package com.pandavoid.snakegame;
 import com.pandavoid.snakegame.enums.MainWindowState;
 import com.pandavoid.snakegame.game.Game;
 import com.pandavoid.snakegame.game.config.GameConfig;
-import com.pandavoid.snakegame.ui.window.*;
-
+import com.pandavoid.snakegame.ui.window.EscWindow;
+import com.pandavoid.snakegame.ui.window.GamePanel;
+import com.pandavoid.snakegame.ui.window.MainWindow;
+import com.pandavoid.snakegame.ui.window.QuitWindow;
 import java.awt.*;
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -16,7 +17,6 @@ public class Main {
     private static MainWindow mainWindow;
     private static GameConfig gameConfig;
     private static EscWindow escWindow;
-    private static GameOverWindow gameOverWindow;
     private static MainWindowState mainWindowState;
 
     
@@ -56,13 +56,6 @@ public class Main {
         escWindow.Close();
         escWindow = null;
     }
-    public static void ClosegameOverWindow() {
-        gameOverWindow.Close();
-    }
-    public static void GameOverWindowToMainWindow() {
-        ClosegameOverWindow();
-        ShowMainMenu();
-    }
 
     private static void QuitGameRequest(ActionEvent event) {
         JButton source = (JButton) event.getSource();
@@ -85,8 +78,6 @@ public class Main {
 
     }
     public static void Settings(){
-        ActionListener backListener = e -> ShowMainMenu();
-        mainWindow.DispaySettings(backListener);
         System.out.println("settings");
     }
 
@@ -123,8 +114,6 @@ public class Main {
         escWindow.Close();
         escWindow = null;
     }
-    public static void gameOverWindow(){
-        Window window = mainWindow.GetWindow();
-        gameOverWindow = new GameOverWindow(window.getLocation(),window.getWidth(),window.getHeight());
-    }
-}
+
+
+} 
