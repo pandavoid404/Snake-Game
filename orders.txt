@@ -1,0 +1,50 @@
+constants: private static final int MAX_LENGTH = 100;
+
+variables: private boolean alive;
+
+constructor: Window (String title,int width,int height) {
+                    window = new JFrame(title);
+                    window.setSize(width,height);
+                    window.setLayout(new GridBagLayout());
+                }
+
+getters and setters: public Cell getCell(int x, int y) {
+                     		return board[y][x];
+                     	}
+
+overides: @Override
+              protected void paintComponent(Graphics g){
+                      super.paintComponent(g);
+                      g.setColor(color);
+                      g.fillRect(0, 0, boxsize, boxsize);
+                      g.dispose();
+              }
+checks: public boolean isOutsideArea(int x, int y) {
+        		if (x < 0) {
+        			return true;
+        		}
+        		if (x >= width) {
+        			return true;
+        		}
+        		if (y < 0) {
+        			return true;
+        		}
+        		return y >= height;
+        	}
+
+public methods: public void Collision() {
+                		System.out.println("Snake collision");
+                		game.gamerun = false;
+                		Main.gameOverWindow();
+                	}
+
+private checks: private boolean checkCollision() {
+                        // check for wall or self
+                        return false;
+                    }
+
+private methods: private void updateTail() {
+                		if (snakeCells.size() > 1) {
+                			snakeCells.getLast().isTail();
+                		}
+                	}
