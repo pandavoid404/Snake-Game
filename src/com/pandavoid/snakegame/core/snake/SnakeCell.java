@@ -2,7 +2,7 @@ package com.pandavoid.snakegame.core.snake;
 
 import com.pandavoid.snakegame.enums.Direction;
 import com.pandavoid.snakegame.enums.SnakePart;
-import com.pandavoid.snakegame.ui.window.AssetPaint;
+import com.pandavoid.snakegame.ui.AssetPaint;
 import com.pandavoid.snakegame.config.AssetConfig;
 
 import java.awt.*;

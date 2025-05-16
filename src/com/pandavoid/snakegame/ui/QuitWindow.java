@@ -1,4 +1,4 @@
-package com.pandavoid.snakegame.ui.window;
+package com.pandavoid.snakegame.ui;
 
 import java.awt.*;
 import java.awt.event.ActionListener;

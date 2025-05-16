@@ -1,7 +1,7 @@
 package com.pandavoid.snakegame.core.food;
 
 import com.pandavoid.snakegame.core.Game;
-import com.pandavoid.snakegame.ui.window.AssetPaint;
+import com.pandavoid.snakegame.ui.AssetPaint;
 import com.pandavoid.snakegame.config.AssetConfig;
 
 import java.awt.*;

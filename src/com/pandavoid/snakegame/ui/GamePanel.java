@@ -1,4 +1,4 @@
-package com.pandavoid.snakegame.ui.window;
+package com.pandavoid.snakegame.ui;
 
 import com.pandavoid.snakegame.core.Game;
 import com.pandavoid.snakegame.config.AssetConfig;

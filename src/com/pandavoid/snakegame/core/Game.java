@@ -5,7 +5,7 @@ import com.pandavoid.snakegame.core.board.Board;
 import com.pandavoid.snakegame.config.GameConfig;
 import com.pandavoid.snakegame.core.food.Food;
 import com.pandavoid.snakegame.core.snake.Snake;
-import com.pandavoid.snakegame.ui.window.GamePanel;
+import com.pandavoid.snakegame.ui.GamePanel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,4 @@
-package com.pandavoid.snakegame.ui.window;
+package com.pandavoid.snakegame.ui;
 
 import javax.swing.*;
 import com.pandavoid.snakegame.core.Game;
