@@ -13,18 +13,17 @@ import java.util.ArrayList;
 
 public class Game {
 	private final GamePanel gamePanel;
-	private final GameConfig config;
 	private final int Players;
 	private final ArrayList<Snake> snakes = new ArrayList<>();
 	private final Board board;
+
 	private int tick = 0;
-	public boolean gamerun = true;
+	public boolean gameRunning = true;
 
 	public Game(GameConfig config, ActionMap actionMap,GamePanel gamePanel) {
-		this.config = config;
 		this.Players = config.getPlayers();
 		this.gamePanel = gamePanel;
-		this.board = new Board(33, 60);
+		this.board = new Board();
 		snakes.add(new Snake(this,config.getPlayerConfig(0)));
 		addSnakeControls(actionMap,snakes.get(0),1);
 		if (config.getPlayers()==2) {
@@ -35,6 +34,23 @@ public class Game {
 			spawnFood();
 		}
 	}
+
+	public ArrayList<Snake> getSnakes() {
+		return snakes;
+	}
+
+	public int getPlayers() {
+		return Players;
+	}
+
+	public GamePanel getGamePanel() {
+		return gamePanel;
+	}
+
+	public Board getBoard() {
+		return board;
+	}
+
 	private void addSnakeControls(ActionMap actionMap,Snake snake,int SnakeNumber){
 		actionMap.put("Move UP snake " + SnakeNumber, new AbstractAction() {
 			@Override
@@ -61,6 +77,7 @@ public class Game {
 			}
 		});
 	}
+
 	private void spawnFood(){
 		new Food(this,board.findFreeCell().getPosition());
 	}
@@ -84,26 +101,11 @@ public class Game {
 		board.getCell(x, y).setOccupied(false);
 	}
 
-	public ArrayList<Snake> getSnakes() {
-		return snakes;
-	}
-
-	public int getPlayers() {
-		return Players;
-	}
-
 	public void tick() {
 		System.out.println("tick: " + tick);
 		for (Snake snake : snakes) {
 			snake.move();
 			tick+= 1;
 		}
-	}
-
-	public GamePanel getGamePanel() {
-		return gamePanel;
-	}
-	public Board getBoard() {
-		return board;
 	}
 }

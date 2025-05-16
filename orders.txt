@@ -49,11 +49,13 @@ private methods: private void updateTail() {
                 		}
                 	}
 constants:
+final variables:
 variables:
 constructor:
 
 checks:
-getters and setters:
+getters:
+setters:
 overides:
 public methods:
 private checks:

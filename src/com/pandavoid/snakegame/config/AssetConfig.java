@@ -5,6 +5,7 @@ import java.awt.*;
 public class AssetConfig {
 	private Point position;
 	private Color color;
+
 	public AssetConfig() {
 
 	}
@@ -13,12 +14,12 @@ public class AssetConfig {
 		return position;
 	}
 
-	public void setPosition(Point position) {
-		this.position = position;
-	}
-
 	public Color getColor() {
 		return color;
+	}
+
+	public void setPosition(Point position) {
+		this.position = position;
 	}
 
 	public void setColor(Color color) {

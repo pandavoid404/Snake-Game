@@ -5,32 +5,32 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Board {
-	private final int height;
-	private final int width;
+	private static final int HEIGHT = 33;
+	private static final int WIDTH = 60;
 	private final Cell[][] board;
-	public Board(int height, int width) {
-		this.height = height;
-		this.width = width;
-		board = new Cell[height][width];
-		for (int RI = 0; RI < height;RI++) {
-			for (int CI = 0; CI < width;CI++) {
+
+	public Board() {
+		board = new Cell[HEIGHT][WIDTH];
+		for (int RI = 0; RI < HEIGHT; RI++) {
+			for (int CI = 0; CI < WIDTH; CI++) {
 				Cell cell = new Cell(new Point(CI,RI));
 				board[RI][CI] = cell;
 			}
 		}
 		System.out.println("board generated");
 	}
+
 	public boolean isOutsideArea(int x, int y) {
 		if (x < 0) {
 			return true;
 		}
-		if (x >= width) {
+		if (x >= WIDTH) {
 			return true;
 		}
 		if (y < 0) {
 			return true;
 		}
-		return y >= height;
+		return y >= HEIGHT;
 	}
 
 	public Cell getCell(int x, int y) {

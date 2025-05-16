@@ -5,31 +5,34 @@ import com.pandavoid.snakegame.core.food.Food;
 import java.awt.*;
 
 public class Cell {
+	private final Point position;
+
 	private boolean occupied;
 	private Food food;
-	private final Point position;
+
 	public Cell(Point position) {
 		occupied = false;
 		food = null;
 		this.position = position;
 	}
 
+	public boolean isOccupied() {
+		return occupied;
+	}
+
 	public Food getFood() {
 		return food;
+	}
+
+	public Point getPosition() {
+		return position;
 	}
 
 	public void setFood(Food food) {
 		this.food = food;
 	}
 
-	public boolean isOccupied() {
-		return occupied;
-	}
-
 	public void setOccupied(boolean occupied) {
 		this.occupied = occupied;
-	}
-	public Point getPosition() {
-		return position;
 	}
 }

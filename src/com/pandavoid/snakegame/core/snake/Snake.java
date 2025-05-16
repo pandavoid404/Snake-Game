@@ -10,24 +10,41 @@ import java.util.ArrayList;
 
 public class Snake {
 	private final Game game;
-	private final PlayerConfig config;
 	private final Color snakeColor;
+	private final ArrayList<SnakeCell> snakeCells = new ArrayList<>();
+
 	private Direction currentDirection;
 	private Direction newDirection;
 	private Point position;
 	private int maxLength;
-	private final ArrayList<SnakeCell> snakeCells = new ArrayList<>();
+
 	public Snake(Game game, PlayerConfig config) {
 		this.game = game;
-		this.config = config;
 		this.newDirection = config.getDirection();
 		this.position = config.getPosition();
 		this.snakeColor = config.getColor();
 		this.maxLength = config.getBaseLength();
-		this.snakeCells.add(new SnakeCell(new Point(this.config.getPosition().x, this.config.getPosition().y),this,newDirection));
+		this.snakeCells.add(new SnakeCell(new Point(config.getPosition().x, config.getPosition().y),this,newDirection));
 		move();
 		move();
 	}
+
+	public Color getColor() {
+		return snakeColor;
+	}
+
+	public Point getPosition() {
+		return position;
+	}
+
+	public ArrayList<SnakeCell> getSnakeCells() {
+		return snakeCells;
+	}
+
+	public Game getGame() {
+		return game;
+	}
+
 	public void turnSnake(Direction direction) {
 		switch (direction) {
 			case UP:
@@ -51,6 +68,7 @@ public class Snake {
 				break;
 		}
 	}
+
 	public boolean move() {
 		Point newPosition = new Point(position);
 		currentDirection = newDirection;
@@ -88,30 +106,15 @@ public class Snake {
 		}
 		return true;
 	}
-	public Color getColor() {
-		return snakeColor;
-	}
 
 	public void collision() {
 		System.out.println("Snake collision");
-		game.gamerun = false;
+		game.gameRunning = false;
 		Main.gameOverWindow();
 	}
 	
 	public void increaseLength() {
 		maxLength++;
-	}
-
-	public Point getPosition() {
-		return position;
-	}
-
-	public ArrayList<SnakeCell> getSnakeCells() {
-		return snakeCells;
-	}
-
-	public Game getGame() {
-		return game;
 	}
 
 	private void updateTail() {

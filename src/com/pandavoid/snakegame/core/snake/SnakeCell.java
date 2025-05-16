@@ -8,32 +8,26 @@ import com.pandavoid.snakegame.config.AssetConfig;
 import java.awt.*;
 
 public class SnakeCell {
-	private final Snake snake;
-	private Point position;
-	private SnakePart part;
+	private final AssetPaint assetPaint;
+	private final Point position;
 	private final Direction fromDirection;
+
+	private SnakePart part;
 	private Direction toDirection;
-	private AssetPaint assetPaint;
+
 	public SnakeCell(Point position,Snake snake, Direction fromDirection) {
 		AssetConfig config = new AssetConfig();
 		config.setPosition(position);
 		config.setColor(snake.getColor());
 		this.position = position;
-		this.snake = snake;
 		this.part = SnakePart.HEAD;
-		this.snake.getGame().takeCell(position.x,position.y,this.snake);
+		snake.getGame().takeCell(position.x,position.y, snake);
 		this.fromDirection = fromDirection;
 		this.assetPaint = snake.getGame().getGamePanel().createAsset(config);
 	}
-	public Point getPosition() {
-		return position;
-	}
+
 	public void isTail() {
 		this.part = SnakePart.TAIL;
-	}
-	public void setNextDirection(Direction direction) {
-		this.toDirection = direction;
-		this.part = SnakePart.BODY;
 	}
 
 	public Direction getFromDirection() {
@@ -49,5 +43,14 @@ public class SnakeCell {
 	}
 	public AssetPaint getSnakepaint() {
 		return assetPaint;
+	}
+
+	public Point getPosition() {
+		return position;
+	}
+
+	public void setNextDirection(Direction direction) {
+		this.toDirection = direction;
+		this.part = SnakePart.BODY;
 	}
 }

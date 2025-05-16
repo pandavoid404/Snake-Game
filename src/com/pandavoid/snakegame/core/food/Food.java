@@ -7,10 +7,9 @@ import com.pandavoid.snakegame.config.AssetConfig;
 import java.awt.*;
 
 public class Food {
-	private Game game;
 	private final AssetPaint assetPaint;
+
 	public Food(Game game, Point position) {
-		this.game = game;
 		AssetConfig config = new AssetConfig();
 		config.setColor(Color.decode("#AA0000"));
 		config.setPosition(position);
