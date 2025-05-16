@@ -51,6 +51,8 @@ private methods: private void updateTail() {
 constants:
 variables:
 constructor:
+
+checks:
 getters and setters:
 overides:
 public methods:
