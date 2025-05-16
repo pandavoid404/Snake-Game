@@ -1,5 +1,6 @@
 package com.pandavoid.snakegame.game.snake;
 
+import com.pandavoid.snakegame.Main;
 import com.pandavoid.snakegame.enums.Direction;
 import com.pandavoid.snakegame.game.Game;
 import com.pandavoid.snakegame.game.config.PlayerConfig;
@@ -94,6 +95,7 @@ public class Snake {
 	public void Collision() {
 		System.out.println("Snake collision");
 		game.gamerun = false;
+		Main.gameOverWindow();
 	}
 	
 	public void increaseLength() {
