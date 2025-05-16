@@ -109,6 +109,16 @@ public class MainWindow {
 		window.CreateButton(0 , 9,1, "Back", backListener );
 		window.UpdateDisplay();
 	}
+	public void DisplaySettings(ActionListener backListener) {
+		window.ClearDisplay();
+		window.CreateLabel("Settings", 30, 0, 0, 2);
+		window.CreateLabel("Sound", 15, 0, 1, 1);
+		window.CreateButton(1 , 1 ,1, "On", null);
+		window.CreateLabel("Music", 15, 0, 2, 1);
+		window.CreateButton(1 , 2,1, "On", null);
+		window.CreateButton(0 , 3,2, "Back", backListener );
+		window.UpdateDisplay();
+	}
 	public GamePanel DisplayGame() {
 		window.ClearDisplay();
 		gamePanel = new GamePanel();

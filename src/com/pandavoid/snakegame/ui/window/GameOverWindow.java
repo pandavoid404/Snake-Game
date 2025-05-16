@@ -17,7 +17,7 @@ public class GameOverWindow {
         window.SetBGColor();
         window.SetPosition(new Point(MainWindowPos.x+MainWindowWidth/2-width/2,MainWindowPos.y+MainWindowHeight/2-height/2));
         window.HideControls();
-        window.CreateLabel("Game Over", 20, 0, 0, 1);
+        window.CreateLabel("Game Over", 30, 0, 0, 1);
         if (Players == 1) {
             window.CreateLabel("Score Player", 10, 0, 1, 1);
         }
@@ -29,7 +29,6 @@ public class GameOverWindow {
         ActionListener ToMainListener = e-> Main.GameOverWindowToMainWindow();
         window.CreateButton(0 ,3, 1 ,"restart",null);
         window.CreateButton(0 ,4 ,1, "Back to Main Menu", ToMainListener);
-
         window.ShowDisplay();
     }
     public void Close() {

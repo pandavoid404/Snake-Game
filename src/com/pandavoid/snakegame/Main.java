@@ -86,6 +86,8 @@ public class Main {
 
     }
     public static void Settings(){
+        ActionListener backListener = e -> ShowMainMenu();
+        mainWindow.DisplaySettings(backListener);
         System.out.println("settings");
     }
 
