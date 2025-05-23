@@ -6,17 +6,18 @@ import javax.swing.*;
 
 public class Window {
     private final JFrame window;
-
+    private JComboBox dropdown;
     Window(String title,int width,int height) {
         window = new JFrame(title);
         window.setSize(width,height);
         window.setLayout(new GridBagLayout());
     }
-
     Container getContentPane() {
         return window.getContentPane();
     }
-
+    public JComboBox getDropdown() {
+        return dropdown;
+    }
     java.awt.Window getWindow() {
         return window;
     }
@@ -98,7 +99,7 @@ public class Window {
     void createDropdown(String item1, String Item2, String item3, int x, int y, int gbcWidth,int width,int height){
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
-        JComboBox<String> dropdown = new JComboBox<>();
+        dropdown = new JComboBox<>();
         dropdown.addItem(item1);
         dropdown.addItem(Item2);
         dropdown.addItem(item3);

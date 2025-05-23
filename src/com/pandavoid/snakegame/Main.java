@@ -8,6 +8,7 @@ import com.pandavoid.snakegame.ui.*;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 import javax.swing.*;
 
 public class Main {
@@ -18,6 +19,7 @@ public class Main {
     private static MainWindowState mainWindowState;
     private static GameOverWindow gameOverWindow;
     private static int FPS;
+    private static String difficulty;
 
 	public static void main(String[]args) {
         mainWindowState = MainWindowState.MAIN_MENU;
@@ -58,7 +60,7 @@ public class Main {
         if (escWindow != null) {
             closeEscMenu();
         } else if (mainWindowState == MainWindowState.PLAYING ) {
-            Window window = mainWindow.getWindow();
+            Window window = mainWindow.getJavaWindow();
             escWindow = new EscWindow(window.getLocation(),window.getWidth(),window.getHeight());
         }
     }
@@ -115,10 +117,7 @@ public class Main {
         gameConfig.setPlayers(players);
         ActionListener StartGameListener = e -> startGame(gameConfig);
         ActionListener backListener = e -> preGameSettings();
-        ActionListener difficultyEasyListener = e -> difficultyEasy();
-        ActionListener difficultyMediumListener = e -> difficultyMedium();
-        ActionListener difficultyHardListener = e -> difficultyHard();
-        mainWindow.displayPlayerSelection(gameConfig,StartGameListener,backListener,difficultyEasyListener,difficultyMediumListener,difficultyHardListener);
+        mainWindow.displayPlayerSelection(gameConfig,StartGameListener,backListener);
     }
     private static void difficultyEasy(){
        FPS = 6;
@@ -130,6 +129,12 @@ public class Main {
         FPS = 15;
     }
     private static void startGame(GameConfig config){
+        difficulty = (String) mainWindow.getwindow().getDropdown().getSelectedItem();
+        switch (Objects.requireNonNull(difficulty)) {
+            case "Easy" -> difficultyEasy();
+            case "Medium" -> difficultyMedium();
+            case "Hard" -> difficultyHard();
+        }
         mainWindowState = MainWindowState.PLAYING;
         System.out.println("Game Starting...");
         GamePanel gamepanel = mainWindow.displayGame();
@@ -154,7 +159,7 @@ public class Main {
     }
 
     public static void gameOverWindow(){
-        Window window = mainWindow.getWindow();
+        Window window = mainWindow.getJavaWindow();
         gameOverWindow = new GameOverWindow(window.getLocation(),window.getWidth(),window.getHeight());
     }
 } 

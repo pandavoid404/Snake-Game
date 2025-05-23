@@ -54,8 +54,11 @@ public class MainWindow {
 		return window.getWindowSize();
 	}
 
-	public java.awt.Window getWindow() {
+	public java.awt.Window getJavaWindow() {
 		return window.getWindow();
+	}
+	public Window getwindow(){
+		return window;
 	}
 
 	public ActionMap getActionmap(){
@@ -87,7 +90,7 @@ public class MainWindow {
 		window.updateDisplay();
 	}
 
-	public void displayPlayerSelection(GameConfig gameConfig, ActionListener StartGameAction, ActionListener backListener,ActionListener difficultyEasy, ActionListener difficultyMedium,ActionListener difficultyHard ){
+	public void displayPlayerSelection(GameConfig gameConfig, ActionListener StartGameAction, ActionListener backListener ){
 		window.clearDisplay();
 		Panel panel1 = window.createPanel(0,0,2);
 		panel1.createLabel("Select Player 1" , 15 , 2 ,0, 0 );
