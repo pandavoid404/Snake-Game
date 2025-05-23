@@ -89,7 +89,6 @@ public class Snake {
 		System.out.println("Moving snake to " + newPosition);
 		if (game.getBoard().isOutsideArea(newPosition.x, newPosition.y)) {
 			System.out.println("Out of area");
-			collision();
 			return false;
 		}
 		position = newPosition;
