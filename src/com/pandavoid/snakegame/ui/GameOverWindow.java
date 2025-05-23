@@ -19,20 +19,22 @@ public class GameOverWindow {
         window.hideControls();
         window.createLabel("Game Over", 30, 0, 0, 1);
         if (Players == 1) {
-            window.createLabel("Score Player", 10, 0, 1, 1);
+            int Score1 = Main.getGame().getSnakes().get(0).getScore();
+            window.createLabel("Score:"+Score1, 15, 0, 1, 1);
         }
         else{
-            window.createLabel("Score Player 1", 10, 0, 1, 1);
-            window.createLabel("Score Player 2", 10, 0, 2, 1);
+            int Score1 = Main.getGame().getSnakes().get(0).getScore();
+            int Score2 = Main.getGame().getSnakes().get(1).getScore();
+            window.createLabel("Score Player 1:"+Score1, 15, 0, 1, 1);
+            window.createLabel("Score Player 2:"+Score2, 15, 0, 2, 1);
+
         }
-        //ActionListener CancelListener = e-> Main.CloseEscMenu();
         ActionListener ToMainListener = e-> Main.gameOverWindowToMainWindow();
-        window.createButton(0 ,3, 1 ,"restart",null);
+        window.createButton(0 ,3, 1,"restart",null);
         window.createButton(0 ,4 ,1, "Back to Main Menu", ToMainListener);
         window.showDisplay();
     }
     public void close() {
         window.close();
     }
-
 }

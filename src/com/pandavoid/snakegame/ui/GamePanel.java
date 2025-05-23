@@ -26,7 +26,7 @@ public class GamePanel implements Runnable {
 
     @Override
     public void run() {
-        int targetFPS = 10;
+        int targetFPS = 8;
         long targetTime = 1000 / targetFPS;
         while (game.gameRunning) {
             long startTime = System.currentTimeMillis();
