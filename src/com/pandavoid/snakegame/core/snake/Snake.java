@@ -18,6 +18,7 @@ public class Snake {
 	private Point position;
 	private int maxLength;
 	private int score = 0;
+	private boolean alive = true;
 
 	public Snake(Game game, PlayerConfig config) {
 		this.game = game;
@@ -43,9 +44,19 @@ public class Snake {
 	}
 
 	public int getScore() {
+
 		return score;
 	}
-
+	public int getAliveBonus() {
+		System.out.println("Alive: " + alive);
+		System.out.println("Game running: " + game.gameRunning);
+		if (!game.gameRunning){
+			if(alive) {
+				return 3;
+			}
+		}
+		return 0;
+	}
 	public Game getGame() {
 		return game;
 	}
@@ -114,6 +125,7 @@ public class Snake {
 	}
 
 	public void collision() {
+		alive = false;
 		System.out.println("Snake collision");
 		game.gameRunning = false;
 		Main.gameOverWindow();

@@ -120,13 +120,13 @@ public class Main {
         mainWindow.displayPlayerSelection(gameConfig,StartGameListener,backListener);
     }
     private static void difficultyEasy(){
-       FPS = 6;
+       FPS = 9;
     }
     private static void difficultyMedium(){
-        FPS = 10;
+        FPS = 14;
     }
     private static void difficultyHard(){
-        FPS = 15;
+        FPS = 16;
     }
     private static void startGame(GameConfig config){
         difficulty = (String) mainWindow.getwindow().getDropdown().getSelectedItem();

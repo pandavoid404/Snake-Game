@@ -17,21 +17,52 @@ public class GameOverWindow {
         window.setBGColor();
         window.setPosition(new Point(MainWindowPos.x+MainWindowWidth/2-width/2,MainWindowPos.y+MainWindowHeight/2-height/2));
         window.hideControls();
-        window.createLabel("Game Over", 30, 0, 0, 1);
+        window.createLabel("Game Over", 35, 0, 0, 3);
         if (Players == 1) {
             int Score1 = Main.getGame().getSnakes().get(0).getScore();
-            window.createLabel("Score:"+Score1, 15, 0, 1, 1);
+            window.createLabel("Score:"+Score1, 15, 0, 1, 2);
         }
         else{
+            int bonus1 = Main.getGame().getSnakes().get(0).getAliveBonus();
+            int bonus2 = Main.getGame().getSnakes().get(1).getAliveBonus();
             int Score1 = Main.getGame().getSnakes().get(0).getScore();
             int Score2 = Main.getGame().getSnakes().get(1).getScore();
-            window.createLabel("Score Player 1:"+Score1, 15, 0, 1, 1);
-            window.createLabel("Score Player 2:"+Score2, 15, 0, 2, 1);
+            int totalScore1 = bonus1+Score1;
+            int totalScore2 = bonus2+Score2;
+            if (totalScore1>totalScore2) {
+                window.createLabel("Winner: Player1", 20, 0, 1, 3);
+            }else if (totalScore2>totalScore1) {
+                window.createLabel("Winner: Player2", 20, 0, 1, 3);
+            }else {
+                window.createLabel("Draw", 20, 0, 1, 3);
+            }
+            window.createLabel("----------------", 15, 0, 2, 1);
+            window.createLabel("----------------", 15, 2, 2, 1);
+            window.createLabel("Player1", 15, 0, 3, 1);
+            window.createLabel("|", 15, 1, 3, 1);
+            window.createLabel("Appels gegeten:"+Score1, 15, 0, 4, 1);
+            window.createLabel("|", 15, 1, 4, 1);
+            if (bonus1>0) {
+                window.createLabel("didn't die bonus:"+bonus1, 15, 0, 5, 1);
+            }else{
+                window.createLabel("no bonus", 15, 0, 5, 1);
+            }
+            window.createLabel("|", 15, 1, 5, 1);
+            window.createLabel("total:"+totalScore1, 15, 0, 6, 1);
+            window.createLabel("|", 15, 1, 6, 1);
+            window.createLabel("Player2", 15, 2, 3, 1);
+            window.createLabel("Appels gegeten:"+Score2, 15, 2, 4, 1);
+            if (bonus2>0) {
+                window.createLabel("didn't die bonus:"+bonus2, 15, 2, 5, 1);
+            }else{
+                window.createLabel("no bonus", 15, 2, 5, 1);
+            }
+            window.createLabel("total:"+totalScore2, 15, 2, 6, 1);
 
         }
         ActionListener ToMainListener = e-> Main.gameOverWindowToMainWindow();
-        window.createButton(0 ,3, 1,"restart",null);
-        window.createButton(0 ,4 ,1, "Back to Main Menu", ToMainListener);
+        window.createButton(0 ,9, 3,"restart",null);
+        window.createButton(0 ,10 ,3, "Back to Main Menu", ToMainListener);
         window.showDisplay();
     }
     public void close() {
