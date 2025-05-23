@@ -17,6 +17,7 @@ public class Snake {
 	private Direction newDirection;
 	private Point position;
 	private int maxLength;
+	private int score;
 
 	public Snake(Game game, PlayerConfig config) {
 		this.game = game;
@@ -39,6 +40,10 @@ public class Snake {
 
 	public ArrayList<SnakeCell> getSnakeCells() {
 		return snakeCells;
+	}
+
+	public int getScore() {
+		return score;
 	}
 
 	public Game getGame() {
@@ -116,6 +121,7 @@ public class Snake {
 	
 	public void increaseLength() {
 		maxLength++;
+		score++;
 	}
 
 	private void updateTail() {
