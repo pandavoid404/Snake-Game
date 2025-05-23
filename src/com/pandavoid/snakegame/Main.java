@@ -17,6 +17,7 @@ public class Main {
     private static EscWindow escWindow;
     private static MainWindowState mainWindowState;
     private static GameOverWindow gameOverWindow;
+    private static int FPS;
 
 	public static void main(String[]args) {
         mainWindowState = MainWindowState.MAIN_MENU;
@@ -29,6 +30,9 @@ public class Main {
 
     public static Game getGame(){
         return game;
+    }
+    public static int getFPS(){
+        return FPS;
     }
 
     private static void showMainMenu() {
@@ -111,9 +115,20 @@ public class Main {
         gameConfig.setPlayers(players);
         ActionListener StartGameListener = e -> startGame(gameConfig);
         ActionListener backListener = e -> preGameSettings();
-        mainWindow.displayPlayerSelection(gameConfig,StartGameListener,backListener);
+        ActionListener difficultyEasyListener = e -> difficultyEasy();
+        ActionListener difficultyMediumListener = e -> difficultyMedium();
+        ActionListener difficultyHardListener = e -> difficultyHard();
+        mainWindow.displayPlayerSelection(gameConfig,StartGameListener,backListener,difficultyEasyListener,difficultyMediumListener,difficultyHardListener);
     }
-
+    private static void difficultyEasy(){
+       FPS = 6;
+    }
+    private static void difficultyMedium(){
+        FPS = 10;
+    }
+    private static void difficultyHard(){
+        FPS = 15;
+    }
     private static void startGame(GameConfig config){
         mainWindowState = MainWindowState.PLAYING;
         System.out.println("Game Starting...");

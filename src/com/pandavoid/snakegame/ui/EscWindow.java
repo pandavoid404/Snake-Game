@@ -19,11 +19,9 @@ public class EscWindow {
         window.hideControls();
         ActionListener CancelListener = e-> Main.closeEscMenu();
         ActionListener ToMainListener = e-> Main.escMenuToMainMenu();
-        ActionListener SettingsListener = e -> Main.settings();
         ActionListener BugScreenListener = e -> Main.bugReportScreen();
         window.createButton(0 ,1 ,1 ,"Back to Game",CancelListener);
         window.createButton(0 ,2, 1 ,"restart",CancelListener);
-        window.createButton(0 ,3 ,1 ,"Settings", SettingsListener);
         window.createButton(0 ,4 ,1 ,"Bug Report",BugScreenListener);
         window.createButton(0 ,5 ,1, "Back to Main Menu", ToMainListener);
 

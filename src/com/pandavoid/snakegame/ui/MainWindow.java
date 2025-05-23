@@ -87,28 +87,29 @@ public class MainWindow {
 		window.updateDisplay();
 	}
 
-	public void displayPlayerSelection(GameConfig gameConfig, ActionListener StartGameAction, ActionListener backListener){
+	public void displayPlayerSelection(GameConfig gameConfig, ActionListener StartGameAction, ActionListener backListener,ActionListener difficultyEasy, ActionListener difficultyMedium,ActionListener difficultyHard ){
 		window.clearDisplay();
-		Panel panel1 = window.createPanel(0,1);
+		Panel panel1 = window.createPanel(0,0,2);
 		panel1.createLabel("Select Player 1" , 15 , 2 ,0, 0 );
 		ActionListener ChangeColorPlayer1Listener = e -> changeColor(labelplayer1, 0, gameConfig, 1);
 		ActionListener BackColorPlayer1Listener = e -> changeColor(labelplayer1, 0, gameConfig , -1);
-		labelplayer1 = panel1.createLabel("    " , 35 , 2 ,1, 0 );
+		labelplayer1 = panel1.createLabel("    " , 35 , 2 ,1, 0);
 		labelplayer1.setOpaque(true);
 		panel1.createButton(ChangeColorPlayer1Listener, 0, 2, 100, 50);
 		panel1.createButton(BackColorPlayer1Listener, 1, 2, 100, 50);
 		if (gameConfig.getPlayers()==2) {
-			Panel panel2 = window.createPanel(1,1);
+			Panel panel2 = window.createPanel(2,0,2);
 			ActionListener ChangeColorPlayer2Listener = e -> changeColor(labelplayer2, 1, gameConfig,1);
 			ActionListener BackColorPlayer2Listener = e -> changeColor(labelplayer2, 1, gameConfig,-1);
-			panel2.createLabel("Select Player2" ,15 ,2 ,0, 0 );
-			labelplayer2 = panel2.createLabel("    ",35,2,1, 0 );
+			panel2.createLabel("Select Player2" ,15,2 ,0, 1);
+			labelplayer2 = panel2.createLabel("    ",35,2,1, 1);
 			labelplayer2.setOpaque(true);
-			panel2.createButton(ChangeColorPlayer2Listener, 0, 2, 100, 50);
-			panel2.createButton(BackColorPlayer2Listener, 1, 2, 100, 50);
+			panel2.createButton(ChangeColorPlayer2Listener, 1, 3, 100, 50);
+			panel2.createButton(BackColorPlayer2Listener, 2, 3, 100, 50);
 		}
-		window.createButton(0 , 3,2, "Start Game", StartGameAction);
-		window.createButton(0 , 4,2, "Back", backListener );
+		window.createDropdown("Easy","Medium","Hard",1,3,3,200,20);
+		window.createButton(0 , 4,4, "Start Game", StartGameAction);
+		window.createButton(0, 5,4, "Back", backListener );
 		window.updateDisplay();
 	}
 

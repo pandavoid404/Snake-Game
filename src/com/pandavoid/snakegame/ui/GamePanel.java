@@ -1,5 +1,6 @@
 package com.pandavoid.snakegame.ui;
 
+import com.pandavoid.snakegame.Main;
 import com.pandavoid.snakegame.core.Game;
 import com.pandavoid.snakegame.config.AssetConfig;
 
@@ -7,12 +8,13 @@ import java.util.Objects;
 
 public class GamePanel implements Runnable {
     private final ImagePanel panel;
-
+    private static int targetFPS;
 	private Game game;
 
     public GamePanel() {
         panel = new ImagePanel("assets/background/gameboard/default.png", 1200, 660, 0, 1);
-        panel.setLayout(null); // Use absolute positioning for ImagePanel
+        panel.setLayout(null);// Use absolute positioning for ImagePanel
+        targetFPS = Main.getFPS();
     }
 
     public ImagePanel getPanel() {
@@ -26,7 +28,6 @@ public class GamePanel implements Runnable {
 
     @Override
     public void run() {
-        int targetFPS = 8;
         long targetTime = 1000 / targetFPS;
         while (game.gameRunning) {
             long startTime = System.currentTimeMillis();

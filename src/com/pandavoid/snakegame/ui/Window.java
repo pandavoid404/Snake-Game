@@ -41,12 +41,13 @@ public class Window {
         window.getContentPane().setBackground(Color.WHITE);
     }
 
-    Panel createPanel(int x , int y){
-        Panel panel = new Panel(500, 700);
+    Panel createPanel(int x , int y ,int gbcWidth){
+        Panel panel = new Panel(x, y);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.gridx = x;
         gbc.gridy = y;
+        gbc.gridwidth = gbcWidth;
         window.add(panel.getPanel(),gbc);
         return panel;
     }
@@ -94,6 +95,19 @@ public class Window {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         window.add(button,gbc);
     }
+    void createDropdown(String item1, String Item2, String item3, int x, int y, int gbcWidth,int width,int height){
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(10, 10, 10, 10);
+        JComboBox<String> dropdown = new JComboBox<>();
+        dropdown.addItem(item1);
+        dropdown.addItem(Item2);
+        dropdown.addItem(item3);
+        dropdown.setPreferredSize(new Dimension(width, height));
+        gbc.gridx = x;
+        gbc.gridy = y;
+        gbc.gridwidth = gbcWidth;
+        window.add(dropdown,gbc);
+    }
 
     void showDisplay() {
         window.setVisible(true);
@@ -114,6 +128,12 @@ public class Window {
                 window.remove(jPanel);
             }else if (component instanceof  JTextArea JTextArea) {
                 window.remove(JTextArea);
+            }else if (component instanceof JComboBox JComboBox) {
+                window.remove(JComboBox);
+            }else if (component instanceof JSlider JSlider) {
+                window.remove(JSlider);
+            }else if (component instanceof JCheckBox JCheckBox) {
+                window.remove(JCheckBox);
             }
         }
     }
