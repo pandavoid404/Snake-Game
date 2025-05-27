@@ -5,7 +5,7 @@ import java.awt.*;
 public class AssetConfig {
 	private Point position;
 	private Color color;
-
+	private String imagepath;
 	public AssetConfig() {
 
 	}
@@ -25,4 +25,12 @@ public class AssetConfig {
 	public void setColor(Color color) {
 		this.color = color;
 	}
+
+    public String getImagepath() {
+        return imagepath;
+    }
+
+    public void setImagepath(String imagepath) {
+        this.imagepath = imagepath;
+    }
 }
