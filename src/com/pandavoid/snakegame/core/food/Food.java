@@ -12,6 +12,7 @@ public class Food {
 	public Food(Game game, Point position) {
 		AssetConfig config = new AssetConfig();
 		config.setColor(Color.decode("#AA0000"));
+		config.setImagepath("assets/foreground/apple/appel3.png");
 		config.setPosition(position);
 		this.assetPaint = game.getGamePanel().createAsset(config);
 		game.getBoard().getCell(position.x, position.y).setFood(this);
