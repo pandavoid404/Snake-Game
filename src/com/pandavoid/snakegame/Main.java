@@ -123,7 +123,7 @@ public class Main {
        FPS = 9;
     }
     private static void difficultyMedium(){
-        FPS = 14;
+        FPS = 12;
     }
     private static void difficultyHard(){
         FPS = 16;

@@ -52,7 +52,7 @@ public class Snake {
 		System.out.println("Game running: " + game.gameRunning);
 		if (!game.gameRunning){
 			if(alive) {
-				return 3;
+				return 2;
 			}
 		}
 		return 0;
@@ -62,23 +62,24 @@ public class Snake {
 	}
 
 	public void turnSnake(Direction direction) {
+		System.out.println("Turning snake to " + direction + " from " + currentDirection);
 		switch (direction) {
 			case UP:
-				if (this.currentDirection != Direction.DOWN) {
+				if (this.currentDirection != Direction.DOWN && this.currentDirection != Direction.UP) {
 					this.newDirection = direction;
 				}
 				break;
 			case DOWN:
-				if (this.currentDirection != Direction.UP) {
+				if (this.currentDirection != Direction.UP && this.currentDirection != Direction.DOWN) {
 					this.newDirection = direction;
 				}
 				break;
 			case LEFT:
-				if (this.currentDirection != Direction.RIGHT) {
+				if (this.currentDirection != Direction.RIGHT && this.currentDirection != Direction.LEFT) {
 					this.newDirection = direction;
 				}
 			case RIGHT:
-				if (this.currentDirection != Direction.LEFT) {
+				if (this.currentDirection != Direction.LEFT && this.currentDirection != Direction.RIGHT) {
 					this.newDirection = direction;
 				}
 				break;
