@@ -1,25 +1,29 @@
 package com.pandavoid.snakegame.core;
 
+import com.pandavoid.snakegame.config.AssetConfig;
 import com.pandavoid.snakegame.enums.Direction;
 import com.pandavoid.snakegame.core.board.Board;
 import com.pandavoid.snakegame.config.GameConfig;
 import com.pandavoid.snakegame.core.food.Food;
 import com.pandavoid.snakegame.core.snake.Snake;
+import com.pandavoid.snakegame.enums.FoodType;
 import com.pandavoid.snakegame.ui.GamePanel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Game {
 	private final GamePanel gamePanel;
 	private final int Players;
 	private final ArrayList<Snake> snakes = new ArrayList<>();
 	private final Board board;
-
+	private static int goldenappleChance = 0;
+	private static final int baseChance = 25;
 	private int tick = 0;
 	public boolean gameRunning = true;
-
+	public int goldenApplesChance;
 	public Game(GameConfig config, ActionMap actionMap,GamePanel gamePanel) {
 		this.Players = config.getPlayers();
 		this.gamePanel = gamePanel;
@@ -79,7 +83,17 @@ public class Game {
 	}
 
 	private void spawnFood(){
-		new Food(this,board.findFreeCell().getPosition());
+		Random r= new Random();
+		int r1 = r.nextInt(baseChance);
+		int chance = 100/baseChance*goldenappleChance;
+		System.out.println(chance + "% chance of goldenapple");
+		FoodType foodType = FoodType.apple;
+		if(r1<goldenappleChance){
+			foodType = FoodType.goldenapple;
+			goldenappleChance = 0;
+		}
+		goldenappleChance++;
+		new Food(this,board.findFreeCell().getPosition(),foodType);
 	}
 
 	public void takeCell(int x, int y,Snake snake) {
