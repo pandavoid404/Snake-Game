@@ -88,7 +88,7 @@ public class Game {
 			getGamePanel().removeSnakeBlock(food.getAssetPaint());
 			board.getCell(x, y).setFood(null);
 			spawnFood();
-			snake.increaseLength();
+			snake.increaseLength(food.getFoodval());
 		}
 		if (board.getCell(x, y).isOccupied()) {
 			snake.collision();

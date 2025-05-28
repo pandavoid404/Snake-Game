@@ -132,9 +132,9 @@ public class Snake {
 		Main.gameOverWindow();
 	}
 	
-	public void increaseLength() {
-		maxLength++;
-		score++;
+	public void increaseLength(int amount) {
+		maxLength+=amount;
+		score+=amount;
 	}
 
 	private void updateTail() {
