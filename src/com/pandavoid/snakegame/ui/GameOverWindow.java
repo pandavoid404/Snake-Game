@@ -70,5 +70,7 @@ public class GameOverWindow {
     }
     public void close() {
         window.close();
+        Main.disconnectGameOverWindow();
+        Logger.info(LogType.DISPLAY,"Closing Game Over Window");
     }
 }

@@ -69,7 +69,7 @@ public class Main {
         }
     }
     public static void gameOverWindowToMainWindow() {
-        closeGameOverWindow();
+        gameOverWindow.close();
         closeGame();
         showMainMenu();
     }
@@ -87,11 +87,10 @@ public class Main {
     }
     public static void disconnectEscMenu() {
         escWindow = null;
-        Logger.debug(LogType.DISPLAY,"Closed esc menu");
     }
 
-    public static void closeGameOverWindow() {
-        gameOverWindow.close();
+    public static void disconnectGameOverWindow() {
+        gameOverWindow = null;
     }
 
     private static void quitGameRequest(ActionEvent event) {
@@ -189,6 +188,7 @@ public class Main {
     }
 
     public static void gameOverWindow(){
+        Logger.info(LogType.DISPLAY,"Opening Game Over");
         Window window = mainWindow.getJavaWindow();
         gameOverWindow = new GameOverWindow(window.getLocation(),window.getWidth(),window.getHeight());
     }
