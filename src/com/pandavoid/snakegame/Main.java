@@ -52,6 +52,20 @@ public class Main {
         showMainMenu();
     }
 
+    public static void restartGame() {
+        if (game != null) {
+            closeGame();
+            if(gameOverWindow != null) {
+            gameOverWindow.close();
+            }
+            else if (escWindow!=null) {
+                escWindow.close();
+                escWindow = null;
+            }
+            startGame(gameConfig);
+        } else {
+            System.out.println("Game is null");
+        }}
     public static void gameOverWindowToMainWindow() {
         closeGameOverWindow();
         showMainMenu();
@@ -70,7 +84,6 @@ public class Main {
     public static void closeEscMenu() {
         escWindow.close();
         game.gameRunning = true;
-
         escWindow = null;
         new Thread(game.getGamePanel()).start();
         System.out.println(game.gameRunning);

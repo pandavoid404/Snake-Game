@@ -61,7 +61,8 @@ public class GameOverWindow {
 
         }
         ActionListener ToMainListener = e-> Main.gameOverWindowToMainWindow();
-        window.createButton(0 ,9, 3,"restart",null);
+        ActionListener RestartListener = e-> Main.restartGame();
+        window.createButton(0 ,9, 3,"restart",RestartListener);
         window.createButton(0 ,10 ,3, "Back to Main Menu", ToMainListener);
         window.showDisplay();
     }

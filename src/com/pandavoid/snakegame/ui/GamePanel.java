@@ -9,7 +9,7 @@ import java.util.Objects;
 public class GamePanel implements Runnable {
     private final ImagePanel panel;
     private static int targetFPS;
-	private Game game;
+	private Game game = Main.getGame();
 
     public GamePanel() {
         panel = new ImagePanel("assets/background/gameboard/default.png", 1200, 660, 0, 1);
