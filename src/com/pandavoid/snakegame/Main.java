@@ -62,13 +62,18 @@ public class Main {
             closeEscMenu();
         } else if (mainWindowState == MainWindowState.PLAYING ) {
             Window window = mainWindow.getJavaWindow();
+            game.gameRunning = false;
             escWindow = new EscWindow(window.getLocation(),window.getWidth(),window.getHeight());
         }
     }
 
     public static void closeEscMenu() {
         escWindow.close();
+        game.gameRunning = true;
+
         escWindow = null;
+        new Thread(game.getGamePanel()).start();
+        System.out.println(game.gameRunning);
     }
 
     public static void closeGameOverWindow() {

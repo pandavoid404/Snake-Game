@@ -17,6 +17,7 @@ public class EscWindow {
         window.setBGColor();
         window.setPosition(new Point(MainWindowPos.x+MainWindowWidth/2- WIDTH /2,MainWindowPos.y+MainWindowHeight/2- HEIGHT /2));
         window.hideControls();
+        Main.getGame().gameRunning = false;
         ActionListener CancelListener = e-> Main.closeEscMenu();
         ActionListener ToMainListener = e-> Main.escMenuToMainMenu();
         ActionListener BugScreenListener = e -> Main.bugReportScreen();
