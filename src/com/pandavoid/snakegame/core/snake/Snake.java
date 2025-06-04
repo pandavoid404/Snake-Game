@@ -51,8 +51,8 @@ public class Snake {
 	}
 	public int getAliveBonus() {
 		Logger.debug(LogType.SCORE, "Alive: " + alive);
-		Logger.debug(LogType.SCORE,"Game running: " + game.gameRunning);
-		if (!game.gameRunning){
+		Logger.debug(LogType.SCORE,"Game running: " + game.isGameRunning());
+		if (!game.isGameRunning()){
 			if(alive) {
 				return 2;
 			}
@@ -130,7 +130,7 @@ public class Snake {
 	public void collision() {
 		alive = false;
 		Logger.info(LogType.SNAKE,"Snake collision");
-		game.gameRunning = false;
+		game.pause();
 		Main.gameOverWindow();
 	}
 	

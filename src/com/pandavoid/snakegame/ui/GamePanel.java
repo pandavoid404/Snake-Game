@@ -11,7 +11,6 @@ import java.util.Objects;
 public class GamePanel implements Runnable {
     private final ImagePanel panel;
     private static int targetFPS;
-	private Game game = Main.getGame();
 
     public GamePanel() {
         panel = new ImagePanel("assets/background/gameboard/default.png", 1200, 660, 0, 1);
@@ -23,23 +22,15 @@ public class GamePanel implements Runnable {
         return panel;
     }
 
-    public void setGame(Game game) {
-        Objects.requireNonNull(game);
-        this.game = game;
-    }
-
     @Override
     public void run() {
+        Game game = Main.getGame();
         long targetTime = 1000 / targetFPS;
-        while (game.gameRunning) {
+        while (game.isGameRunning()) {
             long startTime = System.currentTimeMillis();
-            if (game != null){
-                game.tick();
-                panel.repaint();
-            } else {
-                Logger.error(LogType.DISPLAY,"Game is null");
-            }
-            long elapsedTime = System.currentTimeMillis() - startTime;
+	        game.tick();
+	        panel.repaint();
+	        long elapsedTime = System.currentTimeMillis() - startTime;
             if (elapsedTime < targetTime) {
                 try {
                     Thread.sleep(targetTime - elapsedTime);
@@ -51,7 +42,7 @@ public class GamePanel implements Runnable {
     }
 
     public AssetPaint createAsset(AssetConfig config) {
-        AssetPaint assetPaint = new AssetPaint(this.game,config);
+        AssetPaint assetPaint = new AssetPaint(Main.getGame(),config);
         panel.add(assetPaint);
         return assetPaint;
     }

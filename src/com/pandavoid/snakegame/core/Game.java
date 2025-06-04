@@ -24,7 +24,7 @@ public class Game {
 	private int goldenappleChance = 0;
 	private final int baseChance;
 	private int tick = 0;
-	public boolean gameRunning = true;
+	private boolean gameRunning = true;
 	public int goldenApplesChance;
 	public Game(GameConfig config, ActionMap actionMap,GamePanel gamePanel) {
 		this.Players = config.getPlayers();
@@ -124,5 +124,20 @@ public class Game {
 			snake.move();
 			tick+= 1;
 		}
+	}
+
+	public void pause() {
+		gameRunning = false;
+		Logger.info(LogType.GAME,"Paused game");
+	}
+
+	public void resume() {
+		gameRunning = true;
+		new Thread(gamePanel).start();
+		Logger.info(LogType.GAME,"Resumed game");
+	}
+
+	public boolean isGameRunning() {
+		return gameRunning;
 	}
 }

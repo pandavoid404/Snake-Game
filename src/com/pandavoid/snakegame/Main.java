@@ -50,6 +50,7 @@ public class Main {
 
     public static void escMenuToMainMenu() {
         escWindow.close();
+        closeGame();
         showMainMenu();
     }
 
@@ -80,7 +81,7 @@ public class Main {
         } else if (mainWindowState == MainWindowState.PLAYING ) {
             Logger.info(LogType.DISPLAY,"no ESC menu found, creating new ESC menu");
             Window window = mainWindow.getJavaWindow();
-            game.gameRunning = false;
+            game.pause();
             escWindow = new EscWindow(window.getLocation(),window.getWidth(),window.getHeight());
         }
     }
@@ -167,7 +168,6 @@ public class Main {
         Logger.info(LogType.DISPLAY,"Game Starting...");
         GamePanel gamepanel = mainWindow.displayGame();
         game = new Game(config,mainWindow.getActionmap(),gamepanel);
-        gamepanel.setGame(game);
         // Start the game thread to run the game loop
         Thread gameThread = new Thread(mainWindow.getGamePanel());
         gameThread.start();
@@ -182,6 +182,8 @@ public class Main {
     }
 
     public static void closeGame() {
+        Logger.info(LogType.DISPLAY,"Closing game");
+        game.pause();
         game = null;
         mainWindow.removeGamePanel();
     }

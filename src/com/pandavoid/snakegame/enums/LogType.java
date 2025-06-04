@@ -8,4 +8,6 @@ public enum LogType {
 	SCORE,
 	DISPLAY,
 	BOARD,
+	GAME,
+
 }
