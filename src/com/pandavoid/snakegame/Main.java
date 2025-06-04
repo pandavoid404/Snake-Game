@@ -58,22 +58,24 @@ public class Main {
             if(gameOverWindow != null) {
             gameOverWindow.close();
             }
-            else if (escWindow!=null) {
+            else if (escWindow != null) {
                 escWindow.close();
-                escWindow = null;
             }
             startGame(gameConfig);
         } else {
             System.out.println("Game is null");
-        }}
+        }
+    }
     public static void gameOverWindowToMainWindow() {
         closeGameOverWindow();
+        closeGame();
         showMainMenu();
     }
 
     public static void escMenuRequest() {
         if (escWindow != null) {
             closeEscMenu();
+            game.gameRunning = true;
         } else if (mainWindowState == MainWindowState.PLAYING ) {
             Window window = mainWindow.getJavaWindow();
             game.gameRunning = false;
@@ -84,7 +86,6 @@ public class Main {
     public static void closeEscMenu() {
         escWindow.close();
         game.gameRunning = true;
-        escWindow = null;
         new Thread(game.getGamePanel()).start();
         System.out.println(game.gameRunning);
     }
