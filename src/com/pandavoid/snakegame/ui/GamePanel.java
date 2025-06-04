@@ -1,8 +1,10 @@
 package com.pandavoid.snakegame.ui;
 
+import com.pandavoid.snakegame.Logger;
 import com.pandavoid.snakegame.Main;
 import com.pandavoid.snakegame.core.Game;
 import com.pandavoid.snakegame.config.AssetConfig;
+import com.pandavoid.snakegame.enums.LogType;
 
 import java.util.Objects;
 
@@ -35,7 +37,7 @@ public class GamePanel implements Runnable {
                 game.tick();
                 panel.repaint();
             } else {
-                System.out.println("Game is null");
+                Logger.error(LogType.DISPLAY,"Game is null");
             }
             long elapsedTime = System.currentTimeMillis() - startTime;
             if (elapsedTime < targetTime) {

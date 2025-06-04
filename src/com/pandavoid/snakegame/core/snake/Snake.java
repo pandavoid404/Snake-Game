@@ -1,9 +1,11 @@
 package com.pandavoid.snakegame.core.snake;
 
+import com.pandavoid.snakegame.Logger;
 import com.pandavoid.snakegame.Main;
 import com.pandavoid.snakegame.enums.Direction;
 import com.pandavoid.snakegame.core.Game;
 import com.pandavoid.snakegame.config.PlayerConfig;
+import com.pandavoid.snakegame.enums.LogType;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -48,8 +50,8 @@ public class Snake {
 		return score;
 	}
 	public int getAliveBonus() {
-		System.out.println("Alive: " + alive);
-		System.out.println("Game running: " + game.gameRunning);
+		Logger.debug(LogType.SCORE, "Alive: " + alive);
+		Logger.debug(LogType.SCORE,"Game running: " + game.gameRunning);
 		if (!game.gameRunning){
 			if(alive) {
 				return 2;
@@ -62,7 +64,7 @@ public class Snake {
 	}
 
 	public void turnSnake(Direction direction) {
-		System.out.println("Turning snake to " + direction + " from " + currentDirection);
+		Logger.debug(LogType.MOVE,"Turning snake to " + direction + " from " + currentDirection);
 		switch (direction) {
 			case UP:
 				if (this.currentDirection != Direction.DOWN && this.currentDirection != Direction.UP) {
@@ -103,15 +105,15 @@ public class Snake {
 				newPosition.x++;
 				break;
 		}
-		System.out.println("Moving snake to " + newPosition);
+		Logger.debug(LogType.MOVE,"Moving snake to " + newPosition);
 		if (game.getBoard().isOutsideArea(newPosition.x, newPosition.y)) {
-			System.out.println("Out of area");
+			Logger.debug(LogType.MOVE,"Out of area");
 			collision();
 			return false;
 		}
 		position = newPosition;
 		snakeCells.addFirst(new SnakeCell(new Point(position.x,position.y),this,currentDirection));
-		System.out.println("Snake head added at x: "+position.x+" and y: "+position.y+" with direction: "+currentDirection.toString());
+		Logger.debug(LogType.SNAKE,"Snake head added at x: "+position.x+" and y: "+position.y+" with direction: "+currentDirection.toString());
 		updateHead(currentDirection);
 		if (snakeCells.size() > maxLength) {
 			SnakeCell lastCell = snakeCells.getLast();
@@ -120,14 +122,14 @@ public class Snake {
 			game.getGamePanel().removeSnakeBlock(lastCell.getSnakepaint());
 			updateTail();
 			snakeCells.remove(lastCell);
-			System.out.println("Snake tail removed and tail updated because snake is longer than " + maxLength);
+			Logger.debug(LogType.SNAKE,"Snake tail removed and tail updated because snake is longer than " + maxLength);
 		}
 		return true;
 	}
 
 	public void collision() {
 		alive = false;
-		System.out.println("Snake collision");
+		Logger.info(LogType.SNAKE,"Snake collision");
 		game.gameRunning = false;
 		Main.gameOverWindow();
 	}
@@ -145,7 +147,7 @@ public class Snake {
 	private void updateHead(Direction direction) {
 		if (snakeCells.size() > 1) {
 			snakeCells.get(1).setNextDirection(direction);
-			System.out.println(" old snake head updated with direction: " + direction);
+			Logger.debug(LogType.SNAKE," old snake head updated with direction: " + direction);
 		}
 	}
 }

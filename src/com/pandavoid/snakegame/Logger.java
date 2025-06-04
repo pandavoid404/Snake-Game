@@ -8,14 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Logger {
-	private static List<LogType> EnabledDebugLogTypes = List.of(LogType.TICK);
+	private static final List<LogType> EnabledDebugLogTypes = List.of();
 
 	private static void sendLog(LogType type, LogLevel level, String message) {
 		System.out.println("[SnakeGame] " + type + " " + level + ": " + message);
 	}
-	public static void debug(LogType type, LogLevel level, String message) {
+	public static void debug(LogType type, String message) {
 		if (EnabledDebugLogTypes.contains(type)) {
-			sendLog(type, level, message);
+			sendLog(type, LogLevel.DEBUG, message);
 		}
 	}
 	public static void info(LogType logType, String message) {

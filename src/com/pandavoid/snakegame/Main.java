@@ -1,6 +1,7 @@
 package com.pandavoid.snakegame;
 
 import com.pandavoid.snakegame.enums.Difficulty;
+import com.pandavoid.snakegame.enums.LogType;
 import com.pandavoid.snakegame.enums.MainWindowState;
 import com.pandavoid.snakegame.core.Game;
 import com.pandavoid.snakegame.config.GameConfig;
@@ -63,7 +64,7 @@ public class Main {
             }
             startGame(gameConfig);
         } else {
-            System.out.println("Game is null");
+            Logger.error(LogType.DISPLAY,"Game is null");
         }
     }
     public static void gameOverWindowToMainWindow() {
@@ -87,7 +88,7 @@ public class Main {
         escWindow.close();
         game.gameRunning = true;
         new Thread(game.getGamePanel()).start();
-        System.out.println(game.gameRunning);
+        Logger.debug(LogType.DISPLAY,"game running: " + game.gameRunning);
     }
 
     public static void closeGameOverWindow() {
@@ -100,27 +101,27 @@ public class Main {
         JLayeredPane pane = (JLayeredPane) panel.getParent();
         JRootPane rootPane = (JRootPane) pane.getParent();
         Window mainwindow = (Window) rootPane.getParent();
-        System.out.println("requesting to quit game");
+        Logger.info(LogType.DISPLAY,"requesting to quit game");
         ActionListener QuitGameListener = e -> quitGame();
         new QuitWindow(QuitGameListener,mainwindow.getLocation(),mainwindow.getWidth(),mainwindow.getHeight());
     }
 
     private static void quitGame(){
-        System.out.println("quiting game");
+        Logger.info(LogType.DISPLAY,"quiting game");
         System.exit(0);
     }
 
     public static void credits(){
         ActionListener backListener = e -> showMainMenu();
         mainWindow.displayCredits(backListener); // Directly call the DisplayCredits() method
-        System.out.println("Credits");
+        Logger.info(LogType.DISPLAY,"Opening Credits");
 
     }
 
     public static void settings(){
         ActionListener backListener = e -> showMainMenu();
         mainWindow.displaySettings(backListener);
-        System.out.println("settings");
+        Logger.info(LogType.DISPLAY,"Opening Settings");
     }
 
     private static void preGameSettings() {
@@ -165,7 +166,7 @@ public class Main {
         difficulty = (String) mainWindow.getwindow().getDropdown().getSelectedItem();
         setDifficulty(Difficulty.valueOf(difficulty));
         mainWindowState = MainWindowState.PLAYING;
-        System.out.println("Game Starting...");
+        Logger.info(LogType.DISPLAY,"Game Starting...");
         GamePanel gamepanel = mainWindow.displayGame();
         game = new Game(config,mainWindow.getActionmap(),gamepanel);
         gamepanel.setGame(game);
@@ -177,7 +178,7 @@ public class Main {
     public static void bugReportScreen(){
         ActionListener backListener = e -> showMainMenu();
         mainWindow.displayBugScreen(backListener); // Directly call the DisplayCredits() method
-        System.out.println("bug report");
+        Logger.info(LogType.DISPLAY,"Opening bug report");
         escWindow.close();
         escWindow = null;
     }

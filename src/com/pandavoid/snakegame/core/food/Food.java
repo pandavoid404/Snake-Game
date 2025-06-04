@@ -1,7 +1,9 @@
 package com.pandavoid.snakegame.core.food;
 
+import com.pandavoid.snakegame.Logger;
 import com.pandavoid.snakegame.core.Game;
 import com.pandavoid.snakegame.enums.FoodType;
+import com.pandavoid.snakegame.enums.LogType;
 import com.pandavoid.snakegame.ui.AssetPaint;
 import com.pandavoid.snakegame.config.AssetConfig;
 
@@ -18,7 +20,7 @@ public class Food {
 			config.setColor(Color.decode("#AA0000"));
 			config.setImagepath("assets/foreground/apple/goldenAppel.png");
 			foodval = foodType.getFoodVal();
-			System.out.println("goldenapple generated");
+			Logger.info(LogType.APPLE,"goldenapple generated");
 		}else if(foodType == FoodType.apple) {
 			config.setColor(Color.decode("#AA0000"));
 			config.setImagepath("assets/foreground/apple/appel3.png");

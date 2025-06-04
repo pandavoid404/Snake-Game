@@ -1,5 +1,8 @@
 package com.pandavoid.snakegame.core.board;
 
+import com.pandavoid.snakegame.Logger;
+import com.pandavoid.snakegame.enums.LogType;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
@@ -17,7 +20,7 @@ public class Board {
 				board[RI][CI] = cell;
 			}
 		}
-		System.out.println("board generated");
+		Logger.info(LogType.BOARD,"board generated");
 	}
 
 	public boolean isOutsideArea(int x, int y) {

@@ -1,5 +1,6 @@
 package com.pandavoid.snakegame.core;
 
+import com.pandavoid.snakegame.Logger;
 import com.pandavoid.snakegame.config.AssetConfig;
 import com.pandavoid.snakegame.enums.Direction;
 import com.pandavoid.snakegame.core.board.Board;
@@ -7,6 +8,7 @@ import com.pandavoid.snakegame.config.GameConfig;
 import com.pandavoid.snakegame.core.food.Food;
 import com.pandavoid.snakegame.core.snake.Snake;
 import com.pandavoid.snakegame.enums.FoodType;
+import com.pandavoid.snakegame.enums.LogType;
 import com.pandavoid.snakegame.ui.GamePanel;
 
 import javax.swing.*;
@@ -87,7 +89,7 @@ public class Game {
 		Random r= new Random();
 		int r1 = r.nextInt(baseChance);
 		int chance = 100/baseChance*goldenappleChance;
-		System.out.println(chance + "% chance of goldenapple");
+		Logger.debug(LogType.APPLE,chance + "% chance of goldenapple");
 		FoodType foodType = FoodType.apple;
 		if(r1<goldenappleChance){
 			foodType = FoodType.goldenapple;
@@ -117,7 +119,7 @@ public class Game {
 	}
 
 	public void tick() {
-		//System.out.println("tick: " + tick);
+		Logger.debug(LogType.TICK,"tick: " + tick);
 		for (Snake snake : snakes) {
 			snake.move();
 			tick+= 1;

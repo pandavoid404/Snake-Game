@@ -1,6 +1,8 @@
 package com.pandavoid.snakegame.ui;
 
+import com.pandavoid.snakegame.Logger;
 import com.pandavoid.snakegame.Main;
+import com.pandavoid.snakegame.enums.LogType;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -11,7 +13,7 @@ public class GameOverWindow {
     private static final short width = 400;
     private final int Players;
     public GameOverWindow(Point MainWindowPos, int MainWindowWidth, int MainWindowHeight) {
-        System.out.println(MainWindowPos);
+        Logger.info(LogType.DISPLAY,"MainWindowPos" + MainWindowPos);
         Players = Main.getGame().getPlayers();
         window = new Window("SnakeGame", width, height);
         window.setBGColor();

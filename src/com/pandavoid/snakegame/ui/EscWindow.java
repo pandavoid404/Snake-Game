@@ -1,6 +1,8 @@
 package com.pandavoid.snakegame.ui;
 
+import com.pandavoid.snakegame.Logger;
 import com.pandavoid.snakegame.Main;
+import com.pandavoid.snakegame.enums.LogType;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -12,7 +14,7 @@ public class EscWindow {
     private final Window window;
 
     public EscWindow(Point MainWindowPos, int MainWindowWidth, int MainWindowHeight) {
-        System.out.println(MainWindowPos);
+        Logger.info(LogType.DISPLAY,"MainWindowPos: " + MainWindowPos);
         window = new Window("SnakeGame", WIDTH, HEIGHT);
         window.setBGColor();
         window.setPosition(new Point(MainWindowPos.x+MainWindowWidth/2- WIDTH /2,MainWindowPos.y+MainWindowHeight/2- HEIGHT /2));

@@ -1,5 +1,8 @@
 package com.pandavoid.snakegame.ui;
 
+import com.pandavoid.snakegame.Logger;
+import com.pandavoid.snakegame.enums.LogType;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -15,7 +18,7 @@ class ImagePanel extends JPanel {
         try {
             backgroundImage = ImageIO.read(new File(imagePath));
         } catch (IOException e) {
-            System.err.println("Error: Could not load background image from path: " + imagePath);
+            Logger.error(LogType.DISPLAY,"Could not load background image from path: " + imagePath);
             e.printStackTrace();
         }
         // Set size
@@ -33,7 +36,7 @@ class ImagePanel extends JPanel {
         if (backgroundImage != null) {
             g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
         } else {
-            System.err.println("Warning: Background image is null.");
+            Logger.warn(LogType.DISPLAY,"Background image is null.");
         }
     }
 

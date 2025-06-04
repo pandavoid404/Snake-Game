@@ -1,8 +1,10 @@
 package com.pandavoid.snakegame.ui;
 
+import com.pandavoid.snakegame.Logger;
 import com.pandavoid.snakegame.Main;
 import com.pandavoid.snakegame.config.GameConfig;
 import com.pandavoid.snakegame.enums.Difficulty;
+import com.pandavoid.snakegame.enums.LogType;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,7 +39,7 @@ public class MainWindow {
 		actionMap.put("Escape Menu", new AbstractAction() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("escape menu requested");
+				Logger.info(LogType.DISPLAY,"escape menu requested");
 				Main.escMenuRequest();
 			}
 		});

@@ -1,5 +1,11 @@
 package com.pandavoid.snakegame.enums;
 
 public enum LogType {
-	TICK
+	TICK,
+	APPLE,
+	SNAKE,
+	MOVE,
+	SCORE,
+	DISPLAY,
+	BOARD,
 }
