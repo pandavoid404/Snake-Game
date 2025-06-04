@@ -76,7 +76,6 @@ public class Main {
     public static void escMenuRequest() {
         if (escWindow != null) {
             closeEscMenu();
-            game.gameRunning = true;
         } else if (mainWindowState == MainWindowState.PLAYING ) {
             Window window = mainWindow.getJavaWindow();
             game.gameRunning = false;
@@ -88,7 +87,7 @@ public class Main {
         escWindow.close();
         game.gameRunning = true;
         new Thread(game.getGamePanel()).start();
-        Logger.debug(LogType.DISPLAY,"game running: " + game.gameRunning);
+        Logger.debug(LogType.DISPLAY,"Closed esc menu");
     }
 
     public static void closeGameOverWindow() {
