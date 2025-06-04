@@ -19,7 +19,7 @@ public class EscWindow {
         window.setBGColor();
         window.setPosition(new Point(MainWindowPos.x+MainWindowWidth/2- WIDTH /2,MainWindowPos.y+MainWindowHeight/2- HEIGHT /2));
         window.hideControls();
-        ActionListener CancelListener = e-> Main.closeEscMenu();
+        ActionListener CancelListener = e-> closeEscMenu();
         ActionListener RestartListener = e-> Main.restartGame();
         ActionListener ToMainListener = e-> Main.escMenuToMainMenu();
         ActionListener BugScreenListener = e -> Main.bugReportScreen();
@@ -31,7 +31,14 @@ public class EscWindow {
         window.showDisplay();
     }
 
+    private void closeEscMenu() {
+        close();
+        Main.getGame().resume();
+    }
+
     public void close() {
         window.close();
+        Main.disconnectEscMenu();
+        Logger.debug(LogType.DISPLAY,"Closed esc menu");
     }
 }

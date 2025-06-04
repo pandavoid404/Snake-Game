@@ -49,7 +49,7 @@ public class Main {
     }
 
     public static void escMenuToMainMenu() {
-        closeEscMenu();
+        escWindow.close();
         showMainMenu();
     }
 
@@ -76,7 +76,7 @@ public class Main {
     public static void escMenuRequest() {
         if (escWindow != null) {
             Logger.info(LogType.DISPLAY,"ESC menu found, closing menu");
-            closeEscMenu();
+            escWindow.close();
         } else if (mainWindowState == MainWindowState.PLAYING ) {
             Logger.info(LogType.DISPLAY,"no ESC menu found, creating new ESC menu");
             Window window = mainWindow.getJavaWindow();
@@ -84,11 +84,7 @@ public class Main {
             escWindow = new EscWindow(window.getLocation(),window.getWidth(),window.getHeight());
         }
     }
-
-    public static void closeEscMenu() {
-        escWindow.close();
-        game.gameRunning = true;
-        new Thread(game.getGamePanel()).start();
+    public static void disconnectEscMenu() {
         escWindow = null;
         Logger.debug(LogType.DISPLAY,"Closed esc menu");
     }
