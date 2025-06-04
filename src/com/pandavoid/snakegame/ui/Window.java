@@ -2,6 +2,7 @@ package com.pandavoid.snakegame.ui;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class Window {
@@ -96,13 +97,13 @@ public class Window {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         window.add(button,gbc);
     }
-    void createDropdown(String item1, String Item2, String item3, int x, int y, int gbcWidth,int width,int height){
+    void createDropdown(ArrayList<String> items, int x, int y, int gbcWidth, int width, int height){
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
         dropdown = new JComboBox<>();
-        dropdown.addItem(item1);
-        dropdown.addItem(Item2);
-        dropdown.addItem(item3);
+        for (String item : items) {
+            dropdown.addItem(item);
+        }
         dropdown.setPreferredSize(new Dimension(width, height));
         gbc.gridx = x;
         gbc.gridy = y;

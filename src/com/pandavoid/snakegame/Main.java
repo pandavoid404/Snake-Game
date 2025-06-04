@@ -1,5 +1,6 @@
 package com.pandavoid.snakegame;
 
+import com.pandavoid.snakegame.enums.Difficulty;
 import com.pandavoid.snakegame.enums.MainWindowState;
 import com.pandavoid.snakegame.core.Game;
 import com.pandavoid.snakegame.config.GameConfig;
@@ -119,22 +120,31 @@ public class Main {
         ActionListener backListener = e -> preGameSettings();
         mainWindow.displayPlayerSelection(gameConfig,StartGameListener,backListener);
     }
-    private static void difficultyEasy(){
-       FPS = 9;
-    }
-    private static void difficultyMedium(){
-        FPS = 12;
-    }
-    private static void difficultyHard(){
-        FPS = 16;
+    private static void setDifficulty(Difficulty difficulty){
+        if (difficulty == Difficulty.EASY) {
+            FPS = 9;
+            gameConfig.setGoldenApplesChance(15);
+            gameConfig.setStartingFood(15);
+        }
+        if (difficulty == Difficulty.MEDIUM) {
+            FPS = 12;
+            gameConfig.setGoldenApplesChance(30);
+            gameConfig.setStartingFood(9);
+        }
+        if (difficulty == Difficulty.HARD) {
+            FPS = 15;
+            gameConfig.setGoldenApplesChance(45);
+            gameConfig.setStartingFood(6);
+        }
+        if (difficulty == Difficulty.INSANE) {
+            FPS = 20;
+            gameConfig.setGoldenApplesChance(60);
+            gameConfig.setStartingFood(5);
+        }
     }
     private static void startGame(GameConfig config){
         difficulty = (String) mainWindow.getwindow().getDropdown().getSelectedItem();
-        switch (Objects.requireNonNull(difficulty)) {
-            case "Easy" -> difficultyEasy();
-            case "Medium" -> difficultyMedium();
-            case "Hard" -> difficultyHard();
-        }
+        setDifficulty(Difficulty.valueOf(difficulty));
         mainWindowState = MainWindowState.PLAYING;
         System.out.println("Game Starting...");
         GamePanel gamepanel = mainWindow.displayGame();

@@ -19,8 +19,8 @@ public class Game {
 	private final int Players;
 	private final ArrayList<Snake> snakes = new ArrayList<>();
 	private final Board board;
-	private static int goldenappleChance = 0;
-	private static final int baseChance = 25;
+	private int goldenappleChance = 0;
+	private final int baseChance;
 	private int tick = 0;
 	public boolean gameRunning = true;
 	public int goldenApplesChance;
@@ -28,6 +28,7 @@ public class Game {
 		this.Players = config.getPlayers();
 		this.gamePanel = gamePanel;
 		this.board = new Board();
+		this.baseChance = config.getGoldenApplesChance();
 		snakes.add(new Snake(this,config.getPlayerConfig(0)));
 		addSnakeControls(actionMap,snakes.get(0),1);
 		if (config.getPlayers()==2) {
@@ -116,7 +117,7 @@ public class Game {
 	}
 
 	public void tick() {
-		System.out.println("tick: " + tick);
+		//System.out.println("tick: " + tick);
 		for (Snake snake : snakes) {
 			snake.move();
 			tick+= 1;

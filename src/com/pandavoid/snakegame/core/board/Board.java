@@ -42,7 +42,7 @@ public class Board {
 		ArrayList<Cell> freeCells = new ArrayList<>();
 		for (Cell[] cells : board) {
 			for (Cell cell : cells) {
-				if (!cell.isOccupied()) {
+				if (!cell.isOccupied()&&cell.getFood()==null) {
 					freeCells.add(cell);
 				}
 			}

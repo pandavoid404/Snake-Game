@@ -2,11 +2,13 @@ package com.pandavoid.snakegame.ui;
 
 import com.pandavoid.snakegame.Main;
 import com.pandavoid.snakegame.config.GameConfig;
+import com.pandavoid.snakegame.enums.Difficulty;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 public class MainWindow {
 	private static final short HEIGHT = 700;
@@ -75,7 +77,7 @@ public class MainWindow {
 	public void displayMenu(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
 		window.clearDisplay();
 		window.createLabel("Snake Game" ,80, 0, 0, 1);
-		window.createButton(0 , 1 ,1, "StartGame", StartGameAction);
+		window.createButton(0 , 1 ,1, "Start Game", StartGameAction);
 		window.createButton(0,2,1,"Settings" , SettingsAction);
 		window.createButton( 0 , 3 ,1, "Credits", CreditsAction);
 		window.createButton( 0 , 4 , 1,"Quit Game", quitAction);
@@ -110,7 +112,11 @@ public class MainWindow {
 			panel2.createButton(ChangeColorPlayer2Listener, 1, 3, 100, 50);
 			panel2.createButton(BackColorPlayer2Listener, 2, 3, 100, 50);
 		}
-		window.createDropdown("Easy","Medium","Hard",1,3,3,200,20);
+		ArrayList<String> difficulty = new ArrayList<>();
+		for (Difficulty d : Difficulty.values()) {
+			difficulty.add(d.toString());
+		}
+		window.createDropdown(difficulty ,1,3,3,200,20);
 		window.createButton(0 , 4,4, "Start Game", StartGameAction);
 		window.createButton(0, 5,4, "Back", backListener );
 		window.updateDisplay();

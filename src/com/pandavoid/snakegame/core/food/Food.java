@@ -27,6 +27,7 @@ public class Food {
 		config.setPosition(position);
 		this.assetPaint = game.getGamePanel().createAsset(config);
 		game.getBoard().getCell(position.x, position.y).setFood(this);
+
 	}
 
 	public AssetPaint getAssetPaint() {

@@ -15,6 +15,7 @@ public class GameConfig {
 
 	private int players;
 	private int startingFood = 5;
+	private int goldenApplesChance = 5;
 
 	public GameConfig() {
 		players = 1;
@@ -51,4 +52,12 @@ public class GameConfig {
 	public void setStartingFood(int startingFood) {
 		this.startingFood = startingFood;
 	}
+
+    public int getGoldenApplesChance() {
+        return goldenApplesChance;
+    }
+
+    public void setGoldenApplesChance(int goldenApplesChance) {
+        this.goldenApplesChance = goldenApplesChance;
+    }
 }
