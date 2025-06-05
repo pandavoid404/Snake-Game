@@ -1,6 +1,6 @@
 package com.pandavoid.snakegame.enums;
 
-public enum language {
+public enum Language {
     Dutch("NL","NEDERLANDS"),
     English("EN","ENGLISH"),
     French("FR","Français"),
@@ -16,7 +16,7 @@ public enum language {
     private final String locale;
     private final String languageName;
 
-    language(String locale, String languageName) {
+    Language(String locale, String languageName) {
         this.locale = locale;
         this.languageName = languageName;
     }
