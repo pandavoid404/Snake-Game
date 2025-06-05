@@ -120,6 +120,7 @@ public class Game {
 
 	public void tick() {
 		Logger.debug(LogType.TICK,"tick: " + tick);
+		Logger.setTick(tick);
 		for (Snake snake : snakes) {
 			snake.move();
 			tick+= 1;
