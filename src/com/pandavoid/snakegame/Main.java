@@ -1,6 +1,7 @@
 package com.pandavoid.snakegame;
 
 import com.pandavoid.snakegame.enums.Difficulty;
+import com.pandavoid.snakegame.enums.Language;
 import com.pandavoid.snakegame.enums.LogType;
 import com.pandavoid.snakegame.enums.MainWindowState;
 import com.pandavoid.snakegame.core.Game;
@@ -10,10 +11,14 @@ import com.pandavoid.snakegame.ui.*;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Locale;
 import java.util.Objects;
+import java.util.ResourceBundle;
 import javax.swing.*;
 
 public class Main {
+    private static Locale locale;
+    private static ResourceBundle messages;
     private static Game game;
     private static MainWindow mainWindow;
     private static GameConfig gameConfig;
@@ -24,6 +29,7 @@ public class Main {
     private static String difficulty;
 
 	public static void main(String[]args) {
+        setLanguage(Language.English);
         mainWindowState = MainWindowState.MAIN_MENU;
         ActionListener QuitListener = Main::quitGameRequest;
         ActionListener CreditsListener = e -> credits();
@@ -39,6 +45,11 @@ public class Main {
         return FPS;
     }
 
+
+    public static void setLanguage(Language language){
+        locale = Locale.of(language.getLocale());
+        messages = ResourceBundle.getBundle("lang.messages", locale);
+    }
     private static void showMainMenu() {
         mainWindowState = MainWindowState.MAIN_MENU;
         ActionListener QuitListener = Main::quitGameRequest;
