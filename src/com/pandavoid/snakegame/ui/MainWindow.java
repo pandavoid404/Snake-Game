@@ -4,6 +4,7 @@ import com.pandavoid.snakegame.Logger;
 import com.pandavoid.snakegame.Main;
 import com.pandavoid.snakegame.config.GameConfig;
 import com.pandavoid.snakegame.enums.Difficulty;
+import com.pandavoid.snakegame.enums.Language;
 import com.pandavoid.snakegame.enums.LogType;
 
 import javax.swing.*;
@@ -146,12 +147,16 @@ public class MainWindow {
 	}
 
 	public void displaySettings(ActionListener backListener) {
+		ArrayList<String> language = new ArrayList<>();
+		for (Language d : Language.values()) {
+			language.add(d.getLanguageName()+" ("+d.getLocale()+")");
+		}
 		window.clearDisplay();
 		window.createLabel("Settings", 30, 0, 0, 2);
 		window.createLabel("Sound", 15, 0, 1, 1);
 		window.createButton(1 , 1 ,1, "On", null);
-		window.createLabel("", 15, 0, 2, 1);
-		window.createDropdown();
+		window.createLabel("language", 15, 0, 2, 1);
+		window.createDropdown(language,1,2,1,200,20);
 		window.createButton(0 , 3,2, "Back", backListener );
 		window.updateDisplay();
 	}
