@@ -29,7 +29,7 @@ public class Main {
     private static String difficulty;
 
 	public static void main(String[]args) {
-        setLanguage(Language.English);
+        setLanguage(Language.ENGLISH);
         mainWindowState = MainWindowState.MAIN_MENU;
         ActionListener QuitListener = Main::quitGameRequest;
         ActionListener CreditsListener = e -> credits();

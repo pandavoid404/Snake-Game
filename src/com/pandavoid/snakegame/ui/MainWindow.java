@@ -141,7 +141,6 @@ public class MainWindow {
 		window.createLabel("GameTesters", 18, 0, 5, 1);
 		window.createLabel("Animator", 18, 0, 6, 1);
 		window.createLabel("Special thanks", 18, 0, 7, 1);
-		window.createLabel("EndlessVoid_303 Mom", 13, 0, 8, 1);
 		window.createButton(0 , 9,1, "Back", backListener );
 		window.updateDisplay();
 	}
@@ -153,8 +152,6 @@ public class MainWindow {
 		}
 		window.clearDisplay();
 		window.createLabel("Settings", 30, 0, 0, 2);
-		window.createLabel("Sound", 15, 0, 1, 1);
-		window.createButton(1 , 1 ,1, "On", null);
 		window.createLabel("language", 15, 0, 2, 1);
 		window.createDropdown(language,1,2,1,200,20);
 		window.createButton(0 , 3,2, "Back", backListener );
