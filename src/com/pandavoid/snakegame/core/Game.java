@@ -89,11 +89,12 @@ public class Game {
 		Random r= new Random();
 		int r1 = r.nextInt(baseChance);
 		int chance = 100/baseChance*goldenappleChance;
-		Logger.debug(LogType.APPLE,chance + "% chance of goldenapple");
 		FoodType foodType = FoodType.apple;
 		if(r1<goldenappleChance){
 			foodType = FoodType.goldenapple;
 			goldenappleChance = 0;
+			Logger.debug(LogType.APPLE,chance + "% chance of goldenapple");
+			Logger.info(LogType.APPLE,"goldenapple generated");
 		}
 		goldenappleChance++;
 		new Food(this,board.findFreeCell().getPosition(),foodType);

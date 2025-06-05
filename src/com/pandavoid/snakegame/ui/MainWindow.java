@@ -150,8 +150,8 @@ public class MainWindow {
 		window.createLabel("Settings", 30, 0, 0, 2);
 		window.createLabel("Sound", 15, 0, 1, 1);
 		window.createButton(1 , 1 ,1, "On", null);
-		window.createLabel("Music", 15, 0, 2, 1);
-		window.createButton(1 , 2,1, "On", null);
+		window.createLabel("", 15, 0, 2, 1);
+		window.createDropdown();
 		window.createButton(0 , 3,2, "Back", backListener );
 		window.updateDisplay();
 	}

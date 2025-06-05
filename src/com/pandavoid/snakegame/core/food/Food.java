@@ -20,7 +20,6 @@ public class Food {
 			config.setColor(Color.decode("#AA0000"));
 			config.setImagepath("assets/foreground/apple/goldenAppel.png");
 			foodval = foodType.getFoodVal();
-			Logger.info(LogType.APPLE,"goldenapple generated");
 		}else if(foodType == FoodType.apple) {
 			config.setColor(Color.decode("#AA0000"));
 			config.setImagepath("assets/foreground/apple/appel3.png");
