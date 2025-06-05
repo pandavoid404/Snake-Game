@@ -6,7 +6,6 @@ import com.pandavoid.snakegame.enums.LogType;
 import com.pandavoid.snakegame.enums.MainWindowState;
 import com.pandavoid.snakegame.core.Game;
 import com.pandavoid.snakegame.config.GameConfig;
-import com.pandavoid.snakegame.interfaces.Localizable;
 import com.pandavoid.snakegame.ui.*;
 
 import java.awt.Window;
@@ -14,14 +13,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.Objects;
 import java.util.ResourceBundle;
 import javax.swing.*;
 
 public class Main {
     private static Locale locale;
     private static ResourceBundle messages;
-    private static ArrayList<Localizable> localizables;
     private static Game game;
     private static MainWindow mainWindow;
     private static GameConfig gameConfig;
@@ -52,13 +49,7 @@ public class Main {
     public static void setLanguage(Language language){
         locale = Locale.of(language.getLocale());
         messages = ResourceBundle.getBundle("lang.messages", locale);
-        for (Localizable localizable : localizables) {
-            localizable.updateTexts(messages);
-        }
-    }
 
-    public static void addLocalizable(Localizable localizable){
-        localizables.add(localizable);
     }
 
     private static void showMainMenu() {
