@@ -54,7 +54,7 @@ public class Window {
         return panel;
     }
 
-    void createLabel(String text, int size, int x, int y, int gwidth) {
+    JLabel createLabel(String text, int size, int x, int y, int gwidth) {
         JLabel label = new JLabel("text");
         label.setText(text);
         //add GridBagConstraints and add padding
@@ -65,9 +65,10 @@ public class Window {
         gbc.gridy = y;
         gbc.gridwidth = gwidth;
         window.add(label,gbc);
+        return label;
     }
 
-    void createJTextArea(String text, int size, int x, int y, boolean editable, int top , int bottom , int boxwidth, int boxheight) {
+    JTextArea createJTextArea(String text, int size, int x, int y, boolean editable, int top , int bottom , int boxwidth, int boxheight) {
         JTextArea textArea = new JTextArea("text",10,30);
         textArea.setText(text);
         //set GridBagConstraints
@@ -80,9 +81,10 @@ public class Window {
         textArea.setWrapStyleWord(true);
         textArea.setEditable(editable);
         window.add(textArea,gbc);
+        return textArea;
     }
     //create function for create a button 
-    void createButton(int x, int y, int width , String text, ActionListener action){
+    JButton createButton(int x, int y, int width , String text, ActionListener action){
         GridBagConstraints gbc = new GridBagConstraints();
         JButton button = new JButton(text);
         button.setPreferredSize(new Dimension(200, 50));
@@ -96,11 +98,12 @@ public class Window {
         gbc.gridwidth = width;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         window.add(button,gbc);
+        return button;
     }
-    void createDropdown(ArrayList<String> items, int x, int y, int gbcWidth, int width, int height){
+    JComboBox<String> createDropdown(ArrayList<String> items, int x, int y, int gbcWidth, int width, int height){
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
-        dropdown = new JComboBox<>();
+        JComboBox<String> dropdown = new JComboBox<String>();
         for (String item : items) {
             dropdown.addItem(item);
         }
@@ -109,6 +112,7 @@ public class Window {
         gbc.gridy = y;
         gbc.gridwidth = gbcWidth;
         window.add(dropdown,gbc);
+        return dropdown;
     }
 
     void showDisplay() {
