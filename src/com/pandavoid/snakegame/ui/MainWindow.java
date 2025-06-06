@@ -79,49 +79,49 @@ public class MainWindow {
 
 	public void displayMenu(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
 		window.clearDisplay();
-		window.createLabel("Snake Game" ,80, 0, 0, 1);
-		window.createButton(0 , 1 ,1, "Start Game", StartGameAction);
-		window.createButton(0,2,1,"Settings" , SettingsAction);
-		window.createButton( 0 , 3 ,1, "Credits", CreditsAction);
-		window.createButton( 0 , 4 , 1,"Quit Game", quitAction);
+		window.createLabel(Main.getLocaleText("mainMenu.gameName") ,80, 0, 0, 1);
+		window.createButton(0 , 1 ,1, Main.getLocaleText("mainMenu.start"), StartGameAction);
+		window.createButton(0,2,1,Main.getLocaleText("mainMenu.settings") , SettingsAction);
+		window.createButton( 0 , 3 ,1, Main.getLocaleText("mainMenu.credits"), CreditsAction);
+		window.createButton( 0 , 4 , 1,Main.getLocaleText("mainMenu.quit"), quitAction);
 		window.updateDisplay();
 	}
 
 	public void displayPreGameSettings(ActionListener SinglePlayer , ActionListener Versus, ActionListener backListener ) {
 		window.clearDisplay();
-		window.createButton(0 , 1 ,1, "1 Player", SinglePlayer);
-		window.createButton(0 , 2,2, "Back", backListener );
-		window.createButton(1  , 1,1, "2 Players", Versus );
+		window.createButton(0 , 1 ,1, Main.getLocaleText("playerSelector.1player"), SinglePlayer);
+		window.createButton(0 , 2,2, Main.getLocaleText("playerSelector.back"), backListener );
+		window.createButton(1  , 1,1, Main.getLocaleText("playerSelector.2players"), Versus );
 		window.updateDisplay();
 	}
 
 	public void displayPlayerSelection(GameConfig gameConfig, ActionListener StartGameAction, ActionListener backListener ){
 		window.clearDisplay();
 		Panel panel1 = window.createPanel(0,0,2);
-		panel1.createLabel("Select Player 1" , 15 , 2 ,0, 0 );
+		panel1.createLabel(Main.getLocaleText("playerPreGameSelector.playerLabel.player1") , 15 , 2 ,0, 0 );
 		ActionListener ChangeColorPlayer1Listener = e -> changeColor(labelplayer1, 0, gameConfig, 1);
 		ActionListener BackColorPlayer1Listener = e -> changeColor(labelplayer1, 0, gameConfig , -1);
 		labelplayer1 = panel1.createLabel("    " , 35 , 2 ,1, 0);
 		labelplayer1.setOpaque(true);
-		panel1.createButton(ChangeColorPlayer1Listener, 0, 2, 100, 50);
-		panel1.createButton(BackColorPlayer1Listener, 1, 2, 100, 50);
+		panel1.createButton(ChangeColorPlayer1Listener, 0, 2, 100, 50,Main.getLocaleText("playerPreGameSelector.color.back"));
+		panel1.createButton(BackColorPlayer1Listener, 1, 2, 100, 50,Main.getLocaleText("playerPreGameSelector.color.next"));
 		if (gameConfig.getPlayers()==2) {
 			Panel panel2 = window.createPanel(2,0,2);
 			ActionListener ChangeColorPlayer2Listener = e -> changeColor(labelplayer2, 1, gameConfig,1);
 			ActionListener BackColorPlayer2Listener = e -> changeColor(labelplayer2, 1, gameConfig,-1);
-			panel2.createLabel("Select Player2" ,15,2 ,0, 1);
+			panel2.createLabel(Main.getLocaleText("playerPreGameSelector.playerLabel.player2") ,15,2 ,0, 1);
 			labelplayer2 = panel2.createLabel("    ",35,2,1, 1);
 			labelplayer2.setOpaque(true);
-			panel2.createButton(ChangeColorPlayer2Listener, 1, 3, 100, 50);
-			panel2.createButton(BackColorPlayer2Listener, 2, 3, 100, 50);
+			panel2.createButton(ChangeColorPlayer2Listener, 1, 3, 100, 50,Main.getLocaleText("playerPreGameSelector.color.back"));
+			panel2.createButton(BackColorPlayer2Listener, 2, 3, 100, 50,Main.getLocaleText("playerPreGameSelector.color.next"));
 		}
 		ArrayList<String> difficulty = new ArrayList<>();
 		for (Difficulty d : Difficulty.values()) {
 			difficulty.add(d.toString());
 		}
 		window.createDropdown(difficulty ,1,3,3,200,20);
-		window.createButton(0 , 4,4, "Start Game", StartGameAction);
-		window.createButton(0, 5,4, "Back", backListener );
+		window.createButton(0 , 4,4, Main.getLocaleText("playerPreGameSelector.start"), StartGameAction);
+		window.createButton(0, 5,4, Main.getLocaleText("playerPreGameSelector.back"), backListener );
 		window.updateDisplay();
 	}
 
@@ -133,15 +133,14 @@ public class MainWindow {
 
 	public void displayCredits(ActionListener backListener){
 		window.clearDisplay();
-		window.createLabel("Programmers", 18, 0, 0, 1);
+		window.createLabel(Main.getLocaleText("credits.programmers"), 18, 0, 0, 1);
 		window.createLabel("EndlessVoid_303", 13, 0, 1, 1);
 		window.createLabel("MrPanda_071", 13, 0, 2, 1);
-		window.createLabel("GraphicalDesigner", 18, 0, 3, 1);
+		window.createLabel(Main.getLocaleText("credits.graphicalDesigner"), 18, 0, 3, 1);
 		window.createLabel("MrPanda_071", 13, 0, 4, 1);
-		window.createLabel("GameTesters", 18, 0, 5, 1);
-		window.createLabel("Animator", 18, 0, 6, 1);
-		window.createLabel("Special thanks", 18, 0, 7, 1);
-		window.createButton(0 , 9,1, "Back", backListener );
+		window.createLabel(Main.getLocaleText("credits.gametester"), 18, 0, 5, 1);
+		window.createLabel(Main.getLocaleText("credits.specialThanks"), 18, 0, 7, 1);
+		window.createButton(0 , 9,1, Main.getLocaleText("credits.back"), backListener );
 		window.updateDisplay();
 	}
 
@@ -151,10 +150,10 @@ public class MainWindow {
 			language.add(d.getLanguageName()+" ("+d.getLocale()+")");
 		}
 		window.clearDisplay();
-		window.createLabel("Settings", 30, 0, 0, 2);
+		window.createLabel(Main.getLocaleText("settings.settingsLabel"), 30, 0, 0, 2);
 		window.createLabel("language", 15, 0, 2, 1);
 		window.createDropdown(language,1,2,1,200,20);
-		window.createButton(0 , 3,2, "Back", backListener );
+		window.createButton(0 , 3,2, Main.getLocaleText("settings.back"), backListener );
 		window.updateDisplay();
 	}
 
@@ -168,19 +167,14 @@ public class MainWindow {
 
 	public void displayBugScreen(ActionListener backListener){
 		window.clearDisplay();
-		window.createLabel("Report Bug", 40,0 ,4, 2);
-		window.createJTextArea("In the title box please provide a clear and short bug titlen\n" +
-				"(Example: \"Game crashes when opening inventory\")",
+		window.createLabel(Main.getLocaleText("bugReport.bugReportLabel"), 40,0 ,4, 2);
+		window.createJTextArea(Main.getLocaleText("bugReport.titleExplanation"),
 				10,0 ,5,false , 0 , 0,600,200);
-		window.createJTextArea("Title for the bug",
+		window.createJTextArea(Main.getLocaleText("bugReport.titleInput"),
 				10,0 ,6,true, 10 ,2,600,200);
-		window.createJTextArea("Give a detailed description of the bug.\n" +
-				"-When did it happen? \n" +
-				"-What were you doing? \n" +
-				"-What should have happened instead? \n" +
-				"-Provide steps so we can recreate the bug.",
+		window.createJTextArea(Main.getLocaleText("bugReport.descriptionExplanation"),
 				10,0 ,7,false, 10 ,0 , 600,200 );
-		window.createJTextArea("Description",
+		window.createJTextArea(Main.getLocaleText("bugReport.descriptionInput"),
 				10,0 ,8,true, 10 ,0,600,200  );
 		window.createButton(0 , 9,1, "Back", backListener );
 		window.updateDisplay();

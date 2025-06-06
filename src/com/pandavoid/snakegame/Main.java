@@ -52,6 +52,9 @@ public class Main {
 
     }
 
+    public static String getLocaleText(String message){
+        return messages.getString(message);
+    }
     private static void showMainMenu() {
         mainWindowState = MainWindowState.MAIN_MENU;
         ActionListener QuitListener = Main::quitGameRequest;

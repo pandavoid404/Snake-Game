@@ -1,6 +1,7 @@
 package com.pandavoid.snakegame.ui;
 
 import com.pandavoid.snakegame.Logger;
+import com.pandavoid.snakegame.Main;
 import com.pandavoid.snakegame.enums.LogType;
 
 import java.awt.*;
@@ -19,8 +20,8 @@ public class QuitWindow {
 		window.setPosition(new Point(MainWindowPos.x+MainWindowWidth/2- WIDTH /2,MainWindowPos.y+MainWindowHeight/2- HEIGHT /7*2));
 		window.hideControls();
 		ActionListener CancelListener = e-> cancel();
-		window.createButton( 0 , 40 ,1, "Quit Game", QuitGameListener);
-		window.createButton( 10 , 40 ,1, "Cancel", CancelListener);
+		window.createButton( 0 , 40 ,1, Main.getLocaleText("quitMenu.confirm"), QuitGameListener);
+		window.createButton( 10 , 40 ,1, Main.getLocaleText("quitMenu.cancel"), CancelListener);
 		window.showDisplay();
 	}
 
