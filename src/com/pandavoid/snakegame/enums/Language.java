@@ -5,10 +5,10 @@ public enum Language {
     ENGLISH("EN","ENGLISH"),
     FRENCH("FR","FRANÇAIS"),
     GERMAN("DE","DEUTSCH"),
+    ITALIAN("IT","ITALIANO"),
     JAPANESE("JA","日本語"),
     KOREAN("KO","한국어"),
-    CHINESE("ZH-CN","简体中文"),
-    ITALIAN("IT","ITALIANO")
+    CHINESE("ZH-CN","简体中文")
     ;
 
     private final String locale;
