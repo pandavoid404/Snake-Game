@@ -19,7 +19,7 @@ public class GameOverWindow {
         window.setBGColor();
         window.setPosition(new Point(MainWindowPos.x+MainWindowWidth/2-width/2,MainWindowPos.y+MainWindowHeight/2-height/2));
         window.hideControls();
-        window.createLabel("Game Over", 35, 0, 0, 3);
+        window.createLabel(Main.getLocaleText("gameOver.gameOverLabel"), 35, 0, 0, 3);
         if (Players == 1) {
             int Score1 = Main.getGame().getSnakes().get(0).getScore();
             window.createLabel("Score:"+Score1, 15, 0, 1, 2);
@@ -64,8 +64,8 @@ public class GameOverWindow {
         }
         ActionListener ToMainListener = e-> Main.gameOverWindowToMainWindow();
         ActionListener RestartListener = e-> Main.restartGame();
-        window.createButton(0 ,9, 3,"restart",RestartListener);
-        window.createButton(0 ,10 ,3, "Back to Main Menu", ToMainListener);
+        window.createButton(0 ,9, 3,Main.getLocaleText("gameOver.restart"),RestartListener);
+        window.createButton(0 ,10 ,3, Main.getLocaleText("gameOver.exit"), ToMainListener);
         window.showDisplay();
     }
     public void close() {

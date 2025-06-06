@@ -49,9 +49,9 @@ class Panel {
 	}
 
 	//create function for create a button
-	void createButton(ActionListener action, int x, int y, int width, int height) {
+	void createButton(ActionListener action, int x, int y, int width, int height, String text) {
 		GridBagConstraints gbc = new GridBagConstraints();
-		JButton button = new JButton("Change Color");
+		JButton button = new JButton(text);
 		button.setPreferredSize(new Dimension(width, height));
 		button.setBackground(Color.white);
 		button.setForeground(Color.black);
