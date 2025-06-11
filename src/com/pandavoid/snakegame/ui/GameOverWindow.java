@@ -22,7 +22,7 @@ public class GameOverWindow {
         window.createLabel(Main.getLocaleText("gameOver.gameOverLabel"), 35, 0, 0, 3);
         if (Players == 1) {
             int Score1 = Main.getGame().getSnakes().get(0).getScore();
-            window.createLabel("Score:"+Score1, 15, 0, 1, 2);
+            window.createLabel(Main.getLocaleText("gameOver.scoreLabel")+Score1, 15, 0, 1, 2);
         }
         else{
             int bonus1 = Main.getGame().getSnakes().get(0).getAliveBonus();
@@ -32,34 +32,34 @@ public class GameOverWindow {
             int totalScore1 = bonus1+Score1;
             int totalScore2 = bonus2+Score2;
             if (totalScore1>totalScore2) {
-                window.createLabel("Winner: Player1", 20, 0, 1, 3);
+                window.createLabel(Main.getLocaleText("gameOver.winner1"), 20, 0, 1, 3);
             }else if (totalScore2>totalScore1) {
-                window.createLabel("Winner: Player2", 20, 0, 1, 3);
+                window.createLabel(Main.getLocaleText("gameOver.winner2"), 20, 0, 1, 3);
             }else {
-                window.createLabel("Draw", 20, 0, 1, 3);
+                window.createLabel(Main.getLocaleText("gameOver.winnerDraw"), 20, 0, 1, 3);
             }
             window.createLabel("----------------", 15, 0, 2, 1);
             window.createLabel("----------------", 15, 2, 2, 1);
-            window.createLabel("Player1", 15, 0, 3, 1);
+            window.createLabel(Main.getLocaleText("gameOver.player1"), 15, 0, 3, 1);
             window.createLabel("|", 15, 1, 3, 1);
-            window.createLabel("Appels gegeten:"+Score1, 15, 0, 4, 1);
+            window.createLabel(Main.getLocaleText("gameOver.appleEaten")+Score1, 15, 0, 4, 1);
             window.createLabel("|", 15, 1, 4, 1);
             if (bonus1>0) {
-                window.createLabel("didn't die bonus:"+bonus1, 15, 0, 5, 1);
+                window.createLabel(Main.getLocaleText("gameOver.didntDie")+bonus1, 15, 0, 5, 1);
             }else{
-                window.createLabel("no bonus", 15, 0, 5, 1);
+                window.createLabel(Main.getLocaleText("gameOver.noBonus"), 15, 0, 5, 1);
             }
             window.createLabel("|", 15, 1, 5, 1);
-            window.createLabel("total:"+totalScore1, 15, 0, 6, 1);
+            window.createLabel(Main.getLocaleText("gameOver.total")+totalScore1, 15, 0, 6, 1);
             window.createLabel("|", 15, 1, 6, 1);
-            window.createLabel("Player2", 15, 2, 3, 1);
-            window.createLabel("Appels gegeten:"+Score2, 15, 2, 4, 1);
+            window.createLabel(Main.getLocaleText("gameOver.player2"), 15, 2, 3, 1);
+            window.createLabel(Main.getLocaleText("gameOver.appleEaten")+Score2, 15, 2, 4, 1);
             if (bonus2>0) {
-                window.createLabel("didn't die bonus:"+bonus2, 15, 2, 5, 1);
+                window.createLabel(Main.getLocaleText("gameOver.didntDie")+bonus2, 15, 2, 5, 1);
             }else{
-                window.createLabel("no bonus", 15, 2, 5, 1);
+                window.createLabel(Main.getLocaleText("gameOver.noBonus"), 15, 2, 5, 1);
             }
-            window.createLabel("total:"+totalScore2, 15, 2, 6, 1);
+            window.createLabel(Main.getLocaleText("gameOver.total")+totalScore2, 15, 2, 6, 1);
 
         }
         ActionListener ToMainListener = e-> Main.gameOverWindowToMainWindow();
