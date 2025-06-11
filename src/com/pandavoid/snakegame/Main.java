@@ -11,7 +11,6 @@ import com.pandavoid.snakegame.ui.*;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.*;
@@ -27,6 +26,7 @@ public class Main {
     private static GameOverWindow gameOverWindow;
     private static int FPS;
     private static String difficulty;
+    private static JComboBox languagedropdown;
 
 	public static void main(String[]args) {
         setLanguage(Language.ENGLISH);
@@ -45,17 +45,21 @@ public class Main {
         return FPS;
     }
 
-
     public static void setLanguage(Language language){
         locale = Locale.of(language.getLocale());
         messages = ResourceBundle.getBundle("lang.messages", locale);
-
     }
 
     public static String getLocaleText(String message){
         return messages.getString(message);
     }
     private static void showMainMenu() {
+        languagedropdown = mainWindow.getLanguagedropdown();
+        if(languagedropdown == null){
+            setLanguage(Language.ENGLISH);
+        }else {
+            setLanguage(Language.valueOf(languagedropdown.getSelectedItem().toString()));
+        }
         mainWindowState = MainWindowState.MAIN_MENU;
         ActionListener QuitListener = Main::quitGameRequest;
         ActionListener CreditsListener = e -> credits();
@@ -177,7 +181,7 @@ public class Main {
         }
     }
     private static void startGame(GameConfig config){
-        difficulty = (String) mainWindow.getwindow().getDropdown().getSelectedItem();
+        difficulty = (String) mainWindow.getDifficultydropdown().getSelectedItem();
         setDifficulty(Difficulty.valueOf(difficulty));
         mainWindowState = MainWindowState.PLAYING;
         Logger.info(LogType.DISPLAY,"Game Starting...");

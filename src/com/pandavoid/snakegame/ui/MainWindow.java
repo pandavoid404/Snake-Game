@@ -16,14 +16,13 @@ import java.util.ArrayList;
 public class MainWindow {
 	private static final short HEIGHT = 700;
 	private static final short WIDTH = 1000;
-
 	private static JLabel labelplayer1;
 	private static JLabel labelplayer2;
-
 	private final Window window;
-
 	private GamePanel gamePanel;
 	private ActionMap actionMap;
+	private JComboBox difficultydropdown;
+	private JComboBox languagedropdown;
 
 	public MainWindow(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
 		window = new Window("SnakeGame", WIDTH, HEIGHT);
@@ -119,7 +118,7 @@ public class MainWindow {
 		for (Difficulty d : Difficulty.values()) {
 			difficulty.add(d.toString());
 		}
-		window.createDropdown(difficulty ,1,3,3,200,20);
+		difficultydropdown = window.createDropdown(difficulty ,1,3,3,200,20);
 		window.createButton(0 , 4,4, Main.getLocaleText("playerPreGameSelector.start"), StartGameAction);
 		window.createButton(0, 5,4, Main.getLocaleText("playerPreGameSelector.back"), backListener );
 		window.updateDisplay();
@@ -147,12 +146,12 @@ public class MainWindow {
 	public void displaySettings(ActionListener backListener) {
 		ArrayList<String> language = new ArrayList<>();
 		for (Language d : Language.values()) {
-			language.add(d.getLanguageName()+" ("+d.getLocale()+")");
+			language.add(d.getLanguageName());
 		}
 		window.clearDisplay();
 		window.createLabel(Main.getLocaleText("settings.settingsLabel"), 30, 0, 0, 2);
-		window.createLabel("language", 15, 0, 2, 1);
-		window.createDropdown(language,1,2,1,200,20);
+		window.createLabel(Main.getLocaleText("settings.language"), 15, 0, 2, 1);
+		languagedropdown = window.createDropdown(language,1,2,1,200,20);
 		window.createButton(0 , 3,2, Main.getLocaleText("settings.back"), backListener );
 		window.updateDisplay();
 	}
@@ -179,4 +178,12 @@ public class MainWindow {
 		window.createButton(0 , 9,1, "Back", backListener );
 		window.updateDisplay();
 	}
+
+    public JComboBox getDifficultydropdown() {
+        return difficultydropdown;
+    }
+
+    public JComboBox getLanguagedropdown() {
+        return languagedropdown;
+    }
 }
