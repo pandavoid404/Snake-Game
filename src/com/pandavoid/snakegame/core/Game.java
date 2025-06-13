@@ -108,6 +108,7 @@ public class Game {
 			board.getCell(x, y).setFood(null);
 			spawnFood();
 			snake.increaseLength(food.getFoodval());
+			snake.getStats().appleEaten(food.getFoodType());
 		}
 		if (board.getCell(x, y).isOccupied()) {
 			snake.collision();

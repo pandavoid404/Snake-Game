@@ -6,6 +6,7 @@ import com.pandavoid.snakegame.enums.Direction;
 import com.pandavoid.snakegame.core.Game;
 import com.pandavoid.snakegame.config.PlayerConfig;
 import com.pandavoid.snakegame.enums.LogType;
+import com.pandavoid.snakegame.ui.Stats;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ public class Snake {
 	private final Game game;
 	private final Color snakeColor;
 	private final ArrayList<SnakeCell> snakeCells = new ArrayList<>();
-
+	private final Stats stats;
 	private Direction currentDirection;
 	private Direction newDirection;
 	private Point position;
@@ -24,6 +25,7 @@ public class Snake {
 
 	public Snake(Game game, PlayerConfig config) {
 		this.game = game;
+		this.stats = new Stats();
 		this.newDirection = config.getDirection();
 		this.position = config.getPosition();
 		this.snakeColor = config.getColor();
@@ -36,6 +38,8 @@ public class Snake {
 	public Color getColor() {
 		return snakeColor;
 	}
+
+	public Stats getStats(){return stats;}
 
 	public Point getPosition() {
 		return position;

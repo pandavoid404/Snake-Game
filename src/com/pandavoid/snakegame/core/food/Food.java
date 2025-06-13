@@ -12,18 +12,17 @@ import java.util.Random;
 
 public class Food {
 	private final AssetPaint assetPaint;
-	private int foodval;
+	private FoodType foodtype;
 
 	public Food(Game game, Point position, FoodType foodType) {
 		AssetConfig config = new AssetConfig();
+		this.foodtype = foodType;
 		if (foodType == FoodType.goldenapple) {
 			config.setColor(Color.decode("#AA0000"));
 			config.setImagepath("assets/foreground/apple/goldenAppel.png");
-			foodval = foodType.getFoodVal();
 		}else if(foodType == FoodType.apple) {
 			config.setColor(Color.decode("#AA0000"));
 			config.setImagepath("assets/foreground/apple/appel3.png");
-			foodval = foodType.getFoodVal();
 		} else { throw new RuntimeException("Invalid foodType"); }
 		config.setPosition(position);
 		this.assetPaint = game.getGamePanel().createAsset(config);
@@ -35,7 +34,11 @@ public class Food {
 		return assetPaint;
 	}
 
+	public FoodType getFoodType(){
+		return foodtype;
+	}
+
     public int getFoodval() {
-        return foodval;
+        return foodtype.getFoodVal();
     }
 }
