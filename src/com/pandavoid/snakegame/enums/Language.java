@@ -7,6 +7,8 @@ public enum Language {
     GERMAN("DE","GERMAN"),
     ITALIAN("IT","ITALIAN"),
     SPANISH("ES","SPANISH"),
+    POLISH("PL","POLISH"),
+    INDONESIAN("ID","INDONESIAN"),
     ;
 
     private final String locale;

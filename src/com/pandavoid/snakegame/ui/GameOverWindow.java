@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 public class GameOverWindow {
     private final Window window;
-    private static final short height = 550;
-    private static final short width = 450;
+    private static final short height = 600;
+    private static final short width = 500;
     private final int Players;
     public GameOverWindow(Point MainWindowPos, int MainWindowWidth, int MainWindowHeight) {
         Logger.info(LogType.DISPLAY,"MainWindowPos" + MainWindowPos);
@@ -28,7 +28,6 @@ public class GameOverWindow {
             statslist.add(snake.getStats());
         }
         if (Players == 1) {
-            int Score1 = Main.getGame().getSnakes().get(0).getScore();
             window.createLabel(Main.getLocaleText("gameOver.appleEaten")+statslist.getFirst().getApplesEaten(), 15, 0, 1, 3);
             window.createLabel(Main.getLocaleText("gameOver.goldenApplesEaten")+statslist.getFirst().getGoldenApplesEaten()+" (X2)", 15, 0, 2, 3);
             window.createLabel(Main.getLocaleText("gameOver.total")+statslist.getFirst().getTotalScore(), 15, 0, 3, 3);
