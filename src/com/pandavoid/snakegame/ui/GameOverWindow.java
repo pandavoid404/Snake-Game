@@ -35,7 +35,7 @@ public class GameOverWindow {
                 window.createLabel(Main.getLocaleText("gameOver.winner1"), 20, 0, 1, 3);
             }else if (totalScore2>totalScore1) {
                 window.createLabel(Main.getLocaleText("gameOver.winner2"), 20, 0, 1, 3);
-            }else {
+            }else{
                 window.createLabel(Main.getLocaleText("gameOver.winnerDraw"), 20, 0, 1, 3);
             }
             window.createLabel("----------------", 15, 0, 2, 1);

@@ -1,6 +1,7 @@
 package com.pandavoid.snakegame.core;
 
 import com.pandavoid.snakegame.Logger;
+import com.pandavoid.snakegame.Main;
 import com.pandavoid.snakegame.config.AssetConfig;
 import com.pandavoid.snakegame.enums.Direction;
 import com.pandavoid.snakegame.core.board.Board;
@@ -120,11 +121,21 @@ public class Game {
 	}
 
 	public void tick() {
+		tick+= 1;
 		Logger.debug(LogType.TICK,"tick: " + tick);
 		Logger.setTick(tick);
 		for (Snake snake : snakes) {
 			snake.move();
-			tick+= 1;
+		}
+		if(getPlayers()==2){
+			if(!snakes.getFirst().isAlive()||!snakes.getLast().isAlive()){
+				pause();
+				Main.gameOverWindow();
+			}
+		}
+		else if(!snakes.getFirst().isAlive()){
+			pause();
+			Main.gameOverWindow();
 		}
 	}
 

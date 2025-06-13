@@ -63,6 +63,10 @@ public class Snake {
 		return game;
 	}
 
+	public boolean isAlive() {
+		return alive;
+	}
+
 	public void turnSnake(Direction direction) {
 		Logger.debug(LogType.MOVE,"Turning snake to " + direction + " from " + currentDirection);
 		switch (direction) {
@@ -130,8 +134,6 @@ public class Snake {
 	public void collision() {
 		alive = false;
 		Logger.info(LogType.SNAKE,"Snake collision");
-		game.pause();
-		Main.gameOverWindow();
 	}
 	
 	public void increaseLength(int amount) {
