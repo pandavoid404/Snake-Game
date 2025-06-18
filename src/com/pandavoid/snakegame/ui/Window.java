@@ -100,6 +100,29 @@ public class Window {
         window.add(button,gbc);
         return button;
     }
+    public JToggleButton createToggleButton(int x, int y, int width,String textOn, String textOff) {
+        JToggleButton toggleButton = new JToggleButton(textOff);
+        GridBagConstraints gbc = new GridBagConstraints();
+        toggleButton.setPreferredSize(new Dimension(100, 50));
+        toggleButton.setBackground(Color.BLACK);
+        toggleButton.setForeground(Color.WHITE);
+        toggleButton.setFocusPainted(false);
+        toggleButton.setActionCommand(textOn);
+        toggleButton.addActionListener(e -> {
+            if (toggleButton.isSelected()) {
+                toggleButton.setText(textOn);
+            } else {
+                toggleButton.setText(textOff);
+            }
+        });
+        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.gridx = x;
+        gbc.gridy = y;
+        gbc.gridwidth = width;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        window.add(toggleButton,gbc);
+        return toggleButton;
+    }
     JComboBox<String> createDropdown(ArrayList<String> items, int x, int y, int gbcWidth, int width, int height){
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
@@ -114,7 +137,6 @@ public class Window {
         window.add(dropdown,gbc);
         return dropdown;
     }
-
     void showDisplay() {
         window.setVisible(true);
     }
@@ -140,6 +162,8 @@ public class Window {
                 window.remove(JSlider);
             }else if (component instanceof JCheckBox JCheckBox) {
                 window.remove(JCheckBox);
+            }else if (component instanceof JToggleButton toggleButton) {
+                window.remove(toggleButton);
             }
         }
     }

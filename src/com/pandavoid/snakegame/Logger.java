@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Logger {
-	private static final List<LogType> EnabledDebugLogTypes = List.of(LogType.DISPLAY,LogType.APPLE);
+	private static final List<LogType> EnabledDebugLogTypes = List.of(LogType.DISPLAY,LogType.APPLE,LogType.CRATE);
 	private static int currentTick = 0;
 	private static boolean tickMessageSent = false;
 

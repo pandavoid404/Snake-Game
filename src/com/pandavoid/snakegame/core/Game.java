@@ -3,6 +3,7 @@ package com.pandavoid.snakegame.core;
 import com.pandavoid.snakegame.Logger;
 import com.pandavoid.snakegame.Main;
 import com.pandavoid.snakegame.config.AssetConfig;
+import com.pandavoid.snakegame.core.crate.Crate;
 import com.pandavoid.snakegame.enums.Direction;
 import com.pandavoid.snakegame.core.board.Board;
 import com.pandavoid.snakegame.config.GameConfig;
@@ -39,6 +40,7 @@ public class Game {
 			snakes.add(new Snake(this,config.getPlayerConfig(1)));
 			addSnakeControls(actionMap,snakes.get(1),2);
 		}
+		new Crate(this,new Point(1,1),0);
 		for (int I = 0; I < config.getStartingFood();I++) {
 			spawnFood();
 		}
@@ -157,6 +159,9 @@ public class Game {
 	}
 
 	public Boolean getSpawnCrate(int mainCrateDistance) {
-		return true;
-	}
+		Random r= new Random();
+		int r1 = r.nextInt(100);
+		int chance = 60-(mainCrateDistance*10);
+        return r1 < chance;
+    }
 }

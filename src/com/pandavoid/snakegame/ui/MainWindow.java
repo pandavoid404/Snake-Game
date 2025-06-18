@@ -23,6 +23,7 @@ public class MainWindow {
 	private ActionMap actionMap;
 	private JComboBox difficultydropdown;
 	private JComboBox languagedropdown;
+	private JToggleButton toggleButton;
 
 	public MainWindow(ActionListener StartGameAction, ActionListener SettingsAction, ActionListener CreditsAction, ActionListener quitAction) {
 		window = new Window("SnakeGame", WIDTH, HEIGHT);
@@ -95,6 +96,10 @@ public class MainWindow {
 	}
 
 	public void displayPlayerSelection(GameConfig gameConfig, ActionListener StartGameAction, ActionListener backListener ){
+		ArrayList<String> difficulty = new ArrayList<>();
+		for (Difficulty d : Difficulty.values()) {
+			difficulty.add(d.toString());
+		}
 		window.clearDisplay();
 		Panel panel1 = window.createPanel(0,0,2);
 		panel1.createLabel(Main.getLocaleText("playerPreGameSelector.playerLabel.player1") , 15 , 2 ,0, 0 );
@@ -113,14 +118,16 @@ public class MainWindow {
 			labelplayer2.setOpaque(true);
 			panel2.createButton(ChangeColorPlayer2Listener, 1, 3, 100, 50,Main.getLocaleText("playerPreGameSelector.color.back"));
 			panel2.createButton(BackColorPlayer2Listener, 2, 3, 100, 50,Main.getLocaleText("playerPreGameSelector.color.next"));
+			window.createLabel("Crates :",15,0,4,2);
+			toggleButton = window.createToggleButton(2,4,2,"On","Off");
+			difficultydropdown = window.createDropdown(difficulty ,1,3,4,200,20);
+		}else{
+			window.createLabel("Crates :",15,0,4,1);
+			toggleButton = window.createToggleButton(1,4,1,"On","Off");
+			difficultydropdown = window.createDropdown(difficulty ,0,3,2,200,20);
 		}
-		ArrayList<String> difficulty = new ArrayList<>();
-		for (Difficulty d : Difficulty.values()) {
-			difficulty.add(d.toString());
-		}
-		difficultydropdown = window.createDropdown(difficulty ,1,3,3,200,20);
-		window.createButton(0 , 4,4, Main.getLocaleText("playerPreGameSelector.start"), StartGameAction);
-		window.createButton(0, 5,4, Main.getLocaleText("playerPreGameSelector.back"), backListener );
+		window.createButton(0 , 5,4, Main.getLocaleText("playerPreGameSelector.start"), StartGameAction);
+		window.createButton(0, 6,4, Main.getLocaleText("playerPreGameSelector.back"), backListener );
 		window.updateDisplay();
 	}
 
@@ -185,5 +192,13 @@ public class MainWindow {
 
     public JComboBox getLanguagedropdown() {
         return languagedropdown;
+    }
+
+    public JToggleButton getToggleButton() {
+        return toggleButton;
+    }
+
+    public void setToggleButton(JToggleButton toggleButton) {
+        this.toggleButton = toggleButton;
     }
 }

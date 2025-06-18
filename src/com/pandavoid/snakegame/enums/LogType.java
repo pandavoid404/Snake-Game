@@ -9,5 +9,6 @@ public enum LogType {
 	DISPLAY,
 	BOARD,
 	GAME,
+	CRATE
 
 }

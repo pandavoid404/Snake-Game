@@ -182,6 +182,8 @@ public class Main {
     }
     private static void startGame(GameConfig config){
         difficulty = (String) mainWindow.getDifficultydropdown().getSelectedItem();
+        boolean cratesEnabled = mainWindow.getToggleButton().isSelected();
+        gameConfig.setCrates(cratesEnabled);
         setDifficulty(Difficulty.valueOf(difficulty));
         mainWindowState = MainWindowState.PLAYING;
         Logger.info(LogType.DISPLAY,"Game Starting...");
