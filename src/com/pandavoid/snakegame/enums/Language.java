@@ -1,8 +1,8 @@
 package com.pandavoid.snakegame.enums;
 
 public enum Language {
-    DUTCH("NL", "DUTCH"),
     ENGLISH("EN", "ENGLISH"),
+    DUTCH("NL", "DUTCH"),
     FRENCH("FR", "FRENCH"),
     GERMAN("DE", "GERMAN"),
     ITALIAN("IT", "ITALIAN"),
