@@ -23,17 +23,17 @@ public class Board {
 		Logger.info(LogType.BOARD,"board generated");
 	}
 
-	public boolean isOutsideArea(int x, int y) {
-		if (x < 0) {
+	public boolean isOutsideArea(Point location) {
+		if (location.x < 0) {
 			return true;
 		}
-		if (x >= WIDTH) {
+		if (location.x >= WIDTH) {
 			return true;
 		}
-		if (y < 0) {
+		if (location.y < 0) {
 			return true;
 		}
-		return y >= HEIGHT;
+		return location.y >= HEIGHT;
 	}
 
 	public Cell getCell(Point location) {

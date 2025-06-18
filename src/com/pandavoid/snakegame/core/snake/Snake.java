@@ -114,7 +114,7 @@ public class Snake {
 				break;
 		}
 		Logger.debug(LogType.MOVE,"Moving snake to " + newPosition);
-		if (game.getBoard().isOutsideArea(newPosition.x, newPosition.y)) {
+		if (game.getBoard().isOutsideArea(newPosition)) {
 			Logger.debug(LogType.MOVE,"Out of area");
 			collision();
 			return false;
