@@ -1,5 +1,6 @@
 package com.pandavoid.snakegame.core.board;
 
+import com.pandavoid.snakegame.core.crate.Crate;
 import com.pandavoid.snakegame.core.food.Food;
 
 import java.awt.*;
@@ -9,10 +10,12 @@ public class Cell {
 
 	private boolean occupied;
 	private Food food;
+	private Crate crate;
 
 	public Cell(Point position) {
 		occupied = false;
 		food = null;
+		crate = null;
 		this.position = position;
 	}
 
@@ -34,5 +37,9 @@ public class Cell {
 
 	public void setOccupied(boolean occupied) {
 		this.occupied = occupied;
+	}
+	public void setCrate(Crate crate) {
+		this.crate = crate;
+		this.occupied = true;
 	}
 }

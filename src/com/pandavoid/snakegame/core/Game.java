@@ -155,4 +155,8 @@ public class Game {
 	public boolean isGameRunning() {
 		return gameRunning;
 	}
+
+	public Boolean getSpawnCrate(int mainCrateDistance) {
+		return true;
+	}
 }
