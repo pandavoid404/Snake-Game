@@ -13,6 +13,7 @@ import com.pandavoid.snakegame.enums.LogType;
 import com.pandavoid.snakegame.ui.GamePanel;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Random;
@@ -101,24 +102,24 @@ public class Game {
 		new Food(this,board.findFreeCell().getPosition(),foodType);
 	}
 
-	public void takeCell(int x, int y,Snake snake) {
-		Food food = board.getCell(x, y).getFood();
+	public void takeCell(Point location, Snake snake) {
+		Food food = board.getCell(location).getFood();
 		if (food != null) {
 			getGamePanel().removeSnakeBlock(food.getAssetPaint());
-			board.getCell(x, y).setFood(null);
+			board.getCell(location).setFood(null);
 			spawnFood();
 			snake.increaseLength(food.getFoodval());
 			snake.getStats().appleEaten(food.getFoodType());
 		}
-		if (board.getCell(x, y).isOccupied()) {
+		if (board.getCell(location).isOccupied()) {
 			snake.collision();
 		} else {
-			board.getCell(x, y).setOccupied(true);
+			board.getCell(location).setOccupied(true);
 		}
 	}
 
-	public void leaveCell(int x, int y,Snake snake) {
-		board.getCell(x, y).setOccupied(false);
+	public void leaveCell(Point location,Snake snake) {
+		board.getCell(location).setOccupied(false);
 	}
 
 	public void tick() {

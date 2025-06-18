@@ -26,7 +26,7 @@ public class Food {
 		} else { throw new RuntimeException("Invalid foodType"); }
 		config.setPosition(position);
 		this.assetPaint = game.getGamePanel().createAsset(config);
-		game.getBoard().getCell(position.x, position.y).setFood(this);
+		game.getBoard().getCell(position).setFood(this);
 
 	}
 

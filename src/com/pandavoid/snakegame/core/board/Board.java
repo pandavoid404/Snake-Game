@@ -36,8 +36,8 @@ public class Board {
 		return y >= HEIGHT;
 	}
 
-	public Cell getCell(int x, int y) {
-		return board[y][x];
+	public Cell getCell(Point location) {
+		return board[location.y][location.x];
 	}
 
 	public Cell findFreeCell() {

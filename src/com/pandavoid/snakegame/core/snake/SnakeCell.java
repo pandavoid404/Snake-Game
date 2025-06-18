@@ -21,7 +21,7 @@ public class SnakeCell {
 		config.setColor(snake.getColor());
 		this.position = position;
 		this.part = SnakePart.HEAD;
-		snake.getGame().takeCell(position.x,position.y, snake);
+		snake.getGame().takeCell(position, snake);
 		this.fromDirection = fromDirection;
 		this.assetPaint = snake.getGame().getGamePanel().createAsset(config);
 	}

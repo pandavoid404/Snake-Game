@@ -125,7 +125,7 @@ public class Snake {
 		updateHead(currentDirection);
 		if (snakeCells.size() > maxLength) {
 			SnakeCell lastCell = snakeCells.getLast();
-			game.leaveCell(lastCell.getPosition().x, lastCell.getPosition().y, this);
+			game.leaveCell(lastCell.getPosition(), this);
 			game.getGamePanel().removeSnakeBlock(snakeCells.getLast().getSnakepaint());
 			game.getGamePanel().removeSnakeBlock(lastCell.getSnakepaint());
 			updateTail();
