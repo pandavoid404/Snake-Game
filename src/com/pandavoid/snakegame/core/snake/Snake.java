@@ -156,4 +156,31 @@ public class Snake {
 			Logger.debug(LogType.SNAKE," old snake head updated with direction: " + direction);
 		}
 	}
+	public Boolean isInPath(Point location, int distance, int offside) {
+		int minX = this.position.x;
+		int minY = this.position.y;
+		int maxX = this.position.x;
+		int maxY = this.position.y;
+		if (this.currentDirection == Direction.UP) {
+			minY -= distance;
+			minX -= offside;
+			maxX += offside;
+		}
+		else if (this.currentDirection == Direction.DOWN) {
+			maxY += distance;
+			minX += offside;
+			maxX -= offside;
+		}
+		else if (this.currentDirection == Direction.LEFT) {
+			minX -= distance;
+			minY -= offside;
+			maxY += offside;
+		}
+		else if (this.currentDirection == Direction.RIGHT) {
+			maxX += distance;
+			minY += offside;
+			maxY -= offside;
+		}
+		return minX <= location.x && minY <= location.y && maxX >= location.x && maxY >= location.y;
+	}
 }

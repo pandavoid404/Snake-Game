@@ -173,4 +173,14 @@ public class Game {
 		int chance = cratesBaseChance-(mainCrateDistance*cratesDecreaseChance);
         return r1 < chance;
     }
+
+	public Boolean isInSnakePath(Point location, int width, int offside) {
+		for (Snake snake : snakes) {
+			Boolean inPath = snake.isInPath(location, width, offside);
+			if (inPath){
+				return true;
+			}
+		}
+		return false;
+	}
 }

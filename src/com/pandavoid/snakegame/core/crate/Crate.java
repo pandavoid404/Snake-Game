@@ -33,6 +33,10 @@ public class Crate {
 				Logger.debug(LogType.CRATE, "Crate spawn location occupied: " + point);
 				continue;
 			}
+			if (game.isInSnakePath(point,15,2)) {
+				Logger.debug(LogType.CRATE, "Crate spawn location in snake path: " + point);
+				continue;
+			}
 			ArrayList<Point> checkPoints = new ArrayList<Point>();
 			checkPoints.add(new Point(point.x+1, point.y));
 			checkPoints.add(new Point(point.x-1, point.y));
