@@ -15,18 +15,28 @@ public class Crate {
 	public Crate(Game game, Point location, int mainCrateDistance) {
 		CONFIG.setImagepath("assets/foreground/crates/crate_1.png");
 		CONFIG.setPosition(location);
-		Logger.debug(LogType.CRATE, "Crate created");
+		Logger.debug(LogType.CRATE, "Crate created at location: " + location);
 		game.getBoard().getCell(location).setCrate(this);
+		this.assetPaint = game.getGamePanel().createAsset(CONFIG);
 		ArrayList<Point> nearPoints = new ArrayList<Point>();
 		nearPoints.add(new Point(location.x+1, location.y));
 		nearPoints.add(new Point(location.x-1, location.y));
 		nearPoints.add(new Point(location.x, location.y+1));
 		nearPoints.add(new Point(location.x, location.y-1));
+		Logger.debug(LogType.CRATE, "Near Points created with distance " + mainCrateDistance);
 		for (Point point: nearPoints) {
-			if (game.getBoard().isOutsideArea(point) && game.getSpawnCrate(mainCrateDistance)) {
+			if (game.getBoard().isOutsideArea(point)) {
+				Logger.debug(LogType.CRATE, "Crate spawn location outside area: " + point);
+				continue;
+			}
+			if (game.getBoard().getCell(point).isOccupied()) {
+				Logger.debug(LogType.CRATE, "Crate spawn location occupied: " + point);
+				continue;
+			}
+			if (game.getSpawnCrate(mainCrateDistance)) {
+				Logger.debug(LogType.CRATE, "Crate spawn location spawning: " + point);
 				new Crate(game, point, mainCrateDistance+1);
 			}
 		}
-		this.assetPaint = game.getGamePanel().createAsset(CONFIG);
 	}
 }

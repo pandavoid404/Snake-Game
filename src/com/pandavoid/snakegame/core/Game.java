@@ -40,7 +40,7 @@ public class Game {
 			snakes.add(new Snake(this,config.getPlayerConfig(1)));
 			addSnakeControls(actionMap,snakes.get(1),2);
 		}
-		new Crate(this,new Point(1,1),0);
+		new Crate(this,board.findFreeCell().getPosition(),0);
 		for (int I = 0; I < config.getStartingFood();I++) {
 			spawnFood();
 		}
