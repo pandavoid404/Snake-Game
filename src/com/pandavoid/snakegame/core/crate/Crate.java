@@ -35,6 +35,10 @@ public class Crate {
 				Logger.debug(LogType.CRATE, "Crate spawn location occupied: " + point);
 				continue;
 			}
+			if (game.getBoard().otherCrateNearby(point,2,blockId)) {
+				Logger.debug(LogType.CRATE, "Crate spawn location nearby: " + point);
+				continue;
+			}
 			if (game.isInSnakePath(point,15,2)) {
 				Logger.debug(LogType.CRATE, "Crate spawn location in snake path: " + point);
 				continue;
@@ -59,5 +63,9 @@ public class Crate {
 				new Crate(game, point, mainCrateDistance+1,blockId);
 			}
 		}
+	}
+
+	public int getBlockId() {
+		return blockId;
 	}
 }

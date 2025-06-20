@@ -42,4 +42,8 @@ public class Cell {
 		this.crate = crate;
 		this.occupied = true;
 	}
+
+	public Crate getCrate() {
+		return crate;
+	}
 }

@@ -1,6 +1,7 @@
 package com.pandavoid.snakegame.core.board;
 
 import com.pandavoid.snakegame.Logger;
+import com.pandavoid.snakegame.core.crate.Crate;
 import com.pandavoid.snakegame.enums.LogType;
 
 import java.awt.*;
@@ -54,6 +55,23 @@ public class Board {
 			return freeCells.get(random.nextInt(freeCells.size()));
 		}
 		return null;
+	}
+
+	public Boolean otherCrateNearby(Point location,int radius, int blockId) {
+		for (int x = location.x - radius; x <= location.x + radius; x++ ) {
+			for (int y = location.y - radius; y <= location.y + radius; y++) {
+				if (isOutsideArea(new Point(x, y))) {
+					continue;
+				}
+				Crate crate = getCell(new Point(x,y)).getCrate();
+				if (crate != null) {
+					if (crate.getBlockId() != blockId) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
 	}
 
 }
