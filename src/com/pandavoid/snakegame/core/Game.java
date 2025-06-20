@@ -162,6 +162,9 @@ public class Game {
 	}
 
 	public Boolean getSpawnCrate(int mainCrateDistance) {
+		if (mainCrateDistance < 0) {
+			return false;
+		}
 		Random r= new Random();
 		int r1 = r.nextInt(100);
 		int chance = 60-(mainCrateDistance*10);

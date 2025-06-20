@@ -33,6 +33,21 @@ public class Crate {
 				Logger.debug(LogType.CRATE, "Crate spawn location occupied: " + point);
 				continue;
 			}
+			ArrayList<Point> checkPoints = new ArrayList<Point>();
+			checkPoints.add(new Point(point.x+1, point.y));
+			checkPoints.add(new Point(point.x-1, point.y));
+			checkPoints.add(new Point(point.x, point.y+1));
+			checkPoints.add(new Point(point.x, point.y-1));
+			int checkPointsOccupied = 0;
+			for (Point checkPoint: checkPoints) {
+				if (!game.getBoard().isOutsideArea(checkPoint) &&game.getBoard().getCell(checkPoint).isOccupied()) {
+					checkPointsOccupied++;
+				}
+			}
+			if (checkPointsOccupied >= 3) {
+				Logger.debug(LogType.CRATE, "Crate spawn location unreachable: " + point);
+				new Crate(game, point, -1);
+			}
 			if (game.getSpawnCrate(mainCrateDistance)) {
 				Logger.debug(LogType.CRATE, "Crate spawn location spawning: " + point);
 				new Crate(game, point, mainCrateDistance+1);
