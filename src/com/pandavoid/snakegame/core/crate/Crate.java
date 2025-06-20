@@ -40,7 +40,7 @@ public class Crate {
 			checkPoints.add(new Point(point.x, point.y-1));
 			int checkPointsOccupied = 0;
 			for (Point checkPoint: checkPoints) {
-				if (!game.getBoard().isOutsideArea(checkPoint) &&game.getBoard().getCell(checkPoint).isOccupied()) {
+				if (game.getBoard().isOutsideArea(checkPoint) || game.getBoard().getCell(checkPoint).isOccupied()) {
 					checkPointsOccupied++;
 				}
 			}
