@@ -27,12 +27,15 @@ public class Game {
 	private final int baseChance;
 	private int tick = 0;
 	private boolean gameRunning = true;
-	public int goldenApplesChance;
+	private int cratesBaseChance;
+	private int cratesDecreaseChance;
 	public Game(GameConfig config, ActionMap actionMap,GamePanel gamePanel) {
 		this.Players = config.getPlayers();
 		this.gamePanel = gamePanel;
 		this.board = new Board();
 		this.baseChance = config.getGoldenApplesChance();
+		this.cratesBaseChance = config.getCratesBaseChance();
+		this.cratesDecreaseChance = config.getCratesDecreaseChance();
 		snakes.add(new Snake(this,config.getPlayerConfig(0)));
 		addSnakeControls(actionMap,snakes.get(0),1);
 		if (config.getPlayers()==2) {
@@ -167,7 +170,7 @@ public class Game {
 		}
 		Random r= new Random();
 		int r1 = r.nextInt(100);
-		int chance = 60-(mainCrateDistance*10);
+		int chance = cratesBaseChance-(mainCrateDistance*cratesDecreaseChance);
         return r1 < chance;
     }
 }

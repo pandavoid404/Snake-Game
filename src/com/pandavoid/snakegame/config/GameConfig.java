@@ -18,6 +18,8 @@ public class GameConfig {
 	private int goldenApplesChance = 5;
 	private boolean CratesEnabled;
 	private int cratesAmount;
+	private int cratesBaseChance;
+	private int cratesDecreaseChance;
 	public GameConfig() {
 		players = 1;
 	}
@@ -76,5 +78,21 @@ public class GameConfig {
 
     public void setCratesAmount(int cratesAmount) {
         this.cratesAmount = cratesAmount;
+    }
+
+    public int getCratesBaseChance() {
+        return cratesBaseChance;
+    }
+
+    public void setCratesBaseChance(int cratesBaseChance) {
+        this.cratesBaseChance = cratesBaseChance;
+    }
+
+    public int getCratesDecreaseChance() {
+        return cratesDecreaseChance;
+    }
+
+    public void setCratesDecreaseChance(int cratesDecreaseChance) {
+        this.cratesDecreaseChance = cratesDecreaseChance;
     }
 }
