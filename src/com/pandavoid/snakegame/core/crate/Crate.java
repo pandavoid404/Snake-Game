@@ -13,7 +13,7 @@ public class Crate {
 	private static final AssetConfig CONFIG = new AssetConfig();
 	private final AssetPaint assetPaint;
 	public Crate(Game game, Point location, int mainCrateDistance) {
-		CONFIG.setColor(Color.orange);
+		CONFIG.setImagepath("assets/foreground/crates/crate_1.png");
 		CONFIG.setPosition(location);
 		Logger.debug(LogType.CRATE, "Crate created");
 		game.getBoard().getCell(location).setCrate(this);
