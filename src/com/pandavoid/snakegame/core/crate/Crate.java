@@ -12,7 +12,9 @@ import java.util.ArrayList;
 public class Crate {
 	private static final AssetConfig CONFIG = new AssetConfig();
 	private final AssetPaint assetPaint;
-	public Crate(Game game, Point location, int mainCrateDistance) {
+	private final int blockId;
+	public Crate(Game game, Point location, int mainCrateDistance, int blockId) {
+		this.blockId = blockId;
 		CONFIG.setImagepath("assets/foreground/crates/crate_1.png");
 		CONFIG.setPosition(location);
 		Logger.debug(LogType.CRATE, "Crate created at location: " + location);
@@ -50,11 +52,11 @@ public class Crate {
 			}
 			if (checkPointsOccupied >= 3) {
 				Logger.debug(LogType.CRATE, "Crate spawn location unreachable: " + point);
-				new Crate(game, point, -1);
+				new Crate(game, point, -1,blockId);
 			}
 			if (game.getSpawnCrate(mainCrateDistance)) {
 				Logger.debug(LogType.CRATE, "Crate spawn location spawning: " + point);
-				new Crate(game, point, mainCrateDistance+1);
+				new Crate(game, point, mainCrateDistance+1,blockId);
 			}
 		}
 	}

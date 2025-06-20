@@ -44,7 +44,7 @@ public class Game {
 		}
 		if (config.getCratesEnabled()) {
 			for (int i = 0; i < config.getCratesAmount(); i++) {
-				new Crate(this, board.findFreeCell().getPosition(), 0);
+				new Crate(this, board.findFreeCell().getPosition(), 0,i);
 			}
 		}
 		for (int I = 0; I < config.getStartingFood();I++) {
