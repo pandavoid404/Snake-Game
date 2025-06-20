@@ -145,7 +145,9 @@ public class MainWindow {
 		window.createLabel(Main.getLocaleText("credits.graphicalDesigner"), 18, 0, 3, 1);
 		window.createLabel("MrPanda_071", 13, 0, 4, 1);
 		window.createLabel(Main.getLocaleText("credits.gametester"), 18, 0, 5, 1);
-		window.createLabel(Main.getLocaleText("credits.specialThanks"), 18, 0, 7, 1);
+		window.createLabel("EndlessVoid_303", 13, 0, 6, 1);
+		window.createLabel("MrPanda_071", 13, 0, 7, 1);
+		window.createLabel(Main.getLocaleText("credits.specialThanks"), 18, 0, 8, 1);
 		window.createButton(0 , 9,1, Main.getLocaleText("credits.back"), backListener );
 		window.updateDisplay();
 	}
