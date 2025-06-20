@@ -172,25 +172,25 @@ public class Main {
             FPS = 12;
             gameConfig.setGoldenApplesChance(30);
             gameConfig.setStartingFood(9);
-            gameConfig.setCratesAmount(6);
+            gameConfig.setCratesAmount(10);
             gameConfig.setCratesBaseChance(70);
-            gameConfig.setCratesDecreaseChance(10);
+            gameConfig.setCratesDecreaseChance(15);
         }
         if (difficulty == Difficulty.HARD) {
             FPS = 15;
             gameConfig.setGoldenApplesChance(45);
-            gameConfig.setStartingFood(6);
-            gameConfig.setCratesAmount(7);
-            gameConfig.setCratesBaseChance(85);
-            gameConfig.setCratesDecreaseChance(15);
+            gameConfig.setStartingFood(7);
+            gameConfig.setCratesAmount(6);
+            gameConfig.setCratesBaseChance(100);
+            gameConfig.setCratesDecreaseChance(10);
         }
         if (difficulty == Difficulty.INSANE) {
             FPS = 20;
             gameConfig.setGoldenApplesChance(60);
             gameConfig.setStartingFood(5);
-            gameConfig.setCratesAmount(8);
-            gameConfig.setCratesBaseChance(90);
-            gameConfig.setCratesDecreaseChance(20);
+            gameConfig.setCratesAmount(5);
+            gameConfig.setCratesBaseChance(140);
+            gameConfig.setCratesDecreaseChance(10);
         }
     }
     private static void startGame(GameConfig config){
