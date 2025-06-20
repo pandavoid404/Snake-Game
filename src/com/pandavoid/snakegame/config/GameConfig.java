@@ -16,7 +16,8 @@ public class GameConfig {
 	private int players;
 	private int startingFood = 5;
 	private int goldenApplesChance = 5;
-	private boolean Crates;
+	private boolean CratesEnabled;
+	private int cratesAmount;
 	public GameConfig() {
 		players = 1;
 	}
@@ -61,11 +62,19 @@ public class GameConfig {
         this.goldenApplesChance = goldenApplesChance;
     }
 
-    public boolean isCrates() {
-        return Crates;
+    public boolean getCratesEnabled() {
+        return CratesEnabled;
     }
 
-    public void setCrates(boolean crates) {
-        Crates = crates;
+    public void setCratesEnabled(boolean cratesEnabled) {
+        CratesEnabled = cratesEnabled;
+    }
+
+    public int getCratesAmount() {
+        return cratesAmount;
+    }
+
+    public void setCratesAmount(int cratesAmount) {
+        this.cratesAmount = cratesAmount;
     }
 }

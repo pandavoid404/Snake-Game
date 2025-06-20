@@ -163,27 +163,32 @@ public class Main {
             FPS = 9;
             gameConfig.setGoldenApplesChance(15);
             gameConfig.setStartingFood(15);
+            gameConfig.setCratesAmount(2);
+
         }
         if (difficulty == Difficulty.MEDIUM) {
             FPS = 12;
             gameConfig.setGoldenApplesChance(30);
             gameConfig.setStartingFood(9);
+            gameConfig.setCratesAmount(3);
         }
         if (difficulty == Difficulty.HARD) {
             FPS = 15;
             gameConfig.setGoldenApplesChance(45);
             gameConfig.setStartingFood(6);
+            gameConfig.setCratesAmount(4);
         }
         if (difficulty == Difficulty.INSANE) {
             FPS = 20;
             gameConfig.setGoldenApplesChance(60);
             gameConfig.setStartingFood(5);
+            gameConfig.setCratesAmount(5);
         }
     }
     private static void startGame(GameConfig config){
         difficulty = (String) mainWindow.getDifficultydropdown().getSelectedItem();
         boolean cratesEnabled = mainWindow.getToggleButton().isSelected();
-        gameConfig.setCrates(cratesEnabled);
+        gameConfig.setCratesEnabled(cratesEnabled);
         setDifficulty(Difficulty.valueOf(difficulty));
         mainWindowState = MainWindowState.PLAYING;
         Logger.info(LogType.DISPLAY,"Game Starting...");

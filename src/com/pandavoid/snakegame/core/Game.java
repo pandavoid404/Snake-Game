@@ -2,7 +2,6 @@ package com.pandavoid.snakegame.core;
 
 import com.pandavoid.snakegame.Logger;
 import com.pandavoid.snakegame.Main;
-import com.pandavoid.snakegame.config.AssetConfig;
 import com.pandavoid.snakegame.core.crate.Crate;
 import com.pandavoid.snakegame.enums.Direction;
 import com.pandavoid.snakegame.core.board.Board;
@@ -40,7 +39,11 @@ public class Game {
 			snakes.add(new Snake(this,config.getPlayerConfig(1)));
 			addSnakeControls(actionMap,snakes.get(1),2);
 		}
-		new Crate(this,board.findFreeCell().getPosition(),0);
+		if (config.getCratesEnabled()) {
+			for (int i = 0; i < config.getCratesAmount(); i++) {
+				new Crate(this, board.findFreeCell().getPosition(), 0);
+			}
+		}
 		for (int I = 0; I < config.getStartingFood();I++) {
 			spawnFood();
 		}
