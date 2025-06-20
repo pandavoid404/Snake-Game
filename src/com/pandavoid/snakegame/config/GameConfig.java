@@ -6,7 +6,7 @@ public class GameConfig {
 	private static final Color[] COLORS = {
 			new Color(0, 0, 139),
 			Color.RED,
-			new Color(0, 100, 0),
+			new Color(5, 175, 5),
 			Color.MAGENTA,
 			new Color(255, 140, 0),
 			new Color(128, 0, 128)};
